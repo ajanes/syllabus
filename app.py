@@ -155,7 +155,7 @@ def handle_add_dependency(data):
     target_id = data.get("target_id")
     source_id = data.get("source_id")
     base_topic = data.get("topic")
-    optional_topic = data.get("optional_topic", "")
+    topic = data.get("topic", "")
     description = data.get("note", "")
 
     path = COURSE_PATHS.get(target_id)
@@ -179,18 +179,18 @@ def handle_add_dependency(data):
         "course": COURSE_NAMES.get(source_id, ""),
         "topic": base_topic,
     }
-    if optional_topic:
-        entry["optional_topic"] = optional_topic
+    if topic:
+        entry["topic"] = topic
     if description:
         entry["description"] = description
 
     updated = False
     for dep in deps:
         if dep.get("course") == entry["course"] and dep.get("topic") == base_topic:
-            if optional_topic:
-                dep["optional_topic"] = optional_topic
+            if topic:
+                dep["topic"] = topic
             else:
-                dep.pop("optional_topic", None)
+                dep.pop("topic", None)
             if description:
                 dep["description"] = description
             else:
@@ -264,7 +264,7 @@ def handle_update_dependency(data):
     target_id = data.get("target_id")
     source_id = data.get("source_id")
     base_topic = data.get("topic")
-    optional_topic = data.get("optional_topic", "")
+    topic = data.get("topic", "")
     description = data.get("note", "")
     if not target_id or not source_id or not base_topic:
         return
@@ -285,10 +285,10 @@ def handle_update_dependency(data):
     updated = False
     for dep in deps:
         if dep.get("course") == course_name and dep.get("topic") == base_topic:
-            if optional_topic:
-                dep["optional_topic"] = optional_topic
+            if topic:
+                dep["topic"] = topic
             else:
-                dep.pop("optional_topic", None)
+                dep.pop("topic", None)
             if description:
                 dep["description"] = description
             else:
@@ -297,8 +297,8 @@ def handle_update_dependency(data):
             break
     if not updated:
         new_entry = {"course": course_name, "topic": base_topic}
-        if optional_topic:
-            new_entry["optional_topic"] = optional_topic
+        if topic:
+            new_entry["topic"] = topic
         if description:
             new_entry["description"] = description
         deps.append(new_entry)

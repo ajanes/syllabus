@@ -3,19 +3,19 @@ module1:
   code: 76270A
   scientific_sector: INFO-01/A
   credits: 6
-  lecturer: 
+  lecturer:
     name: Andrea Janes
     email: andrea.janes@unibz.it
     scientific_sector: INFO-01/A
     office: BZ B1 4.24
-    office_hours: Mondays 14:00–16:00, by appointment via email
+    office_hours: "Mondays 14:00\u201316:00, by appointment via email"
   language: English
   teaching_assistant: null
   topics:
-    - Operating Systems Structures
-    - Processes, Threads and Concurrency
-    - CPU Scheduling and Synchronization
-    - Memory and Mass-Storage
-    - I/O, File Systems
-    - Networks and Distributed Systems
+  - Operating Systems Structures
+  - Processes, Threads and Concurrency
+  - CPU Scheduling and Synchronization
+  - Memory and Mass-Storage
+  - I/O, File Systems
+  - Networks and Distributed Systems
   teaching_format: The course includes frontal lectures and lab sessions.

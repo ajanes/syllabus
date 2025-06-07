@@ -75,7 +75,7 @@ function renderTopics(topics) {
           target_id: targetSelect.value,
           source_id: courseSelect.value,
           topic: t,
-          optional_topic: sub,
+          topic: sub,
           note: note,
         });
         wrapper.dataset.storedTopic = sub || t;
@@ -98,7 +98,7 @@ function renderTopics(topics) {
         target_id: targetSelect.value,
         source_id: courseSelect.value,
         topic: t,
-        optional_topic: sub,
+        topic: sub,
         note: note,
       });
       wrapper.dataset.storedTopic = sub || t;
@@ -126,9 +126,9 @@ function applyDependencies() {
     currentDependencies.forEach((dep) => {
       if (dep.course === courseName && dep.topic === base) {
         checkbox.checked = true;
-        if (dep.optional_topic) {
-          subInput.value = dep.optional_topic;
-          wrapper.dataset.storedTopic = dep.optional_topic;
+        if (dep.topic) {
+          subInput.value = dep.topic;
+          wrapper.dataset.storedTopic = dep.topic;
         } else {
           wrapper.dataset.storedTopic = base;
         }
