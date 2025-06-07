@@ -34,7 +34,7 @@ def dependencies():
             topics = course.get("topics", [])
             if title and semester and year:
                 entries.append({
-                    "name": f"{title} ({year} year, {semester} semester)",
+                    "name": f"{title}",
                     "topics": topics,
                     "year": year,
                     "semester": semester,
@@ -56,7 +56,7 @@ def dependencies():
             course = data.get("course", {})
             semester = course.get("semester")
             year = course.get("year")
-            includes = data.get("include", [])
+            includes = course.get("include", [])
             for mod_path in includes or []:
                 mod_file = os.path.join(base_dir, mod_path)
                 if not os.path.isfile(mod_file):
@@ -70,7 +70,7 @@ def dependencies():
                 topics = module_info.get("topics", [])
                 if title and semester and year:
                     entries.append({
-                        "name": f"{title} ({year} year, {semester} semester)",
+                        "name": f"{title}",
                         "topics": topics,
                         "year": year,
                         "semester": semester,
