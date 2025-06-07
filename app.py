@@ -117,6 +117,7 @@ def dependencies():
     return render_template(
         "dependencies.html",
         courses=filtered_courses,
+        all_courses=courses,
         years=years,
         selected_year=selected_year,
         selected_semester=selected_semester,
