@@ -6,6 +6,8 @@ const semesterSelect = document.getElementById('semesterSelect');
 const courseSelect = document.getElementById('courseSelect');
 const topicsContainer = document.getElementById('topicsContainer');
 const topicsHeader = document.getElementById('topicsHeader');
+let currentDependencies = [];
+let currentTopics = [];
 
 function requestUpdate() {
   socket.emit('filter', {
@@ -14,6 +16,17 @@ function requestUpdate() {
     course: courseSelect.value,
   });
 }
+
+function loadDependencies() {
+  if (!targetSelect.value) return;
+  socket.emit('get_dependencies', { target_id: targetSelect.value });
+}
+
+socket.on('dependencies', (data) => {
+  if (data.target_id !== targetSelect.value) return;
+  currentDependencies = data.dependencies || [];
+  applyDependencies();
+});
 
 socket.on('filtered', (data) => {
   courseSelect.innerHTML = '<option value="">Select a Course</option>';
@@ -24,7 +37,9 @@ socket.on('filtered', (data) => {
     if (c.id === data.selected_course) opt.selected = true;
     courseSelect.appendChild(opt);
   });
-  renderTopics(data.topics);
+  currentTopics = data.topics;
+  renderTopics(currentTopics);
+  loadDependencies();
 });
 
 function renderTopics(topics) {
@@ -37,6 +52,7 @@ function renderTopics(topics) {
   topics.forEach((t) => {
     const wrapper = document.createElement('div');
     wrapper.className = 'flex gap-4 bg-neutral-50 px-4 py-3 justify-between';
+    wrapper.dataset.baseTopic = t;
     wrapper.innerHTML = `<div class="flex items-start gap-4">
         <div class="flex size-7 items-center justify-center">
           <input type="checkbox" data-topic="${t}" class="h-5 w-5 rounded border-[#dbdbdb] border-2 bg-transparent text-black checked:bg-black checked:border-black checked:bg-[image:--checkbox-tick-svg] focus:ring-0 focus:ring-offset-0 focus:border-[#dbdbdb] focus:outline-none" />
@@ -47,10 +63,14 @@ function renderTopics(topics) {
           <input placeholder="Add notes here" class="form-input mt-1 w-[300px] resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#dbdbdb] bg-neutral-50 focus:border-[#dbdbdb] h-10 placeholder:text-neutral-500 p-[10px] text-sm font-normal leading-normal" />
         </div>
       </div>`;
-    wrapper.querySelector('input[type="checkbox"]').addEventListener('change', (e) => {
+    const checkbox = wrapper.querySelector('input[type="checkbox"]');
+    const subInput = wrapper.querySelector('input[placeholder="Subtopic"]');
+    const noteInput = wrapper.querySelector('input[placeholder="Add notes here"]');
+
+    checkbox.addEventListener('change', (e) => {
       if (e.target.checked) {
-        const sub = wrapper.querySelector('input[placeholder="Subtopic"]').value.trim();
-        const note = wrapper.querySelector('input[placeholder="Add notes here"]').value.trim();
+        const sub = subInput.value.trim();
+        const note = noteInput.value.trim();
         socket.emit('add_dependency', {
           target_id: targetSelect.value,
           source_id: courseSelect.value,
@@ -58,15 +78,77 @@ function renderTopics(topics) {
           optional_topic: sub,
           note: note,
         });
+        wrapper.dataset.storedTopic = sub || t;
+      } else {
+        const stored = wrapper.dataset.storedTopic || t;
+        socket.emit('remove_dependency', {
+          target_id: targetSelect.value,
+          source_id: courseSelect.value,
+          topic: stored,
+        });
+        wrapper.dataset.storedTopic = '';
       }
     });
+
+    function sendUpdate() {
+      if (!checkbox.checked) return;
+      const sub = subInput.value.trim();
+      const note = noteInput.value.trim();
+      socket.emit('update_dependency', {
+        target_id: targetSelect.value,
+        source_id: courseSelect.value,
+        topic: t,
+        optional_topic: sub,
+        note: note,
+      });
+      wrapper.dataset.storedTopic = sub || t;
+    }
+
+    subInput.addEventListener('blur', sendUpdate);
+    noteInput.addEventListener('blur', sendUpdate);
+
     topicsContainer.appendChild(wrapper);
+  });
+  applyDependencies();
+}
+
+function applyDependencies() {
+  const courseName = courseSelect.options[courseSelect.selectedIndex]?.textContent || '';
+  document.querySelectorAll('#topicsContainer > div').forEach((wrapper) => {
+    const base = wrapper.dataset.baseTopic;
+    const checkbox = wrapper.querySelector('input[type="checkbox"]');
+    const subInput = wrapper.querySelector('input[placeholder="Subtopic"]');
+    const noteInput = wrapper.querySelector('input[placeholder="Add notes here"]');
+    checkbox.checked = false;
+    wrapper.dataset.storedTopic = base;
+    subInput.value = '';
+    noteInput.value = '';
+    currentDependencies.forEach((dep) => {
+      if (dep.course === courseName && dep.topic === base) {
+        checkbox.checked = true;
+        if (dep.optional_topic) {
+          subInput.value = dep.optional_topic;
+          wrapper.dataset.storedTopic = dep.optional_topic;
+        } else {
+          wrapper.dataset.storedTopic = base;
+        }
+        if (dep.description) noteInput.value = dep.description;
+      }
+    });
   });
 }
 
 yearSelect.addEventListener('change', requestUpdate);
 semesterSelect.addEventListener('change', requestUpdate);
-courseSelect.addEventListener('change', requestUpdate);
+courseSelect.addEventListener('change', () => {
+  requestUpdate();
+  loadDependencies();
+  applyDependencies();
+});
+targetSelect.addEventListener('change', () => {
+  loadDependencies();
+  applyDependencies();
+});
 
 document.addEventListener('DOMContentLoaded', () => {
   requestUpdate();

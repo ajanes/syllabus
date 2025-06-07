@@ -177,18 +177,135 @@ def handle_add_dependency(data):
 
     entry = {
         "course": COURSE_NAMES.get(source_id, ""),
-        "topic": optional_topic or base_topic,
+        "topic": base_topic,
     }
+    if optional_topic:
+        entry["optional_topic"] = optional_topic
     if description:
         entry["description"] = description
 
-    if entry not in deps:
+    updated = False
+    for dep in deps:
+        if dep.get("course") == entry["course"] and dep.get("topic") == base_topic:
+            if optional_topic:
+                dep["optional_topic"] = optional_topic
+            else:
+                dep.pop("optional_topic", None)
+            if description:
+                dep["description"] = description
+            else:
+                dep.pop("description", None)
+            updated = True
+            break
+
+    if not updated:
         deps.append(entry)
-        root["depends-on"] = deps
+
+    root["depends-on"] = deps
+    yaml_data[root_key] = root
+    with open(path, "w") as f:
+        yaml.safe_dump(yaml_data, f, sort_keys=False)
+
+    emit("saved", {"ok": True})
+
+
+@socketio.on("get_dependencies")
+def handle_get_dependencies(data):
+    target_id = data.get("target_id")
+    path = COURSE_PATHS.get(target_id)
+    deps = []
+    if path:
+        try:
+            with open(path, "r") as f:
+                yaml_data = yaml.safe_load(f) or {}
+            root_key = next((k for k in ("course", "module1", "module2") if k in yaml_data), "course")
+            root = yaml_data.get(root_key, {})
+            deps = root.get("depends-on", [])
+            if not isinstance(deps, list):
+                deps = []
+        except Exception:
+            deps = []
+    emit("dependencies", {"target_id": target_id, "dependencies": deps})
+
+
+@socketio.on("remove_dependency")
+def handle_remove_dependency(data):
+    target_id = data.get("target_id")
+    source_id = data.get("source_id")
+    topic = data.get("topic")
+    if not target_id or not source_id or not topic:
+        return
+    path = COURSE_PATHS.get(target_id)
+    if not path:
+        return
+    try:
+        with open(path, "r") as f:
+            yaml_data = yaml.safe_load(f) or {}
+    except Exception:
+        return
+
+    root_key = next((k for k in ("course", "module1", "module2") if k in yaml_data), "course")
+    root = yaml_data.get(root_key, {})
+    deps = root.get("depends-on", [])
+    if not isinstance(deps, list):
+        deps = []
+    course_name = COURSE_NAMES.get(source_id, "")
+    new_deps = [d for d in deps if not (d.get("course") == course_name and d.get("topic") == topic)]
+    if len(new_deps) != len(deps):
+        root["depends-on"] = new_deps
         yaml_data[root_key] = root
         with open(path, "w") as f:
             yaml.safe_dump(yaml_data, f, sort_keys=False)
+    emit("saved", {"ok": True})
 
+
+@socketio.on("update_dependency")
+def handle_update_dependency(data):
+    target_id = data.get("target_id")
+    source_id = data.get("source_id")
+    base_topic = data.get("topic")
+    optional_topic = data.get("optional_topic", "")
+    description = data.get("note", "")
+    if not target_id or not source_id or not base_topic:
+        return
+    path = COURSE_PATHS.get(target_id)
+    if not path:
+        return
+    try:
+        with open(path, "r") as f:
+            yaml_data = yaml.safe_load(f) or {}
+    except Exception:
+        yaml_data = {}
+    root_key = next((k for k in ("course", "module1", "module2") if k in yaml_data), "course")
+    root = yaml_data.get(root_key, {})
+    deps = root.get("depends-on", [])
+    if not isinstance(deps, list):
+        deps = []
+    course_name = COURSE_NAMES.get(source_id, "")
+    updated = False
+    for dep in deps:
+        if dep.get("course") == course_name and dep.get("topic") == base_topic:
+            if optional_topic:
+                dep["optional_topic"] = optional_topic
+            else:
+                dep.pop("optional_topic", None)
+            if description:
+                dep["description"] = description
+            else:
+                dep.pop("description", None)
+            updated = True
+            break
+    if not updated:
+        new_entry = {"course": course_name, "topic": base_topic}
+        if optional_topic:
+            new_entry["optional_topic"] = optional_topic
+        if description:
+            new_entry["description"] = description
+        deps.append(new_entry)
+    root["depends-on"] = deps
+    yaml_data[root_key] = root
+    with open(path, "w") as f:
+        yaml.safe_dump(yaml_data, f, sort_keys=False)
     emit("saved", {"ok": True})
 
 if __name__ == "__main__":
