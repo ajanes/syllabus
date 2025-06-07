@@ -74,19 +74,20 @@ function renderTopics(topics) {
         socket.emit('add_dependency', {
           target_id: targetSelect.value,
           source_id: courseSelect.value,
-          topic: t,
-          topic: sub,
+          base_topic: t,
+          sub_topic: sub,
           note: note,
         });
         wrapper.dataset.storedTopic = sub || t;
       } else {
-        const stored = wrapper.dataset.storedTopic || t;
         socket.emit('remove_dependency', {
           target_id: targetSelect.value,
           source_id: courseSelect.value,
-          topic: stored,
+          base_topic: t,
         });
         wrapper.dataset.storedTopic = '';
+        subInput.value = '';
+        noteInput.value = '';
       }
     });
 
@@ -97,8 +98,8 @@ function renderTopics(topics) {
       socket.emit('update_dependency', {
         target_id: targetSelect.value,
         source_id: courseSelect.value,
-        topic: t,
-        topic: sub,
+        base_topic: t,
+        sub_topic: sub,
         note: note,
       });
       wrapper.dataset.storedTopic = sub || t;
@@ -124,15 +125,19 @@ function applyDependencies() {
     subInput.value = '';
     noteInput.value = '';
     currentDependencies.forEach((dep) => {
-      if (dep.course === courseName && dep.topic === base) {
-        checkbox.checked = true;
-        if (dep.topic) {
-          subInput.value = dep.topic;
-          wrapper.dataset.storedTopic = dep.topic;
-        } else {
-          wrapper.dataset.storedTopic = base;
-        }
-        if (dep.description) noteInput.value = dep.description;
+      if (dep.course === courseName) {
+        (dep.topics || []).forEach((t) => {
+          if (t.topic === base) {
+            checkbox.checked = true;
+            if (t['sub-topic']) {
+              subInput.value = t['sub-topic'];
+              wrapper.dataset.storedTopic = t['sub-topic'];
+            } else {
+              wrapper.dataset.storedTopic = base;
+            }
+            if (t.note) noteInput.value = t.note;
+          }
+        });
       }
     });
   });

@@ -154,9 +154,9 @@ def handle_filter(data):
 def handle_add_dependency(data):
     target_id = data.get("target_id")
     source_id = data.get("source_id")
-    base_topic = data.get("topic")
-    topic = data.get("topic", "")
-    description = data.get("note", "")
+    base_topic = data.get("base_topic")
+    sub_topic = data.get("sub_topic", "")
+    note = data.get("note", "")
 
     path = COURSE_PATHS.get(target_id)
     if not path or not base_topic or not source_id:
@@ -175,31 +175,31 @@ def handle_add_dependency(data):
     if not isinstance(deps, list):
         deps = []
 
-    entry = {
-        "course": COURSE_NAMES.get(source_id, ""),
-        "topic": base_topic,
-    }
-    if topic:
-        entry["topic"] = topic
-    if description:
-        entry["description"] = description
-
-    updated = False
-    for dep in deps:
-        if dep.get("course") == entry["course"] and dep.get("topic") == base_topic:
-            if topic:
-                dep["topic"] = topic
-            else:
-                dep.pop("topic", None)
-            if description:
-                dep["description"] = description
-            else:
-                dep.pop("description", None)
-            updated = True
-            break
-
-    if not updated:
+    course_name = COURSE_NAMES.get(source_id, "")
+    entry = next((d for d in deps if d.get("course") == course_name), None)
+    if entry is None:
+        entry = {"course": course_name, "topics": []}
         deps.append(entry)
+
+    topics = entry.get("topics", [])
+    item = next((t for t in topics if t.get("topic") == base_topic), None)
+    if item:
+        if sub_topic:
+            item["sub-topic"] = sub_topic
+        else:
+            item.pop("sub-topic", None)
+        if note:
+            item["note"] = note
+        else:
+            item.pop("note", None)
+    else:
+        new_topic = {"topic": base_topic}
+        if sub_topic:
+            new_topic["sub-topic"] = sub_topic
+        if note:
+            new_topic["note"] = note
+        topics.append(new_topic)
+    entry["topics"] = topics
 
     root["depends-on"] = deps
     yaml_data[root_key] = root
@@ -232,8 +232,8 @@ def handle_get_dependencies(data):
 def handle_remove_dependency(data):
     target_id = data.get("target_id")
     source_id = data.get("source_id")
-    topic = data.get("topic")
-    if not target_id or not source_id or not topic:
+    base_topic = data.get("base_topic")
+    if not target_id or not source_id or not base_topic:
         return
     path = COURSE_PATHS.get(target_id)
     if not path:
@@ -250,12 +250,19 @@ def handle_remove_dependency(data):
     if not isinstance(deps, list):
         deps = []
     course_name = COURSE_NAMES.get(source_id, "")
-    new_deps = [d for d in deps if not (d.get("course") == course_name and d.get("topic") == topic)]
-    if len(new_deps) != len(deps):
-        root["depends-on"] = new_deps
-        yaml_data[root_key] = root
-        with open(path, "w") as f:
-            yaml.safe_dump(yaml_data, f, sort_keys=False)
+    for dep in deps:
+        if dep.get("course") == course_name:
+            topics = dep.get("topics", [])
+            new_topics = [t for t in topics if t.get("topic") != base_topic]
+            if new_topics:
+                dep["topics"] = new_topics
+            else:
+                deps.remove(dep)
+            break
+    root["depends-on"] = deps
+    yaml_data[root_key] = root
+    with open(path, "w") as f:
+        yaml.safe_dump(yaml_data, f, sort_keys=False)
     emit("saved", {"ok": True})
 
 
@@ -263,9 +270,9 @@ def handle_remove_dependency(data):
 def handle_update_dependency(data):
     target_id = data.get("target_id")
     source_id = data.get("source_id")
-    base_topic = data.get("topic")
-    topic = data.get("topic", "")
-    description = data.get("note", "")
+    base_topic = data.get("base_topic")
+    sub_topic = data.get("sub_topic", "")
+    note = data.get("note", "")
     if not target_id or not source_id or not base_topic:
         return
     path = COURSE_PATHS.get(target_id)
@@ -282,26 +289,30 @@ def handle_update_dependency(data):
     if not isinstance(deps, list):
         deps = []
     course_name = COURSE_NAMES.get(source_id, "")
-    updated = False
-    for dep in deps:
-        if dep.get("course") == course_name and dep.get("topic") == base_topic:
-            if topic:
-                dep["topic"] = topic
-            else:
-                dep.pop("topic", None)
-            if description:
-                dep["description"] = description
-            else:
-                dep.pop("description", None)
-            updated = True
-            break
-    if not updated:
-        new_entry = {"course": course_name, "topic": base_topic}
-        if topic:
-            new_entry["topic"] = topic
-        if description:
-            new_entry["description"] = description
-        deps.append(new_entry)
+    entry = next((d for d in deps if d.get("course") == course_name), None)
+    if entry is None:
+        entry = {"course": course_name, "topics": []}
+        deps.append(entry)
+
+    topics = entry.get("topics", [])
+    item = next((t for t in topics if t.get("topic") == base_topic), None)
+    if item:
+        if sub_topic:
+            item["sub-topic"] = sub_topic
+        else:
+            item.pop("sub-topic", None)
+        if note:
+            item["note"] = note
+        else:
+            item.pop("note", None)
+    else:
+        new_topic = {"topic": base_topic}
+        if sub_topic:
+            new_topic["sub-topic"] = sub_topic
+        if note:
+            new_topic["note"] = note
+        topics.append(new_topic)
+    entry["topics"] = topics
     root["depends-on"] = deps
     yaml_data[root_key] = root
     with open(path, "w") as f:
