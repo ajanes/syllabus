@@ -1,12 +1,9 @@
-from flask import Flask, render_template
-from flask_meld import Meld
+from flask import Flask, render_template, request
 import os
 import yaml
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "change-me"
-meld = Meld()
-meld.init_app(app)
 
 @app.route("/")
 def home():
@@ -88,21 +85,43 @@ def dependencies():
     courses = []
     course_topics = {}
     for idx, entry in enumerate(entries, 1):
-        courses.append({
-            "id": str(idx),
-            "name": entry["name"],
-            "year": entry["year"],
-            "semester": entry["semester"],
-        })
+        courses.append(
+            {
+                "id": str(idx),
+                "name": entry["name"],
+                "year": entry["year"],
+                "semester": entry["semester"],
+            }
+        )
         course_topics[str(idx)] = entry["topics"]
 
     years = sorted(years)
 
+    selected_year = request.args.get("year", "")
+    selected_semester = request.args.get("semester", "")
+    selected_course = request.args.get("course", "")
+
+    filtered_courses = [
+        c
+        for c in courses
+        if (not selected_year or c["year"] == selected_year)
+        and (not selected_semester or c["semester"] == selected_semester)
+    ]
+
+    if not any(c["id"] == selected_course for c in filtered_courses):
+        selected_course = ""
+        topics = []
+    else:
+        topics = course_topics.get(selected_course, [])
+
     return render_template(
         "dependencies.html",
-        courses=courses,
-        course_topics=course_topics,
+        courses=filtered_courses,
         years=years,
+        selected_year=selected_year,
+        selected_semester=selected_semester,
+        selected_course=selected_course,
+        topics=topics,
     )
 
 if __name__ == "__main__":
