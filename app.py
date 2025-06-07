@@ -1,8 +1,12 @@
 from flask import Flask, render_template
+from flask_meld import Meld
 import os
 import yaml
 
 app = Flask(__name__)
+app.config["SECRET_KEY"] = "change-me"
+meld = Meld()
+meld.init_app(app)
 
 @app.route("/")
 def home():
