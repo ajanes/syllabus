@@ -1,24 +1,25 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template
+from flask_socketio import SocketIO, emit
 import os
 import yaml
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "change-me"
+socketio = SocketIO(app)
 
-@app.route("/")
-def home():
-    return render_template("index.html", message="Welcome to Flask!")
+# Course data loaded at startup
+COURSES = []
+COURSE_TOPICS = {}
+COURSE_PATHS = {}
+YEARS = []
 
-
-@app.route("/dependencies")
-def dependencies():
-    """Display course dependencies page with topics."""
+def load_courses():
+    """Load all courses and modules into memory."""
+    global COURSES, COURSE_TOPICS, COURSE_PATHS, YEARS
     base_dir = os.path.dirname(__file__)
-
     entries = []
     years = set()
 
-    # Collect standard courses and their topics
     std_dir = os.path.join(base_dir, "syllabi", "standard")
     for filename in os.listdir(std_dir):
         if not filename.endswith(".yml"):
@@ -38,14 +39,13 @@ def dependencies():
                     "topics": topics,
                     "year": year,
                     "semester": semester,
+                    "path": filepath,
                 })
                 years.add(year)
         except Exception:
             continue
 
-    # Collect modules referenced by modular course files
     modular_dir = os.path.join(base_dir, "syllabi", "modular")
-
     for filename in os.listdir(modular_dir):
         if not filename.endswith(".yml"):
             continue
@@ -74,56 +74,99 @@ def dependencies():
                         "topics": topics,
                         "year": year,
                         "semester": semester,
+                        "path": mod_file,
                     })
                     years.add(year)
         except Exception:
             continue
 
-    # Sort courses by name
     entries.sort(key=lambda e: e["name"])
 
     courses = []
     course_topics = {}
+    course_paths = {}
     for idx, entry in enumerate(entries, 1):
-        courses.append(
-            {
-                "id": str(idx),
-                "name": entry["name"],
-                "year": entry["year"],
-                "semester": entry["semester"],
-            }
-        )
-        course_topics[str(idx)] = entry["topics"]
+        cid = str(idx)
+        courses.append({
+            "id": cid,
+            "name": entry["name"],
+            "year": entry["year"],
+            "semester": entry["semester"],
+        })
+        course_topics[cid] = entry["topics"]
+        course_paths[cid] = entry["path"]
 
-    years = sorted(years)
+    COURSES = courses
+    COURSE_TOPICS = course_topics
+    COURSE_PATHS = course_paths
+    YEARS = sorted(years)
 
-    selected_year = request.args.get("year", "")
-    selected_semester = request.args.get("semester", "")
-    selected_course = request.args.get("course", "")
+load_courses()
 
-    filtered_courses = [
+@app.route("/")
+def home():
+    return render_template("index.html", message="Welcome to Flask!")
+
+
+@app.route("/dependencies")
+def dependencies():
+    """Display course dependencies page."""
+    return render_template(
+        "dependencies.html",
+        courses=COURSES,
+        all_courses=COURSES,
+        years=YEARS,
+    )
+
+
+@socketio.on("filter")
+def handle_filter(data):
+    year = data.get("year", "")
+    semester = data.get("semester", "")
+    course_id = data.get("course", "")
+    filtered = [
         c
-        for c in courses
-        if (not selected_year or c["year"] == selected_year)
-        and (not selected_semester or c["semester"] == selected_semester)
+        for c in COURSES
+        if (not year or c["year"] == year)
+        and (not semester or c["semester"] == semester)
     ]
-
-    if not any(c["id"] == selected_course for c in filtered_courses):
+    if course_id not in [c["id"] for c in filtered]:
         selected_course = ""
         topics = []
     else:
-        topics = course_topics.get(selected_course, [])
-
-    return render_template(
-        "dependencies.html",
-        courses=filtered_courses,
-        all_courses=courses,
-        years=years,
-        selected_year=selected_year,
-        selected_semester=selected_semester,
-        selected_course=selected_course,
-        topics=topics,
+        selected_course = course_id
+        topics = COURSE_TOPICS.get(course_id, [])
+    emit(
+        "filtered",
+        {
+            "courses": filtered,
+            "topics": topics,
+            "selected_course": selected_course,
+        },
     )
 
+
+@socketio.on("add_dependency")
+def handle_add_dependency(data):
+    target_id = data.get("target_id")
+    topic = data.get("topic")
+    path = COURSE_PATHS.get(target_id)
+    if not path or not topic:
+        return
+    try:
+        with open(path, "r") as f:
+            yaml_data = yaml.safe_load(f) or {}
+    except Exception:
+        yaml_data = {}
+    course = yaml_data.get("course", {})
+    deps = course.get("depends-on", [])
+    if topic not in deps:
+        deps.append(topic)
+        course["depends-on"] = deps
+        yaml_data["course"] = course
+        with open(path, "w") as f:
+            yaml.safe_dump(yaml_data, f, sort_keys=False)
+    emit("saved", {"ok": True})
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    socketio.run(app, debug=True)
