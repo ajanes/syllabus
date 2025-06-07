@@ -1,0 +1,60 @@
+course:
+  title: Italian for Computer Scientists
+  code: 76248
+  scientific_sector: LIFI-01/A 
+  degree: Bachelor in Computer Science
+  semester: 2st
+  year: 2st
+  credits: 6
+  modular: false
+  total_lecturing_hours: 30
+  total_lab_hours: 0
+  attendance: "Non compulsory. Non-attending students have to contact the lecturer at the start of the course to agree on the modalities of the independent study"
+  prerequisites: null
+  course_page: null
+  specific_educational_objectives: |
+    The course will focus on the appropriate use of the Italian language in various contexts, with particular attention to formal and academic settings. It aims to improve students’ Italian language skills from B1 to B2 level. The goal is to expand and reinforce students’ knowledge of Italian so they can interact effectively in everyday life, academic settings, and the workplace. This includes oral communication and both formal and informal written texts, across educational, scientific, and professional domains.
+
+    Students will develop textual competence in both reading and writing. They will also view language as a tool for cultural and intercultural understanding. In addition, the course will introduce students to technical Italian language specific to ICT and related fields.
+
+    The educational objectives of the course include the development of writing skills through the practice of coherent academic discourse and the production of subject-specific texts. Speaking skills will be strengthened by encouraging interaction and production through presentations and other speaking tasks relevant to academic and professional contexts. Receptive skills will be enhanced through exposure to and analysis of a variety of written and spoken texts typical of Computer Science, with the aim of improving grammatical and lexical range and accuracy to support fluent and spontaneous communication.
+  lecturer: 
+    name: Lorenzo Carpané
+    email: lorenzo.carpane@unibz.it
+    scientific_sector: LIFI-01/A
+    office: BZ B1.6.20
+    office_hours: Mondays 14:00–16:00, by appointment via email
+  language: Italian
+  teaching_assistant: null
+  topics:
+    - "Listening skills: comprehension of talks in different contexts, live, by phone or other media, about ICT topics"
+    - "Writing skills: practice of coherent academic discourse to produce subject-specific texts; practice of all communication texts, such as e-mails, web texts;"
+    - "Spoken skills: improvement of spoken interaction and production through the practice and production of academically and professionally acceptable presentations and other domain-specific speaking activities;"
+    - "Development of receptive skills through the exposure to and analysis of various types of written and spoken discourse typical in ICT and development of grammatical and lexical range and accuracy so that communication is fluent and spontaneous;"
+    - "Language mediation (mediating communication, text and concepts) from English to Italian and viceversa about area of expertise (ICT);"
+    - "Vocabulary acquisition and word-building techniques; lexicogrammar."
+  teaching_format: |
+    Teaching format is based on the seminar format which envisages teacher and student co-operation and participation in the classroom through indi-vidual, pair and group work (Individual and group exercises, facing solution of linguistic problems, activating personal and group skills); full-immersion interactive dialog-based lectures, discussions, referring to technical sub-jects and everyday life. Multimedia material will be usually used as impulse, documentation, medium for interaction with peers and as an instrument of analysis and reflection about the topics and the media themselves.
+
+    Great importance will be given also to self-improving skills. Homework (individual writing exercises) will be requested and these jobs will form students’ own "portfolio" and a part of the topics in the oral exam.
+    
+    Professionals will get their experiences in the fields of using Italian technical language combined with ICT
+
+  assessment: |
+    Assessment for the course will be divided into three components: the written exam will account for 50% of the final grade, the oral exam for 40%, and the dossier for 10%. The written exam is intended to assess the student’s ability to apply their knowledge, while the oral exam will consist of verification questions.
+
+    Students must pass both the written exam and the dossier in order to be eligible for the oral examination. The dossier must be evaluated before the final exam takes place; otherwise, the exam result cannot be officially recorded.
+  assessment_language: Italian
+  evaluation_criteria: |
+    The final grade for the course is composed of a written exam worth 50%, an oral exam worth 40%, and a portfolio worth 10%. Further details will be provided during the course and made available online through the Reserve Collection and the unibz OLE learning platform.
+
+    The written exam includes grammar and vocabulary exercises within a clearly defined specialized context, listening and reading tasks that assess both global and detailed comprehension, language mediation tasks involving the communication of text and concepts, and a writing task of approximately 200 words based on subject-specific input. A monolingual dictionary is permitted during the written exam. The exam is designed to assess competence in reading, writing, language mediation, vocabulary, and grammar.
+
+    The portfolio consists of ten writing tasks of around 250 words each, based on subject-specific and authentic written or spoken input. These are to be completed individually outside of the classroom, with a focus on central aspects of the course content.
+
+    The oral exam is divided into three parts: a presentation of a project, a series of questions about one of the course topics, and a discussion of the contents of the portfolio. Evaluation will be based on the clarity of responses, mastery of the language including the teaching language, the ability to summarize information in one’s own words, to evaluate content, to demonstrate critical thinking skills, and to establish connections between topics.
+  required_readings:
+    - "Authentic texts/media with topics (computer science) from magazines and newspapers (articles, reports). The texts/media for this course can be found in the course page for this course and class materials will be distributed."
+  supplementary_readings:
+    - "Reference will be made to further titles during the course and will be communicated in due course."
+  software: null

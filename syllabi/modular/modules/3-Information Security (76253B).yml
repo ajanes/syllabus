@@ -1,0 +1,24 @@
+module2:
+  title: Information Security
+  code: 76253B
+  scientific_sector: IINF-05/A
+  credits: 6
+  lecturer:
+    name: Fabrizio Maria Maggi
+    email: maggi@inf.unibz.it
+    scientific_sector: INFO-01/A
+    office: BZ B1 5.43
+    office_hours: Mondays 14:00–16:00, by appointment via email
+  language: Italian
+  teaching_assistant: null
+  topics:
+    - "Basic definitions: CIA, threat, attack, vulnerability, access control"
+    - "Risk assessment"
+    - "Basics of cryptography"
+    - "Network attack and defense"
+    - "Usability"
+    - "Security policies"
+  teaching_format: The course includes frontal lectures and lab sessions.
+
+
+

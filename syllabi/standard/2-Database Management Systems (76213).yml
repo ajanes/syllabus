@@ -1,0 +1,41 @@
+course:
+  title: Database Management Systems
+  code: 76213
+  scientific_sector: INFO-01/A
+  degree: Bachelor in Computer Science
+  semester: 2nd
+  year: 2nd
+  credits: 6
+  modular: false
+  total_lecturing_hours: 40
+  total_lab_hours: 20
+  attendance: "Attendance to the course and the labs is not compulsory, but generally recommended to maximize the learning effect. The exam modalities for attending and non-attending students are the same."
+  prerequisites: "The course requires knowledge of relational databases (including SQL and relational algebra), algorithms, and programming skills. This material is taught in the following courses: Introduction to Databases, Data Structures and Algorithms, Introduction to Programming."
+  course_page: null
+  specific_educational_objectives: "Based on the concepts gained in the introductory database course, students will develop a deeper understanding of how database management systems work. Specifically, students will learn basic and advanced techniques and methods used in database management systems to store and index data, to efficiently process concurrent user queries and to keep the data safe and consistent."
+  lecturer:
+    name: Johann Gamper
+    email: johann.gamper@unibz.it
+    scientific_sector: INFO-01/A
+    office: BZ B1 5.21
+    office_hours: Tuesdays 13:00–14:00, by appointment via email
+  language: German
+  teaching_assistant: null
+  topics:
+    - "Physical data storage"
+    - "Indexing and hashing"
+    - "Query processing and optimization"
+    - "Transaction processing"
+    - "Concurrency control"
+    - "Recovery"
+  teaching_format: The course includes frontal lectures, exercises, and lab exercises.
+  assessment: "The assessment for the course consists of a single written exam at the end of the term. The exam includes verification questions, transfer-of-knowledge questions, and exercises. Verification questions are used to assess learning outcomes related to knowledge and understanding, while transfer-of-knowledge questions and exercises evaluate the ability to apply that knowledge in practical contexts."
+  assessment_language: German
+  evaluation_criteria: "The written exam counts 100% of the grade. The exam is evaluated according to the following criteria: clarity, completeness and correctness of answers."
+  required_readings:
+    - "@Silberschatz2005"
+  supplementary_readings:
+    - "@Garcia-Molina2008"
+  software:
+    - PostgreSQL (https://www.postgresql.org)
+    - PgAdmin (https://www.pgadmin.org)

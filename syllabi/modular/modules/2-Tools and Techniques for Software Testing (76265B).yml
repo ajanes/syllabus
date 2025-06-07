@@ -1,0 +1,21 @@
+module2:
+  title: Tools and Techniques for Software Testing
+  code: 76265B
+  scientific_sector: INFO-01/A
+  credits: 6
+  lecturer:
+    name: Barbara Russo
+    email: barbara.russo@unibz.it
+    scientific_sector: INFO-01/A
+    office: BZ B1 4.20
+    office_hours: Tuesdays 14:00–16:00, by appointment via email
+  language: Italian
+  teaching_assistant: null
+  topics:
+    - "Verification and validation"
+    - "Techniques for black-box and white-box texting"
+    - "Techniques and tools for test automation"
+    - "Integration and regression testing"
+    - "Web testing"
+    - "AI for test case generation"
+  teaching_format: The course includes frontal lectures and lab exercises.

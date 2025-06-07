@@ -1,0 +1,21 @@
+module1:
+  title: Engineering of Mobile Systems
+  code: 76254A
+  scientific_sector: INFO-01/A
+  credits: 6
+  lecturer: 
+    name: Niccolò Pretto
+    email: niccolo.pretto@unibz.it
+    scientific_sector: INFO-01/A
+    office: BZ B1 3.11
+    office_hours: Thursdays 10:00–12:00, by appointment via email
+  language: English
+  teaching_assistant: null
+  topics:
+    - "Functional and declarative programming"
+    - "Design of mobile applications"
+    - "Frameworks and platforms for mobile development"
+    - "Data and resource management in a mobile context"
+    - "Mobile device sensors"
+    - "Internet of Thing"
+  teaching_format: The course includes frontal lectures, lab exercises, and projects.

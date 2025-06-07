@@ -1,0 +1,37 @@
+course:
+  title: Computational Security
+  code: 76253
+  scientific_sector: INFO-01/A
+  degree: Bachelor in Computer Science
+  semester: 1st
+  year: 3rd
+  credits: 12
+  modular: true
+  total_lecturing_hours: 80
+  total_lab_hours: 40
+  attendance: "Attendance is not compulsory; non-attending students may contact the lecturer at the start of the course to get support on the modalities of the independent study"
+  prerequisites: "Students should have done the following courses: Software Engineering, Linear Algebra, Introduction to Programming, Object Oriented and Functional Programming . Students should have a solid mathematical foundation and be familiar with basic programming concepts, data structures and algorithms. These prerequisites are covered in any Bachelor degree in Computer Science."
+  course_page: null
+  specific_educational_objectives: |
+    Computational Mathematics aims to equip students with the knowledge and skills to derive, analyze, and implement numerical methods for solving systems of linear equations, computing eigenvalues and singular values of matrices, and approximating functions and roots. Students will engage with both exact and finite precision arithmetic to solve mathematical problems and study the underlying theory that supports numerical solutions. Key topics include stability, error analysis, and efficiency in numerical linear algebra and approximation algorithms. The course also introduces Matlab as a software environment for numerical computing, enabling high-performance matrix manipulation, data visualization, and efficient algorithm implementation.
+    
+    Information Security provides an introduction to the field of information security, covering both technical and management aspects. Students will learn the foundational principles of security and explore practical strategies for protecting information systems. The course offers a comprehensive view of how to identify vulnerabilities and implement effective safeguards in modern computing environments.
+  assessment: "Final exam: The exam covers topics from both Computational Mathematics and Information Security, each contributing 50% to the final grade. The Computational Mathematics part consists of a written exam with verification questions, knowledge transfer tasks, and exercises. The Information Security part includes a project, aimed at assessing knowledge application and communication skills, and an oral exam featuring both verification and application-oriented questions. A midterm test will be offered at the end of the Computational Mathematics module, covering only its content. Students who score at least 18 out of 30 on the midterm will only need to complete the Information Security part in the final exam."
+  assessment_language: English (Computational Mathematics), Italian (Information Security)
+  evaluation_criteria: "The exam is evaluated based on the correctness and clarity of answers, the ability to summarize and critically evaluate concepts, the capacity to connect different topics, problem-solving skills, critical thinking, and the quality of argumentation. To pass the exam, students must achieve a minimum score of 18 out of 30 in each module. Each module contributes 50% to the final grade. For Computational Mathematics, the assessment is based entirely on the written exam. For Information Security, the evaluation is split between a project (30%) and an oral exam (70%). The project assesses the ability to apply knowledge in practical contexts and to effectively summarize content in the student's own words."
+  required_readings:
+  - "@Greenbaum2012"
+  - "@Lindfield2012"
+  - "@Attaway2013"
+  - Slide materials and scientific articles
+  supplementary_readings:
+  - "@Atkinson1991"
+  - "@Moler2004"
+  - "@Ciampa2017"
+  - "@Du2022"
+  software:
+  - MATLAB (https://www.mathworks.com/products/matlab.html)
+  - Tools provided during lab sessions
+  include:
+    - ./syllabi/modular/modules/3-Computational Mathematics (76253A).yml
+    - ./syllabi/modular/modules/3-Information Security (76253B).yml

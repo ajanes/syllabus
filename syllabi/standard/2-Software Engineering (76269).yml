@@ -1,0 +1,43 @@
+course:
+  title: Software Engineering
+  code: 76269
+  scientific_sector: INFO-01/A
+  degree: Bachelor in Computer Science
+  semester: 1st
+  year: 2nd
+  credits: 6
+  modular: false
+  total_lecturing_hours: 40
+  total_lab_hours: 20
+  attendance: "Generally, attendance is not compulsory, but non-attending students have to contact the lecturer at the start of the course to agree on the modalities of the independent study. Non-attending students will still be assessed under the same modalities as regularly attending students regarding the project organization/assessment and final exam."
+  prerequisites: "Students should have completed the following courses: Introduction to Programming and Object Oriented and Functional Programming ."
+  course_page: null
+  specific_educational_objectives: The course introduces the state-of-the-art in software engineering. It aims to demonstrate how this is transferred into practically applicable knowledge and skills for software development.
+  lecturer:
+    name: Claus Pahl
+    email: claus.pahl@unibz.it
+    scientific_sector: INFO-01/A
+    office: BZ B1 4.21
+    office_hours: after the lecture/lab or by appointment via email
+  language: German
+  teaching_assistant: null
+  topics:
+    - "Software life-cycle: principles and methodologies"
+    - "Software processes and software project management"
+    - "Requirements engineering: elicitation and modeling"
+    - "System modeling and construction: UML, design patterns"
+    - "Software testing and management: principles and techniques"
+    - "Recent software engineering topics: DevOps, Cloud, SE and AI"
+  teaching_format: The course includes frontal lectures, exercises, and projects.
+  assessment: The assessment consists of a written exam and a group project. The written exam includes verification questions, and the project requires the submission of a written report. A positive evaluation of the project is valid for all three regular exam sessions. Projects must be submitted before the final exam at the end of the semester; otherwise, the exam cannot be registered.
+  assessment_language: German
+  evaluation_criteria: The final grade is composed of 60% from the written exam and 40% from exercises or project work. Both the written exam and the project will be assessed based on the clarity of answers, mastery of language, critical thinking skills, ability to summarize, evaluate, and establish connections between topics, and technical competence. The project will also be evaluated on the ability to work effectively in a team, creativity, and development skills.
+  required_readings:
+    - Lecture notes
+  supplementary_readings:
+    - "@Sommerville2016"
+  software:
+    - ArgoUML (https://argouml-tigris-org.github.io/tigris/argouml/)
+    - Papyrus (https://eclipse.dev/papyrus/)
+    - StarUML (https://staruml.io)
+    - UMLet (https://www.umlet.com)

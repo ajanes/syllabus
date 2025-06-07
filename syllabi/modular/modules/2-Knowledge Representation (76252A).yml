@@ -1,0 +1,24 @@
+module1:
+  title: Knowledge Representation
+  code: 76252A
+  scientific_sector: INFO-01/A
+  credits: 6
+  lecturer: 
+    name: Oliver Kutz
+    email: oliver.kutz@unibz.it
+    scientific_sector: INFO-01/A
+    office: BZ B1 5.36
+    office_hours: Mondays 14:00–16:00, by appointment via email
+  language: German
+  teaching_assistant: null
+  topics:
+    - "Propositional and First-Order Languages"
+    - "Individuals and Relations"
+    - "Knowledge Representation and Logic"
+    - "Knowledge-Based Systems: Description Logics and Ontologies"
+    - "Non-classical Logic and Formal Reasoning"
+    - "Common-Sense Knowledge"
+  teaching_format: Frontal lectures, exercises in lab, support for projects.
+
+
+

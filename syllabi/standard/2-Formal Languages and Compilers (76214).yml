@@ -1,0 +1,46 @@
+course:
+  title: Formal Languages and Compilers
+  code: 76214
+  scientific_sector: INFO-01/A
+  degree: Bachelor in Computer Science
+  semester: 2nd
+  year: 2nd
+  credits: 6
+  modular: false
+  total_lecturing_hours: 60
+  total_lab_hours: 20
+  attendance: Attendance is not compulsory but recommended. Non-attending students must contact the lecturer at the start of the course to agree on the modalities of the independent study. Exam modalities for non-attending students are the same as for attending students.
+  prerequisites: Knowledge of the C programming language. Experience working in Linux (preferred)
+  course_page: null
+  specific_educational_objectives: The main objective is to introduce the fundamental notions about formal languages (Chomsky classification of Languages, Regular Languages, Automata, Context Free Grammars) and understand the mechanisms governing the analysis and synthesis of programming languages. Students will learn the most important techniques for the representation and generation of Languages (in particular, regular and context-free languages). Those techniques will be applied to the construction of a compiler for a programming language. During this course the student will learn how to build the different parts of a Compiler with a particular emphasis on Lexical Analyzers (with the use of Lex during the Lab), Parsers (with the use of YACC during the Lab) and basics of code generation.
+  lecturer:
+    name: Alessandro Artale
+    email: artale@inf.unibz.it
+    scientific_sector: INFO-01/A
+    office: BZ B1 5.05
+    office_hours: Mondays 14:00–16:00, by appointment via email
+  language: Italian
+  teaching_assistant: null
+  topics:
+    - "Formal language theory"
+    - "Regular languages: automata, regular expressions, regular grammars"
+    - "Context free languages (stack machines)"
+    - "Lexical and syntactic analysis: Lexer specification, top-down and bottom-up parsing"
+    - "Semantic analysis rules for: type checking, symbol table and control flow"
+    - "Intermediate code generation"
+  teaching_format: The course includes frontal lectures, lab sessions with programming exercises, and team projects.
+  assessment: Assessment consists of a team project and a written exam. The project is designed to evaluate the application of acquired knowledge, the ability to make informed judgments, and communication skills, through the collaborative development of a compiler for a small programming language. Successful completion of the project is a prerequisite for admission to the written exam. The written exam includes verification questions, knowledge transfer tasks, and practical exercises, and is intended to assess knowledge and understanding, the ability to apply knowledge, and the student’s learning skills.
+  assessment_language: Italian
+  evaluation_criteria: The final grade is composed of a written exam worth 70% and a project on compiler development worth 30%. The written exam will be evaluated based on the correctness and clarity of the answers. The project will be assessed according to the quality of the solution, including the complexity and originality of the designed programming language, the data structures used to implement the symbol table, and the depth of the semantic analysis performed. The project evaluation will remain valid for three consecutive regular exam sessions.
+  required_readings:
+    - "@Aho2006"
+    - "@Hopcroft2007"
+  supplementary_readings:
+    - "@Louden1997"
+    - "@Muchnick1998"
+    - "@Watt2007"
+  software:
+    - C (https://gcc.gnu.org)
+    - YACC (https://pubs.opengroup.org/onlinepubs/9799919799/utilities/yacc.html)
+    - LEX (https://pubs.opengroup.org/onlinepubs/9799919799/utilities/lex.html)
+    - Linux (e.g., https://ubuntu.com)

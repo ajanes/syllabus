@@ -1,0 +1,46 @@
+course:
+  title: Mobile and Physical Systems
+  code: 76262
+  scientific_sector: INFO-01/A
+  degree: Bachelor in Computer Science
+  semester: 1st
+  year: 3rd
+  credits: 12
+  modular: true
+  total_lecturing_hours: 80
+  total_lab_hours: 40
+  attendance: "Attendance is not compulsory, but highly recommended as many labs require an adequate software and hardware infrastructure; non-attending students may contact the lecturer at the start of the course to get support on the modalities of the independent study."
+  prerequisites: The course requires knowledge from the "Software Engineering" course.
+  course_page: null
+  specific_educational_objectives: |
+    In Engineering of Mobile Systems, students will learn the key concepts of mobile application development and the internet of things. Practical experience will be gained by using state of the art technologies for the development of mobile applications. Upon completion of the course, students shall have acquired expertise in writing mobile applications that leverage advanced mobile APIs and connect to outside web services, and shall be aware of the various trade-offs in the development of mobile applications.
+
+    In Physical Computing Project, by building an idea, designers are challenged to "build to think" and thus gain deeper insights. This course will go beyond early physical prototyping and show how to implement smart sensing devices that can be used to control an interactive environment (e.g., game). Participants will learn basic electronics, microcontroller programming, and physical prototyping using the Arduino/ESP32 platform, then use digital and analog sensors which results in a next-generation controller, e.g., in combination with Unity. Therefore, students will gain a profound understanding of sensor technologies as well as a broad overview of how to design and implement a 3d environment.
+  assessment: |
+    The assessment is based on a final exam, which covers the topics addressed in both modules and consists of two parts. Part 1 covers the module Engineering of Mobile Systems (50% of the final exam) and is based on an oral exam and a project work in which students will design and develop a mobile application for addressing a practical problem. The project will be submitted in a git repository provided by the lecturer, described in a report, and presented during the oral exam. In case of a positive mark, the project will count for all 3 regular exam sessions. Projects must be submitted at least a week before the exam, otherwise the student cannot access to the oral exam.
+
+    Part 2 (50% of the final exam) covers the module Physical Computing Project. The major activity of the class is centered around a group project (in pairs of two), but there will be individual assignments early in the semester. The goal of these assignments is to ensure everyone in the class gains experience and understanding of the design and implementation of a novel input controller, without which creating an interesting and sophisticated project (next-generation controller) will be difficult.
+  assessment_language: English (Engineering of Mobile Systems), German (Physical Computing Project)
+  evaluation_criteria: |
+    The exam is evaluated based on correctness of projects, answers, clarity of answers, ability to summarize, evaluate, and establish relationships between topics, skills in critical thinking, quality of argumentation, problem solving ability. To pass the exam, the students must get at least 18/30 in each module. The mark related to each part contributes to the final grade as follows:
+
+    Part 1 covers the module Engineering of Mobile Systems (50% of the final exam). Of this part, 70% of the mark is determined by the project work and 30% by the oral exam. Students need to pass project work to access the oral exam. The project work is assessed evaluating if it contains working solutions and if it adheres to good programming practices and styles. The oral exam is evaluated based on the clarity of answers and the project presentation, being able to master the terminology of the course, and being able to solve problems related to mobile applications or summarize theoretical concepts.
+
+    Part 2 (50% of the final exam) covers the module Physical Computing Project. Each student group is provided with a physical computing kit including an Arduino/ESP32 compatible board as well as everything needed to learn how to use sensors and actuators and how to combine it with 3rd party tools (e.g. Unity). Through hands-on experiences during class periods, students acquire basic skills and learn to build a range of typical circuits that will communicate to Unity. Along with basic skill acquisition, students are involved in a semester-long group assignment in which they develop a complex project from start to finish. Students are encouraged to quickly arrive at a working prototype at which point they can fine-tune their project through testing. To evaluate this part, at the end of the semester, the projects are presented to the rest of the class.
+  required_readings:
+  - Lecture slides and lab materials provided by instructors
+  supplementary_readings:
+  - "@Griffiths2021"
+  - "@Sills2022"
+  - "@Marwedel2021"
+  software:
+  - Android Studio (https://developer.android.com)
+  - React Native (https://reactnative.dev)
+  - Expo (https://expo.dev)
+  - ProtoPie (https://www.protopie.io)
+  - Unity (https://unity.com) 
+  - Arduino IDE (https://www.arduino.cc/en/software)
+  - "Different microcontrollers and microelectronics kits are used. Only participant students, who attend classes, can use them during class time. Further information is provided on the course page."
+  include:
+    - ./syllabi/modular/modules/3-Engineering of Mobile Systems (76262A).yml
+    - ./syllabi/modular/modules/3-Prototyping Physical Interactive Experiences (76262B).yml

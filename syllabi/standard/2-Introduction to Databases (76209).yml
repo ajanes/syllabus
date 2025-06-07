@@ -1,0 +1,49 @@
+course:
+  title: Introduction to Databases
+  code: 76209
+  scientific_sector: IINF-05/A
+  degree: Bachelor in Computer Science
+  semester: 1st
+  year: 2nd
+  credits: 6
+  modular: false
+  total_lecturing_hours: 40
+  total_lab_hours: 20
+  attendance: "Attendance is not compulsory, but non-attending students have to contact the lecturer at the start of the course or before starting their studies and the project work to agree on the modalities of the independent study."
+  prerequisites: "Students should have a solid mathematical foundation and be familiar with the basic programming concepts, and with basic data structures (arrays, lists, trees) and algorithms that operate on them (visits, search, updates). These prerequisites are covered in the following courses: Analysis, Introduction to Programming, and Object Oriented and Functional Programming ."
+  course_page: https://www.inf.unibz.it/~calvanese/teaching/idb/
+  specific_educational_objectives: "Students attending this course will have acquired the techniques and methods to address problems of database design, and to make use of the basic functionalities (definition, update, and querying of the database) of database management systems in the context of development and deployment of information systems. In addition, students will be able to develop applications that programmatically interact with a database management system. The course explicitly refers to relational databases and to the corresponding database management systems based on the SQL language. However, the taught methods and principles are of a more general nature, and can be applied also in those contexts where data models and database systems different from relational ones are adopted."
+  lecturer:
+    name: Diego Calvanese
+    email: diego.calvanese@unibz.it
+    scientific_sector: IINF-05/A
+    office: BZ B1 5.04
+    office_hours: as announced on the course web page, by appointment via email
+  language: German
+  teaching_assistant: null
+  topics:
+    - "Relational data model and relational algebra"
+    - "The SQL language"
+    - "Using SQL in database applications: API, embedded SQL"
+    - "The Entity Relationship model"
+    - "Conceptual database design"
+    - "Logical database design"
+  teaching_format: The course includes frontal lectures, exercises, and project work.
+  assessment: For both attending and non-attending students, assessment consists of a project aimed at testing the ability to apply knowledge and communicate effectively, carried out individually or in small groups and presented orally. In addition, a written exam includes verification questions as well as questions designed to assess both knowledge and understanding, and the ability to apply that knowledge.
+  assessment_language: German
+  evaluation_criteria: |
+    For both attending and non-attending students, the assessment consists of two components: a project (30% of the final mark) and a written exam (70% of the final mark). The project evaluates the ability to work in teams, apply knowledge in practical contexts, and summarize concepts in one’s own words. The written exam assesses clarity of responses, the ability to recall principles and methods used in database systems, and the skill to apply knowledge through tasks such as developing and querying databases.
+
+    To carry out the project, students must agree with the lecturer on the topic and scope, preferably during the early stages of development, based on an initial draft of the conceptual schema, to minimize the risk of having to redo work. Attending students can discuss their project during dedicated lab sessions, while non-attending students must make arrangements during office hours or by scheduling an appointment with the lecturer.
+
+    The project is usually discussed two to three working days before the scheduled written exam, and must be submitted by the deadline announced on MS Teams, typically two days before the discussion date. In order to be admitted to the written exam, the project must be discussed and positively evaluated. Without passing the project, students are not allowed to take the written exam.
+
+    The written exam, which lasts at least two hours, requires students to design a database based on a given specification, formulate SQL queries, and possibly respond in writing to questions on topics covered in the course. To pass the course, both the project and the written exam must be passed. The final grade is calculated as a weighted average of the project (30%) and written exam (70%) marks. A positive project mark remains valid for all three regular exam sessions within the same academic year, meaning that if a student fails or does not sit the written exam, the project evaluation is retained and only the written exam needs to be retaken.
+  required_readings:
+    - Course lecture notes available on the Microsoft Teams course page
+  supplementary_readings:
+    - "@Ramakrishnan2002"
+  software:
+    - PostgreSQL (https://www.postgresql.org)
+    - RADB (Java relational algebra interpreter) (https://users.cs.duke.edu/~junyang/radb/)
+    - Java (https://openjdk.org)

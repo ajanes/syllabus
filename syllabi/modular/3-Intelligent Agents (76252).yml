@@ -1,0 +1,53 @@
+course:
+  title: Intelligent Agents
+  code: 76252
+  scientific_sector: INFO-01/A
+  degree: Bachelor in Computer Science
+  semester: 1st
+  year: 3rd
+  credits: 12
+  modular: true
+  total_lecturing_hours: 120
+  total_lab_hours: 80
+  attendance: "Attendance is not compulsory, but highly recommended as many labs require an adequate software and hardware infrastructure; non-attending students should contact the lecturer at the start of the course to get support and agree on the modalities of the independent study."
+  prerequisites: "It is preferable that students have already done the Software Engineering course and have basic mathematical knowledge in Discrete mathematics and Linear Algebra."
+  course_page: null
+  specific_educational_objectives: |
+    Knowledge Representation introduces students to the foundational topics, methods, and theories in symbolic artificial intelligence, with a focus on how knowledge can be formally expressed and reasoned about. The course begins with a thorough exploration of classical first-order logic, covering its syntax, semantics, model theory, and proof theory, as a basis for knowledge formulation. It then moves on to Description Logics (DLs), which serve as a formal foundation for defining ontologies and knowledge bases. The module concludes with an analysis of key reasoning scenarios involving knowledge and ontologies, such as planning, non-monotonic reasoning, and common-sense inference, along with an introduction to selected non-classical reasoning approaches.
+
+    Intelligent Agents Project focuses on the practical application of AI techniques to support human decision-making and to design autonomous systems. Students will actively engage in the development of software solutions that apply the AI methods introduced during the course to solve specific challenges. This hands-on experience is intended to deepen their understanding of various AI approaches and to highlight the complexities that arise in real-world applications. The goal of the module is to equip students with a versatile set of computational tools and methodologies, enabling them to address a range of practical problems and translate theoretical concepts into effective, working solutions.
+  language: German (Knowledge Representation), English (Intelligent Agents Project)
+  teaching_format: The course includes frontal lectures, lab sessions, and project
+    assignments.
+  assessment: |
+  Final exam: |
+    The exam covers the content of both Knowledge Representation and Intelligent Agents Project, with each module contributing 50% to the final grade.
+
+    The Knowledge Representation component consists of a written exam featuring verification questions, knowledge transfer tasks, and problem-solving exercises. The focus is on assessing a deep understanding of the fundamental theories, methods, and technologies introduced during the course, as well as the ability to apply them to practical reasoning problems.
+
+    The Intelligent Agents Project is assessed through two components: lab assignments and a final oral presentation. The lab assignments, conducted in groups of 2 to 3 students, are designed to support continuous learning and reinforce the course material through hands-on work on specific topics. Group formation must be finalized in the first week of lectures; late-joining students are expected to integrate into existing groups or form new ones. The final presentation is an individual task in which each student selects a topic from the course and presents additional technical insights not covered in class—such as advanced techniques or real-world applications. This requires independent research, the selection of supplementary materials, and the preparation of a coherent, well-supported presentation. The same assessment structure applies to non-attending students.
+  assessment_language: German (Knowledge Representation), English (Intelligent Agents Project)
+  evaluation_criteria: |
+    The final exam is assessed based on the correctness and clarity of answers, the ability to summarize and evaluate content, establish relationships between topics, demonstrate critical thinking, construct sound arguments, and solve problems. To pass the exam, students must achieve a minimum score of 18 out of 30 in each module. Each module contributes 50 percent to the overall grade.
+
+    For Knowledge Representation, the evaluation is entirely based on a written exam. The exam assesses the clarity of responses, the mastery of terminology and definitions introduced during the course, and the ability to solve fundamental exercises or effectively summarize and illustrate theoretical concepts.
+
+    For Intelligent Agents Project, the evaluation is divided into two components: lab assignments (60 percent) and an oral presentation (40 percent). The lab assignments are group-based and assessed on the originality and technical quality of the deliverables, the quality of documentation and presentation, and the group’s ability to collaborate effectively. Each assignment is evaluated individually, and the final lab score is the average of all submitted assignments. Missing an assignment deadline results in a score of zero for that task. To be admitted to the oral presentation, students must achieve at least 50 percent of the maximum possible score on the lab assignments.
+
+    The oral presentation is an individual assessment that evaluates the student's ability to independently deepen their understanding of a selected course topic, summarize and connect relevant information, and clearly communicate their findings. The presentation topic must be agreed upon with the lecturer and must align with the course syllabus.
+  required_readings:
+  - "@Poole2023"
+  - "@Russell2020"
+  supplementary_readings:
+  - "@Baader2017"
+  - "@Luger2008"
+  software:
+  - Protégé (https://protege.stanford.edu)
+  - DL Reasoners
+  - Theorem provers
+  - Python (https://www.python.org)
+  - Domain-specific languages
+  - Linux-based virtual machines
+  include:
+    - ./syllabi/modular/modules/2-Knowledge Representation (76252A).yml
+    - ./syllabi/modular/modules/2-Intelligent Agents Project (76252B).yml

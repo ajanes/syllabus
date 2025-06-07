@@ -1,0 +1,43 @@
+course:
+  title: English for Computer Scientists
+  code: 76206
+  scientific_sector: ANGL-01/C
+  degree: Bachelor in Computer Science
+  semester: 1st
+  year: 1st
+  credits: 3
+  modular: false
+  total_lecturing_hours: 30
+  total_lab_hours: 0
+  attendance: "Attendance of this course is extremely important so as to benefit from the language practice in class and be fully prepared for the final exam. Non-attending students should contact the lecturers at the start of the course."
+  prerequisites: "Although there are no prerequisites, the course assumes students already have a B2 level and as such students should be aware that all language and skills will be taught above this level."
+  course_page: null
+  specific_educational_objectives: |
+    The objectives of this course are to provide students with some of the specific language and skills that they are likely to need studying Computer Science in English. As such, the course will focus on language acquisition and skills work so students are required to participate actively in class throughout the course. The course will also focus on English language appropriacy in different contexts, with an emphasis on formal, academic contexts. Therefore, the course aims to provide some of the language and skills that will be useful for students following undergraduate courses taught in English and will help them to sit exams that are held in English.
+
+    The course will also provide focused practice in areas that are also tested in international English exams so students who subsequently decide to sit an international exam will already be familiar with some of the skills and language tested.
+
+    Specific educational objectives include the following: to improve writing skills through the practice of coherent academic discourse to produce subject-specific texts, to improve speaking skills: the improvement of spoken interaction and production through the practice and production of academically and professionally acceptable presentations and other domain-specific speaking activities.
+  lecturer: 
+    name: Jemma Prior
+    email: jemma.prior@unibz.it
+    scientific_sector: ANGL-01/C
+    office: BZ B1.6.20
+    office_hours: see online timetable
+  language: English
+  teaching_assistant: null
+  topics:
+    - "Specialised grammar, syntax and lexis at C1 level: complex sentences; lexicogrammar;"
+    - "Development of productive skills through the exposure to and analysis of various types of written and spoken discourse typical in Computer Science and development of grammatical and lexical range and accuracy so that written and spoken communication is fluent and spontaneous;"
+    - "Audience and effects on language register and style."
+  teaching_format: "Teaching format is based on the seminar format, which envisages teacher and student co-operation and participation in the classroom through individual, pair and group work."
+  assessment: "The assessment consists of a written exam, which includes grammar and vocabulary exercises within a specialized context, such as open cloze, multiple-choice, and error detection questions. Additionally, there is a writing task requiring 300-350 words based on subject-specific input. A summary of a specialized topic, chosen from a list provided at the beginning of the course, is also part of the evaluation, with a target length of approximately 350 words. Finally, the oral exam includes speaking tasks designed to assess an advanced (C1) level of proficiency in both spoken production and interaction."
+  assessment_language: English
+  evaluation_criteria: "The final grade is composed of 60% from the written exam, 30% from the oral exam, and 10% from the summary. Further details will be provided during the course and on the unibz OLE learning platform."
+  required_readings:
+    - "The texts for this course can be found in the unibz OLE learning platform for this course and class materials will be distributed in class as well as being available online."
+  supplementary_readings:
+    - "@Vince2023"
+    - "Advanced learners English dictionary, e.g. Longman DCE, Collins COBUILD or Macmillan English Dictionary for Advanced Learners or Oxford Advanced Learner’s Dictionary."
+    - "Reference will be made to further titles during the course and will be communicated in due course."
+  software: null

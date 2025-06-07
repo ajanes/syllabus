@@ -1,0 +1,51 @@
+course:
+  title: Software Systems Engineering
+  code: 76265
+  scientific_sector: INFO-01/A
+  degree: Bachelor in Computer Science
+  semester: 2nd
+  year: 2nd
+  credits: 12
+  modular: true
+  total_lecturing_hours: 70
+  total_lab_hours: 50
+  attendance: Attendance is not compulsory. Non-attending students have to contact the lecturer at the start of the course to agree on the modalities of the independent study.
+  prerequisites: null
+  course_page: The Teams class for each module
+  specific_educational_objectives: |
+    The objective of the Software Systems Architecture Module is to provide students with a solid understanding of the role of software architecture within the software development lifecycle. Students will learn to design architectures using established patterns and best practices, gain an overview of various architectural styles and emerging trends, evaluate and balance trade-offs related to quality attributes, and apply different architectural approaches to the development of high-quality software.
+
+    Tools and Techniques for Software Testing is designed to equip students with the ability to select, use, customize, and deploy software testing tools and techniques. It also enables them to configure and integrate these tools to support testing activities throughout the collaborative software development process.
+  assessment: |
+    A final unified written exam will be performed with verification questions from both modules. Each module will have the following additional activities during the course: 
+
+    Software Systems Architecture: Lab assessment is composed by assignments that should be performed and delivered in each week. Optional activities might worth extra points in the final module grade. 
+
+    Tools and Techniques for Software Testing: Project work with assignments done in groups
+  assessment_language: English
+  evaluation_criteria: |
+    The written exam evaluates the student's ability to master the course terminology, assess tools and techniques in relation to their specific domain of use and technical details, solve exercises, and clearly summarize theoretical concepts. The assessment of project and lab work focuses on timely completion of assignments, the delivery of functional solutions, and the development or customization of high-quality software that meets the specified requirements.
+
+    The final grade is calculated as the average of the grades obtained in each module. For Software Systems Architecture, the grade is based on two components: 50% from lab work and 50% from the module-specific questions in the final written exam. Optional activities within the module may provide extra credit. For Tools and Techniques for Software Testing, the grade is composed of 80% from project work and 20% from the relevant questions in the written exam. Completion and positive evaluation of the project is a prerequisite for accessing the written exam.
+
+    For non-attending students, module instructors may offer two options: either complete lab assessments or projects under the same conditions as attending students, or undergo an additional evaluation based on questions related to lab or project content.
+
+    Students must pass both modules to pass the course. A positive grade in one module remains valid for all three regular exam sessions within the academic year.
+  required_readings:
+    - "@Martin2017"
+    - "@Richards2015"
+  supplementary_readings:
+    - "@Bass2012"
+  software:
+    - Java (https://openjdk.org)
+    - A Java IDE (e.g., https://eclipseide.org)
+    - Git (https://git-scm.com)
+    - Maven (https://maven.apache.org)
+    - Issue trackers
+    - JaCoCo (https://www.eclemma.org/jacoco/)
+    - FindBugs (https://findbugs.sourceforge.net)
+    - JUnit 5 (https://junit.org)
+    - FitNesse (https://fitnesse.org)
+  include:
+    - ./syllabi/modular/modules/2-Software Systems Architecture (76265A).yml
+    - ./syllabi/modular/modules/2-Tools and Techniques for Software Testing (76265B).yml

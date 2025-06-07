@@ -1,0 +1,46 @@
+course:
+  title: Computer Systems Architecture
+  code: 76240
+  scientific_sector: INFO-01/A
+  degree: Bachelor in Computer Science
+  semester: 1st
+  year: 1st
+  credits: 6
+  modular: false
+  total_lecturing_hours: 40
+  total_lab_hours: 20
+  attendance: Attendance is not mandatory but strongly recommended.
+  prerequisites: null
+  course_page: null
+  specific_educational_objectives: The goal of this course is to give students an understanding of the architecture and organization of modern computers, the basic of the circuit logic involved in their construction, and the foundation of their programming in assembly language.
+  lecturer:
+    name: Enrico Franconi
+    email: franconi@inf.unibz.it
+    scientific_sector: INFO-01/A
+    office: BZ B1 5.42
+    office_hours: Mondays 14:00–16:00, by appointment via email
+  language: English
+  teaching_assistant: null
+  topics:
+    - "Computer abstractions and technology"
+    - "Bits, datatypes, and arithmetic in computer systems"
+    - "Gates, circuits, and combinational logic"
+    - "Sequential logic"
+    - "A simple processor architecture: the CPU"
+    - "Instruction sets and assembly language"
+  teaching_format: The course includes frontal lectures and lab sessions.
+  assessment: |
+    Written exam: a final oral exam with exercises, and verification and transfer of knowledge questions; there will be no pure theoretical questions.
+  assessment_language: English
+  evaluation_criteria: The exam questions will be evaluated based on correctness of answers, clarity of answers, ability to summarize, evaluate, and establish relationships between topics, skills in critical thinking, ability to summarize in own words.
+  required_readings:
+    - "@Patt2004"
+    - "@Clements1999"
+  supplementary_readings:
+    - Additional material will be provided during lectures/labs.
+  software: 
+    - Digital Trainer (digital trainer box)
+    - Digital Works or Logism (digital circuits simulator)
+    - CPU simulator
+    - 6502 Assembler Simulator
+

@@ -1,0 +1,41 @@
+course:
+  title: Linear Algebra
+  code: 76238
+  scientific_sector: MATH-02/A
+  degree: Bachelor in Computer Science
+  semester: 1st
+  year: 1st
+  credits: 6
+  modular: false
+  total_lecturing_hours: 40
+  total_lab_hours: 20
+  attendance: Attendance is not compulsory, but non-attending students must contact the lecturer to agree on independent study modalities.
+  prerequisites: null
+  course_page: null
+  specific_educational_objectives: "The aim of this course is to present a rather comprehensive treatment of linear algebra and its applications, giving a general overview of the field. It covers vector and matrix theory to some degree of mathematical logic and rigor, emphasizing topics useful in other disciplines such as solving linear equations and computing determinants and eigenvalues of matrices. The course also provides practice in using linear algebra to think about problems in computer science, and in actually using linear algebra computations to address these problems."
+  lecturer:
+    name: Bruno Carpentieri
+    email: bruno.carpentieri@unibz.it
+    scientific_sector: MATH-05/A
+    office: BZ B1 5.23
+    office_hours: Tuesdays 16:00–18:00, by appointment via email
+  language: English
+  teaching_assistant: null
+  topics:
+    - "Background on complex numbers, trigonometry and polynominals"
+    - "Vectors and matrices"
+    - "Linear Systems"
+    - "Vector spaces"
+    - "Linear operators"
+    - "Spectral analysis"
+  teaching_format: The course includes frontal lectures and exercises.
+  assessment: "The written exam will include verification questions, transfer-of-knowledge questions, and exercises. The aim is to assess the extent to which students have acquired knowledge and understanding, are able to apply that knowledge, and can demonstrate critical judgment. The same assessment criteria apply to both attending and non-attending students."
+  assessment_language: English
+  evaluation_criteria: "The final written exam accounts for 100% of the grade and covers the entire program. Exam questions will be assessed based on correctness, clarity, quality of argumentation, and problem-solving ability. The same evaluation criteria apply to both attending and non-attending students."
+  required_readings:
+    - "@Strang2009"
+    - "@Strang2008"
+    - "@Meyer2010"
+  supplementary_readings:
+    - "@Klein2013"
+  software: null

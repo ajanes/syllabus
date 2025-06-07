@@ -1,0 +1,21 @@
+module2:
+  title: Prototyping Physical Interactive Experiences
+  code: 76254B
+  scientific_sector: INFO-01/A
+  credits: 6
+  lecturer: 
+    name: Michael Haller
+    email: michael.haller@unibz.it
+    scientific_sector: INFO-01/A
+    office: BZ B1 3.15
+    office_hours: Fridays 12:00–14:00, by appointment via email
+  language: German
+  teaching_assistant: null
+  topics:
+    - "Introduction to interaction design for physical computing"
+    - "Physical computing hardware for interactive solutions"
+    - "Physical computing software for interactive solutions"
+    - "Ideation and conceptualisation of physical computing solutions"
+    - "Development of physical computing solutions"
+    - "Evaluation of physical computing solutions"
+  teaching_format: The course includes frontal lectures, lab exercises, and projects.

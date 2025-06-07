@@ -1,0 +1,39 @@
+course:
+  title: Analysis
+  code: 76242
+  scientific_sector: MATH-03/A
+  degree: Bachelor in Computer Science
+  semester: 2nd
+  year: 1st
+  credits: 6
+  modular: false
+  total_lecturing_hours: 40
+  total_lab_hours: 20
+  attendance: Generally, attendance is not compulsory, but non-attending students can contact the lecturer at the start of the course to agree on the modalities of the independent study.
+  prerequisites: null
+  course_page: null
+  specific_educational_objectives: "The aim of this course is to introduce fundamental mathematical concepts that support the study of computer science. In particular, it covers sequences and series, univariate functions, derivatives, differentials and Taylor’s theorem, the Riemann integral, logarithmic and exponential functions, and normed vector spaces."
+  lecturer:
+    name: Ognjen Savković
+    email: ognjen.savkovic@unibz.it
+    scientific_sector: INFO-01/A
+    office: BZ B1 5.32
+    office_hours: Fridays 14:00–16:00, by appointment via email
+  language: English
+  teaching_assistant: null
+  topics:
+    - "Sequences and series"
+    - "Univariate functions"
+    - "Limits of functions and continuity"
+    - "Derivatives, differentials and Taylor Theorem"
+    - "Riemann integral"
+    - "Logarithmic and exponential functions"
+  teaching_format: The course includes frontal lectures and exercises.
+  assessment: "The written exam will include verification questions, transfer-of-knowledge questions, and exercises. The purpose of the assessment is to evaluate the extent to which students have achieved the learning outcomes related to knowledge and understanding, the application of knowledge, and the ability to make informed judgments. These criteria apply equally to both attending and non-attending students."
+  assessment_language: English
+  evaluation_criteria: "The final written exam accounts for 100% of the final grade and covers the entire course program. Exam questions will be evaluated based on correctness, clarity, the quality of argumentation, and problem-solving ability."
+  required_readings:
+    - "@Howie2012"
+  supplementary_readings:
+    - "@Adams2013"
+  software: null

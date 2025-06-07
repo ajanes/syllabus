@@ -1,0 +1,42 @@
+course:
+  title: Project and Teamwork Management
+  code: 76257
+  scientific_sector: PHIL-02/A
+  degree: Bachelor in Computer Science
+  semester: 2nd
+  year: 3rd
+  credits: 3
+  modular: false
+  total_lecturing_hours: 30
+  total_lab_hours: 0
+  attendance: Not compulsory
+  prerequisites: null
+  course_page: null
+  specific_educational_objectives: "The course focuses on the application of theoretical concepts, tools, and techniques to project activities in order to meet the project requirements, It provides a practical, hands-on approach to managing projects in general, and ICT-related projects in particular. The course will focus not only on the most technical parts of project management (Time, Scope and Cost management), but also on knowledge areas related to soft skills and projects communication, like leaadership skills, managing resources and stakeholders, risk management."
+  lecturer:
+    name: Andrea Molinari
+    email: andrea.molinari@unibz.it
+    scientific_sector: IINF-05/A
+    office: BZ B1.6.20
+    office_hours: Mondays 14:00–16:00, by appointment via email
+  language: Italian
+  teaching_assistant: null
+  topics:
+    - "Project and team work management methods and techniques: goal specification techniques, coordination and collaboration techniques, performance and risk management"
+    - "Human resources management: communication, conflict management"
+    - "Tool support for project and team work management"
+  teaching_format: The course includes frontal lectures, exercises, classwork, and practical software sessions.
+  assessment: "The assessment is based on a practical exam on tools used for project and team work management: students will have to complete the planning and progress of a project according to the skills acquired during the course about project mangement tools and techniques The allocated time for this task will be between 60 and 90 minutes"
+  assessment_language: Italian
+  evaluation_criteria: "The final assessment consists of a practical exam covering project and teamwork management tools and techniques, accounting for 100% of the final grade. The exam will be conducted using the software tool selected for the course."
+  required_readings:
+    - Slides and materials provided by the teacher
+  supplementary_readings:
+    - "@PMI2017"
+    - "@Kongar2023"
+    - ACM/IEEE Software Engineering Code of Ethics v5.2, 1999 (https://www.acm.org/code-of-ethics/software-engineering-code)
+  software:
+    - Trello (https://trello.com)
+    - Jira (https://www.atlassian.com/software/jira)
+    - GanttProject (https://www.ganttproject.biz)
+    - Microsoft Project (https://www.microsoft.com/en-us/microsoft-365/planner/microsoft-project)

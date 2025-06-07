@@ -1,0 +1,40 @@
+course:
+  title: Probability Theory and Statistics
+  code: 76210
+  scientific_sector: MATH-03/B
+  degree: Bachelor in Computer Science
+  semester: 1st
+  year: 2nd
+  credits: 6
+  modular: false
+  total_lecturing_hours: 40
+  total_lab_hours: 20
+  attendance: Attendance is not compulsory, but strongly recommended. The lectures consist of presentations on the black board, interspersed by small exercises, and discussions with the students. The goal of the course is to enable students to solve problems that require reasoning about probabilities and statistics, which is a skill that can only be acquired by training. All the material used in the lectures and labs as well as the assignments will be published on the OLE pages of the course. Students should note that slides and hand-written lecture notes are supporting material, but their study is not sufficient to reach the goal of the course. Experience shows that some students are able to acquire the intended skills without attending all lectures or all labs, but attendance and success in studies are strongly correlated. Students who are unable to follow all lectures and labs are encouraged to attend at least some of them. They are also encouraged to work out all the exercises given during the lectures and the labs and to submit the coursework, for which they will receive feedback and marks.
+  prerequisites: The course requires knowledge of the convergence of sequences and series, exponential and logarithmic functions, derivatives and partial derivatives, and integration as covered in the Analysis course.
+  course_page: null
+  specific_educational_objectives: The course offers an overview of the theory of probability in connection to its use in computer science and the use of statistics in analysing and understanding empirical data.
+  lecturer:
+    name: Werner Nutt
+    email: werner.nutt@unibz.it
+    scientific_sector: INFO-01/A
+    office: BZ B1 5.33
+    office_hours: Fridays 14:00–15:30, by appointment via email
+  language: German
+  teaching_assistant: null
+  topics:
+    - "Basic concepts: probability spaces, conditional probability, Bayes' Theorem, independent events"
+    - "Random variables: distribution, density, expectation, variance, covariance, law of large numbers"
+    - "Special distributions: Bernoulli, Binomial, Poisson, Exponential, Normal, Chi-Square, t-Distribution"
+    - "Sampling: sums of random variables, central limit theorem, sample variance"
+    - "Parameter Estimation: maximum likelihood estimates, interval estimates, confidence intervals"
+    - "Hypothesis testing: significance levels, test statistics, p-values "
+  teaching_format: "The course includes frontal lectures, lab groups supported by teaching assistants (TAs), and coursework assignments that are corrected and commented on by the TAs. In the lectures, new concepts and techniques are introduced, both by way of presentation on the blackboard and by small exercises. In the assignments, students refine these in order to apply them to selected problems. In the lab groups, students discuss possible approaches to the tasks of the assignments with the TAs and compare different solutions. In addition, students also solve problems that are independent of the assignments to deepen the understanding of the material presented in the lectures."
+  assessment: "The assessment is based on coursework assignments (30%) and a written final exam (70%). To pass the course, the written exam has to be passed. The assignments consist of exercises to apply knowledge acquired in the lectures. The written final exam contains unseen questions about the material covered in the course. The aim of the written exam is to check to which degree students have mastered the following learning outcomes: 1) Knowledge and understanding, 2) applying knowledge and understanding, 3) making judgments. Students who do not submit all assignments will be assessed on the written exam and the submitted parts of the coursework. For students who submit all assignments, the final mark will be a weighted average of the exam mark (70%) and the assignment mark (30%). If students do not submit all assignments, the percentage for the assignments will be lower. Also, assignments for which the mark is lower than the mark of the written exam will not be considered."
+  assessment_language: German
+  evaluation_criteria: Correctness and clarity of the answers.
+  required_readings:
+    - "@Ross2004"
+  supplementary_readings:
+    - "@Blitzstein2019"
+  software:
+    - R (https://www.r-project.org)

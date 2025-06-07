@@ -1,0 +1,44 @@
+course:
+  title: Computer Networks
+  code: 76207
+  scientific_sector: IINF-05/A
+  degree: Bachelor in Computer Science
+  semester: 1st
+  year: 3rd
+  credits: 6
+  modular: false
+  total_lecturing_hours: 40
+  total_lab_hours: 20
+  attendance: Not compulsory, but recommended
+  prerequisites:
+    The course requires basic knowledge of data structures and algorithms,
+    as well as foundational Java programming skills.
+  course_page: null
+  specific_educational_objectives: "This course aims at providing a solid background in computer networks with special emphasis on the aspects of concurrency, coordination and agreement. Theory will be intertwined with discussions about how the notions introduced are exploited in practice, taking the Java framework as reference. This will allow to see in real contexts why distributed systems are important and how underlying issues can be addressed."
+  lecturer:
+    name: Florian Hofer
+    email: florian.hofer@unibz.it
+    scientific_sector: IINF-05/A
+    office: BZ B1 4.36
+    office_hours: Tuesdays 13:00–14:00, by appointment via email
+  language: Italian
+  teaching_assistant: null
+  topics:
+    - "Introduction to computer networks"
+    - "ISO OSI reference model"
+    - "Internet applications and application protocols (HTTP, SMTP, DNS)"
+    - "Network protocols: TCP/IP, Ethernet"
+    - "Sockets and RPCs"
+    - "Failure robustness, security"
+  teaching_format: The course includes frontal lectures and lab exercises.
+  assessment: "The assessment consists of an oral exam and lab reports, aimed at evaluating whether students have understood the fundamental concepts of computer networking, can reason about and solve networking problems, and are capable of applying the knowledge acquired during the course in practical contexts."
+  assessment_language: Italian
+  evaluation_criteria: "Marks are distributed as follows: 30% for the lab reports and 70% for the oral exam. Attending the lab is not mandatory but is recommended, as it can help improve the oral exam grade. The final grade is calculated as a weighted average of the lab reports (30%) and the oral exam (70%). However, the lab report marks are considered only if they are higher than the oral exam grade. The 30% weight for the lab reports applies only if three assignments are submitted; if fewer assignments are delivered, the weight is adjusted proportionally."
+  required_readings:
+    - "@Kurose2016"
+  supplementary_readings:
+    - "@Tanenbaum2010"
+    - "@Tanenbaum2016"
+  software:
+    - Wireshark (https://www.wireshark.org)
+    - Java (https://openjdk.org)

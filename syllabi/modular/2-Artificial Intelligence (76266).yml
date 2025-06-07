@@ -1,0 +1,34 @@
+course:
+  title: Artificial Intelligence
+  code: 76266
+  scientific_sector: INFO-01/A
+  degree: Bachelor in Computer Science
+  semester: 2nd
+  year: 2nd
+  credits: 12
+  modular: true
+  total_lecturing_hours: 60
+  total_lab_hours: 60
+  attendance: "Attendance is not compulsory; non-attending students may contact the lecturer at the start of the course to get support on the modalities of the independent study."
+  prerequisites: "For the entire module knowledge and skills in programming ar strongly recommended. For Foundations of Artificial Intelligence, discrete mathematics and linear algebra, for Machine Learning in Practice, probability theory and statistics are also strongly recommended."
+  course_page: null
+  specific_educational_objectives: |
+    Foundations of Artificial Intelligence introduces students to the design of intelligent computational agents and explores the emergence of Artificial Intelligence as an integrated science. The course centers on the concept of an intelligent agent operating within an environment, beginning with simple agents in static settings and progressively increasing in complexity to address more challenging scenarios. Throughout the course, students examine the multifaceted nature of building intelligent systems, gradually and modularly uncovering what makes this task complex. Key ideas are illustrated using concrete examples such as a delivery robot and a diagnostic assistant, blending scientific principles with engineering applications. The ultimate goal is for students to conceptualize a hierarchically designed agent capable of acting intelligently in a stochastic, partially observable environment—an agent that reasons about individuals and their relationships, has complex preferences, learns from its actions, considers the presence of other agents, and operates effectively within computational constraints.
+
+    Machine Learning in Practice focuses on fundamental Machine Learning techniques, combining theoretical instruction with practical application. The course covers basic supervised and unsupervised learning methods, with lectures devoted to conceptual understanding and labs aimed at hands-on implementation using real-world datasets. Students begin by learning to represent data and manage various feature types, then progress to building predictive models through supervised learning and discovering data groupings through unsupervised learning. Emphasis is placed on evaluating model quality and addressing challenges related to generalization. A significant portion of the course involves implementing algorithms using Python libraries such as Scikit-learn and SciPy, enabling students to tackle a variety of machine learning tasks across diverse application domains.
+  assessment: "Final exam: The exam covers content from both Foundations of Artificial Intelligence and Machine Learning in Practice, with each contributing 50% to the final grade. The Foundations of Artificial Intelligence part consists of a written exam that includes verification questions, knowledge transfer tasks, and problem-solving exercises. It evaluates the student’s ability to apply concepts and demonstrate a solid understanding of the fundamental principles of intelligent systems. The Machine Learning in Practice part includes a written exam, worth 40% of the module grade, with verification and problem-solving questions, and a set of assignments, worth 60%, which involve implementing machine learning algorithms on real datasets, conducting experiments, and presenting the results."
+  assessment_language: English (Foundations of Artificial Intelligence), Italian (Machine Learning in Practice)
+  evaluation_criteria: "The exam is evaluated based on the correctness and clarity of answers, the ability to summarize and critically evaluate content, the capacity to establish relationships between topics, the quality of argumentation, and problem-solving skills. To pass the exam, students must achieve a minimum score of 18 out of 30 in each module. Each module contributes equally to the final grade, with Foundations of Artificial Intelligence accounting for 50% and Machine Learning in Practice for the remaining 50%. A positive evaluation in one module remains valid for all three regular exam sessions within the academic year."
+  required_readings:
+  - "@Poole2023"
+  - "@Tan2018"
+  supplementary_readings:
+  - "@Russell2020"
+  - "@Geron2019"
+  software:
+  - Python (https://www.python.org)
+  - Scikit-learn (https://scikit-learn.org/stable/)
+  - SciPy (https://scipy.org)
+  include:
+    - ./syllabi/modular/modules/2-Foundations of Artificial Intelligence (76251A).yml
+    - ./syllabi/modular/modules/2-Machine Learning in Practice (76251B).yml

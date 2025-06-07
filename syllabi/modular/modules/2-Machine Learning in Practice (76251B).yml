@@ -1,0 +1,21 @@
+module2:
+  title: Machine Learning in Practice
+  code: 76261B
+  scientific_sector: IINF-05/A
+  credits: 6
+  lecturer:
+    name: Ivan Donadello
+    email: ivan.donadello@unibz.it
+    scientific_sector: INFO-01/A
+    office: BZ B1 5.34 
+    office_hours: Wednesdays 10:45–12:45, by appointment via email
+  language: Italian
+  teaching_assistant: null
+  topics:
+    - "Data understanding and preprocessing"
+    - "Classification: Decision Trees, Rule-based classification, KNN, Naïve Bayes, Support Vector Machines, Perceptron"
+    - "Ensemble learning, boosting, bagging (Random Forests)"
+    - "Evaluation of Machine Learning algorithms"
+    - "Regression analysis"
+    - "K-Means Clustering"
+  teaching_format: This is a project and lab-based module. It consists of frontal lectures, exercises in lab, case study analysis and the development of a project.

@@ -1,0 +1,50 @@
+course:
+  title: Introduction to Programming
+  code: 76271
+  scientific_sector: INFO-01/A
+  degree: Bachelor in Computer Science
+  semester: 1st
+  year: 1st
+  credits: 9
+  modular: false
+  total_lecturing_hours: 60
+  total_lab_hours: 30
+  attendance: Not mandatory, but highly recommended
+  prerequisites: The course requires knowledge of basic mathematics and set theory.
+  course_page: null
+  specific_educational_objectives: |
+    The objective of the course is to teach the fundamental principles of programming. We will focus especially on imperative programing as the basic way to learn: (1) the basics of programming and programming elements; (2) the basics of algorithmic thinking; and (3) The basics of writing code. As programming language, we will use a subset of the Java language, mainly restricted to its imperative part. The student will learn how programs can be constructed, and also structured in more files/objects in order to solve a problem. Students will learn how to solve computational problems with well-designed programs that implement effective solutions. The learning will be based on examples, from very simple ones to more complex. We will use the Java programming language and the integrated development environment (IDE), so the goal is to train the student capability to develop java applications in this environment. The final objective for the student is to acquire the ability to solve basic algorithmic problems in a Java-based application.
+  lecturer:
+    name: Chiara Ghidini
+    email: chiara.ghidini@unibz.it
+    scientific_sector: INFO-01/A
+    office: BZ B1 5.02
+    office_hours: Mondays 14:00–16:00, by appointment via email
+  language: English
+  teaching_assistant:
+    name: Tiziano Dalmonte
+    email: tiziano.dalmonte@unibz.it
+    office: BZ B1 5.29
+    office_hours: Mondays 14:00–16:00, by appointment via email
+  topics:
+    - "Data types and expressions"
+    - "Basic data structures and generics"
+    - "Functions and parameter passing"
+    - "Conditionals and loops"
+    - "Arrays and collections"
+    - "Classes and objects"
+    - "Basic Input/Output"
+    - "Exception handling"
+    - "Recursion"
+  teaching_format: The course includes frontal lectures with exercises, lab sessions, and individual programming projects.
+  assessment: The assessment consists of a programming project and a final written exam. The project is designed to evaluate learning outcomes related to the application of acquired knowledge, critical thinking, communication, and learning skills. Specifically, students are expected to design a computer application capable of effectively solving a given problem. A positive evaluation of the project is required in order to access the written exam. The project assignments include transfer-of-knowledge questions and programming exercises. The written exam assesses knowledge and understanding, the ability to apply that knowledge, and the student’s learning skills. It includes verification questions, transfer-of-knowledge questions, and practical exercises.
+  assessment_language: English
+  evaluation_criteria: The project accounts for 40% of the final grade (12 points), while the written exam represents 60% (18 points). If the project receives a positive evaluation, the result remains valid for all three regular exam sessions within the academic year. The project will be assessed based on the quality of the solution, including ease of use, the relevance and effectiveness of the implemented functions, and the quality of the code, in line with the principles discussed during the lectures. Written exam answers will be evaluated based on their correctness and clarity.
+  required_readings:
+    - "@Lewis2018"
+    - "@Sierra2022"
+    - "@Horstmann2020"
+  supplementary_readings:
+    - "The Java Tutorials at https://docs.oracle.com/javase/tutorial/"
+  software:
+    - IntelliJ IDEA (https://www.jetbrains.com/idea/)

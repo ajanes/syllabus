@@ -1,0 +1,51 @@
+course:
+  title: Web and Internet Engineering with Project
+  code: 76216
+  scientific_sector: INFO-01/A
+  degree: Bachelor Computer Science (L-31)
+  semester: 2nd
+  year: 1st
+  credits: 6
+  modular: false
+  total_lecturing_hours: 30
+  total_lab_hours: 20
+  attendance: Not compulsory, but recommended
+  prerequisites: The course requires knowledge of at least one programming language.
+  course_page: null
+  specific_educational_objectives: The course deals with the design and development of web-based applications providing practical knowledge and skills required for designing and building them. The principles for the design and development of the client-side and server-side parts of an application will be illustrated.
+  lecturer:
+    name: Markus Zanker
+    email: markus.zanker@unibz.it
+    scientific_sector: INFO-01/A
+    office: BZ B1 3.23
+    office_hours: as announced on the course web page, by appointment via email
+  language: German
+  teaching_assistant: 
+    name: Hannes Tribus
+    email: hannes.tribus@unibz.it
+    office: BZ B1.6.20
+    office_hours: Mondays 14:00–16:00, by appointment via email
+  topics:
+    - "Development of web applications: basics of usability, accessibility and responsive design"
+    - "Web protocols and markup languages"
+    - "Client-side dynamicity and web scripting languages"
+    - "Client-side GUI frameworks"
+    - "Web application design and web services"
+    - "Languages and frameworks for server-side web development"
+  teaching_format: The course includes lectures, small exercises and regular assignments, and team-based work.
+  assessment: The assignments aim at ensuring a continuous interaction with the course content and will be assessed according to correctness and completeness. The project activity aims at assessing how students approach the development of a web-based application and how they interact with each other in order to achieve a common goal. The written exam assesses the acquisition and the understanding of the theoretical knowledge presented during lectures.
+  assessment_language: German
+  evaluation_criteria: The final grade is composed of a written exam (50%), assignments (25%), and a project (25%). The project and assignments are valid for all three regular exam sessions within the same academic year. Assignments must be submitted during the semester, while the project can be presented either before the written exam in the first exam session or during one of the following two regular exam sessions. Further details will be provided during the lectures and on the course web page.
+  required_readings:
+    - Lecture materials are available on the course web page.
+  supplementary_readings:
+    - Links to primarily online resources will be provided on the course web page.
+  software:
+    - HTML5 (https://www.w3schools.com/html/)
+    - CSS (https://www.w3schools.com/css/)
+    - JavaScript (https://www.w3schools.com/js/)
+    - PHP (https://www.php.net)
+    - Python (https://www.python.org)
+    - Apache HTTP Server (https://httpd.apache.org)
+    - Apache Tomcat (https://tomcat.apache.org)
+    - nginx (https://nginx.org)

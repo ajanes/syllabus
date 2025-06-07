@@ -1,0 +1,41 @@
+course:
+  title: Interactive Interface Design and Development
+  code: 76260
+  scientific_sector: INFO-01/A
+  degree: Bachelor in Computer Science
+  semester: 2nd
+  year: 3st
+  credits: 6
+  modular: false
+  total_lecturing_hours: 40
+  total_lab_hours: 20
+  attendance: "Attendance is not compulsory but recommended. Non-attending students have to contact the lecturer at the start of the course to agree on the modalities of the independent study."
+  prerequisites: "The necessary prerequisite for this course is Web and Internet Engineering, as it provides the essential knowledge of HTML and CSS required to follow the course. It is also recommended that students have attended the HCI for Business course from the Business Informatics program, as it covers context-of-use analysis, conceptual modeling, and low to middle fidelity prototyping, which are relevant for this course."
+  course_page: null
+  specific_educational_objectives: |
+    This course teaches students how to design and develop the interaction of a web application by placing users and their requirements at the center of the design and development process. It begins with a brief overview of user requirements and how to specify them, for example through the use of scenarios. The course then introduces fundamental web design principles and patterns, including aspects such as navigation, color, and visual hierarchy. Students learn how to prototype a web application interface by taking into account user requirements, design principles, and established patterns. Design techniques covered include wireframing and the creation of sitemaps. Finally, the course guides students in developing the interface of a web application using web programming languages.
+  lecturer:
+    name: Rosella Gennari
+    email: rosella.gennari@unibz.it
+    scientific_sector: INFO-01/A
+    office: BZ B1 3.21
+    office_hours: Mondays 14:00–16:00, by appointment via email
+  language: Italian
+  teaching_assistant: null
+  topics:
+    - "Fundamentals of interaction design"
+    - "Fundamental of interaction design principles for web apps"
+    - "Fundamental of interaction design patterns for web apps"
+    - "Interaction design prototyping techniques for web apps"
+    - "Interaction design prototyping tools for web apps"
+    - "Fundamentals of web programming, client-side, for web apps"
+  teaching_format: "This course will be delivered through a combination of formal lectures and project-work."
+  assessment: "The assessment is based on the evaluation of (1)	either a mashup project carried out in team during the course, plus an individual oral discussion at the end of the course, (2)	or a written test at the end of the course."
+  assessment_language: Italian
+  evaluation_criteria: "The final grade will be based either on a written exam (100%) or on a mashup project carried out in a team during the course (50%) combined with an individual oral discussion at the end of the course (50%). All grades reflect both the correctness and the clarity of the answers. Attending and non-attending students are evaluated in the same way."
+  required_readings:
+    - Published on the course web page.
+  supplementary_readings:
+    - Published on the course web page.
+  software:
+    - Published on the course web page.

@@ -1,0 +1,62 @@
+course:
+  title: German for Computer Scientists
+  code: 76249
+  scientific_sector: GERM-01/C
+  degree: Bachelor in Computer Science
+  semester: 1st
+  year: 2nd
+  credits: 6
+  modular: false
+  total_lecturing_hours: 60
+  total_lab_hours: 0
+  attendance: "Non compulsory. Non-attending students have to contact the lecturer at the start of the course to agree on the modalities of the independent study."
+  prerequisites: null
+  course_page: null
+  specific_educational_objectives: |
+    The course will focus on the appropriate use of the German language in different contexts, with particular attention to formal and academic settings. It aims to improve students’ German language skills from B1 to B2 level. The course will expand and support students’ knowledge of German to enable them to interact confidently in everyday situations, academic environments, and the workplace. This includes both formal and informal oral and written communication across educational, scientific, and professional domains.
+
+    Students will develop competence in reading and writing texts, and will view linguistic ability as both a cultural and intercultural skill. They will also be introduced to German technical language specific to ICTs and related fields.
+
+    The course has several specific educational objectives. It aims to enhance writing skills through the practice of coherent academic discourse and the production of subject-specific texts. It also seeks to improve speaking skills by fostering spoken interaction and production through the preparation and delivery of academically and professionally relevant presentations and other field-specific speaking activities. Furthermore, the course will strengthen receptive skills by exposing students to and analyzing various written and spoken texts typical of Computer Science. This will help develop their grammatical and lexical range and accuracy, allowing for fluent and spontaneous communication.
+  lecturer: 
+    name: Daniel Gallo
+    email: daniel.gallo@unibz.it
+    scientific_sector: GERM-01/C
+    office: BZ B1.6.20
+    office_hours: Mondays 14:00–16:00, by appointment via email
+  language: German
+  teaching_assistant: null
+  topics:
+    - "Listening skills: comprehension of talks, documentary, reportings, descriptions in different contexts, on different media, about ICT topics"
+    - "Writing skills: practice of coherent academic discourse to produce subject-specific texts (for example application letter, report, product review, compliant mail, instructions, essay, abstract, summary, seminar work etc.) about ICT topics;"
+    - "Spoken skills: improvement of spoken interaction and production through the practice and production of academically and professionally acceptable presentations and other domain-specific speaking activities about ICT topics;"
+    - "Development of receptive skills (reading and listening, both global and detailed) through the exposure to and analysis of various types of authentic written and spoken discourse typical in Computer Science and development of grammatical and lexical range and accuracy so that communication is fluent and spontaneous;"
+    - "Language mediation (mediating communication, text and concepts) from English to German and viceversa about area of expertise (ICT);"
+    - "Vocabulary acquisition and word-building techniques; lexicogrammar."
+  teaching_format: |
+    The teaching format is based on the seminar format which envisages teacher and student cooperation and participation in the classroom through individual, pair and group work (Individual and group exercises, facing solution of linguistic problems, activating personal and group skills); full-immersion interactive dialog-based lectures, discussions, referring to technical subjects and everyday life. 
+    
+    Multimedia material will be usually used as impulse, documentation, medium for interaction with peers and as an instrument of analysis and reflection about the topics and the media themselves.
+    
+    Great importance will be given also to self-improving skills. Homework (individual writing exercises) will be requested and these jobs will form students’ own "portfolio" and a part of the topics in the oral exam.
+    
+    Professionals will get their experiences in the fields of using German technical language combined with ICT.
+  assessment: |
+    The final examination consists of three components: a written exam accounting for 50% of the final grade, an oral examination worth 40%, and a portfolio contributing 10%. The written exam is designed to assess the student’s ability to apply their knowledge, while the oral exam includes verification questions.
+
+    Students must pass both the written exam and the portfolio in order to be eligible for the oral examination. The portfolio must be evaluated  before the final exam takes place; otherwise, the exam cannot be officially recorded.
+  assessment_language: German
+  evaluation_criteria: |
+    The final grade for the course is based on a written exam worth 50%, an oral exam worth 40%, and a portfolio worth 10%. Further details about the exam components will be provided during the course and made available online through the Reserve Collection and the unibz OLE learning platform.
+
+    The written exam includes grammar and vocabulary exercises within a specialized context related to ICT, listening and reading tasks that assess both global and detailed comprehension, language mediation tasks involving communication, text, and concept mediation, and a writing production task of approximately 200 words based on subject-specific input. A monolingual dictionary is allowed during the written exam. The exam is designed to assess competence in reading, writing, mediation, vocabulary, and grammar.
+
+    The portfolio consists of ten writing tasks of around 250 words each, based on subject-specific and authentic input related to ICT. These tasks are completed individually outside of class. The portfolio reflects the student’s ability to engage with key course topics, demonstrate mastery of technical language, and contribute thoughtful reflection and analysis.
+
+    The oral exam is structured into four parts: a formal self-presentation, a presentation of a project or topic related to ICT, a set of questions based on one of the course topics (introduced by an image), and a brief discussion of the portfolio contents. Evaluation focuses on the mastery of technical and academic language, clarity and coherence of responses, the ability to summarize in one’s own words, critical thinking skills, and the capacity to make connections between different topics.
+  required_readings:
+    - "Authentic texts/media with topics (computer science) from magazines and newspapers (articles, reports). The texts/media for this course can be found in the course page for this course and class materials will be distributed."
+  supplementary_readings:
+    - "@Murdsheva2011"
+    - "Reference will be made to further titles during the course and will be communicated in due course."
+  software: null

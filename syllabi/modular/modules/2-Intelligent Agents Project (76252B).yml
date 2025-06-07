@@ -1,0 +1,24 @@
+module2:
+  title: Intelligent Agents Project
+  code: 76252B
+  scientific_sector: IINF-05/A
+  credits: 6
+  lecturer:
+    name: Sarah Winkler
+    email: winkler@inf.unibz.it
+    scientific_sector: INFO-01/A
+    office: BZ B1 5.34
+    office_hours: Mondays 14:00–16:00, by appointment via email
+  language: English
+  teaching_assistant: null
+  topics:
+    - "AI paradigms: symbolic approaches vs. learning-based approaches"
+    - "Overview of main AI techniques: exact and approximate methods, handling imperfect information, use and model of domain knowledge"
+    - "Tools and programming techniques for the development of AI systems"
+    - "Symbolic approaches: planning and search, constraint solving, description logic and ontologies, multi-agent models"
+    - "Learning-based approaches: supervised vs. unsupervised and reinforcement learning, neural networks"
+    - "Hands-on programming projects covering the above topics"
+  teaching_format: Frontal lectures, interactive labs sessions, and project assignments (partially carried out during lab sessions).
+
+
+

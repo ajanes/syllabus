@@ -1,0 +1,39 @@
+course:
+  title: Discrete Mathematics
+  code: 76239
+  scientific_sector: MATH-01/A
+  degree: Bachelor in Computer Science
+  semester: 1st
+  year: 1st
+  credits: 6
+  modular: false
+  total_lecturing_hours: 40
+  total_lab_hours: 20
+  attendance: Attendance is not compulsory but recommended. Non-attending students have to contact the lecturer at the start of the course to agree on the modalities of the independent study.
+  prerequisites: null
+  course_page: null
+  specific_educational_objectives: The aim of this course is to introduce students to basic topics in discrete mathematics. An overview of proof methods and their relation to logic will be given. The induction principle is introduced in a number of variants, and methods to analyse and describe the main properties of relations, functions, graphs and trees will be studied. We will also introduce the basic principles governing the mathematical definitions of infinite sets and of countability.
+  lecturer:
+    name: Oliver Kutz
+    email: oliver.kutz@unibz.it
+    scientific_sector: INFO-01/A
+    office: BZ B1 5.36
+    office_hours: Wednesdays 14:30–16:30, by appointment via email
+  language: English
+  teaching_assistant: null
+  topics:
+    - Elements of logic, propositions and quantifiers, methods of mathematical proof
+    - Numbers and basic number theory
+    - Set Theory, Russell Paradox and Halting Problem
+    - Functions, infinite cardinalities and countability
+    - Relations, orders, equivalence classes
+    - Graphs and trees
+  teaching_format: The course includes frontal lectures and lab exercises.
+  assessment: The written exam includes verification questions, knowledge transfer tasks, and exercises.
+  assessment_language: English
+  evaluation_criteria: Final written exam counting 100% for the evaluation and covering the full program of the course. Written exam questions will be evaluated in terms of correctness, clarity, quality of argumentation, and problem solving ability.
+  required_readings:
+    - "@Epp2019"
+  supplementary_readings:
+    - "@Rosen2012"
+  software: null

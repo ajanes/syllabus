@@ -1,0 +1,35 @@
+course:
+  title: Scientific Writing and Communication
+  code: 76246
+  scientific_sector: PHIL-02/A
+  degree: Bachelor in Computer Science
+  semester: 1st
+  year: 3rd
+  credits: 3
+  modular: false
+  total_lecturing_hours: 30
+  total_lab_hours: 0
+  attendance: Attendance is not compulsory but strongly recommended. Non-attending students have to contact the lecturer at the start of the course to agree on the modalities of the independent study.
+  prerequisites: null
+  course_page: null
+  specific_educational_objectives: "Computer scientists learn to master a unique language that allow them to program machines. Such effective communication is a core skill in any domain, but it assumes particular importance for computer scientists, who need to communicate complex problems and concepts. Many different situations (thesis, job interview, fundraising, public presentation, scientific conference, technical pitch etc.) require the presenter to be able to convey effectively and efficiently the technical/scientific content, whatever the audience, the content and its complexity. The first part of the course is designed to familiarize students with academic research and writing academic texts. It explains the fundamental techniques of writing essays, posters, abstracts, journal articles, and theses. The second part offers guidelines for a large range of outreach communication from technical manual to social media."
+  lecturer:
+    name: Antonella De Angeli
+    email: antonella.deangeli@unibz.it
+    scientific_sector: INFO-01/A
+    office: BZ B1 3.24
+    office_hours: Mondays 14:00–16:00, by appointment via email
+  language: English
+  teaching_assistant: null
+  topics:
+    - "Planning communication: audiences, media and presenters"
+    - "In-reach communication: structure of thesis, journal paper, posters, presentation"
+    - "Out-reach communication: technical manuals, writing"
+  teaching_format: "The course includes lectures, exercises, workshops, and discussion sessions."
+  assessment: "The preparation of a communication portfolio includes the following components: a scientific extended abstract, a 10-minute presentation (with a video if not presented in class during the lectures), a curriculum vitae, a letter of presentation, and a press release intended for the general public."
+  assessment_language: English
+  evaluation_criteria: "Assignments are designed to assess the following learning outcomes: applying knowledge and understanding, making judgments, communication skills, and learning skills. The marking scheme for all in-reach and outreach artifacts is based on their adherence to the principles of scientific and technical writing as presented in the course, with a passing grade set at 60 points. The assessment focuses on the quality and structure (40 points), the language used (30 points), and correct formatting based on the given constraints (30 points). The final oral exam will be graded based on content (50%) and communication ability (50%)."
+  required_readings:
+    - Will be given by the lecturer.
+  supplementary_readings: null
+  software: null

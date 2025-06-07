@@ -1,0 +1,34 @@
+course:
+  title: Operating Systems
+  code: 76270
+  scientific_sector: INFO-01/A
+  degree: Bachelor in Computer Science
+  semester: 2nd
+  year: 1nd
+  credits: 9
+  modular: true
+  total_lecturing_hours: 50
+  total_lab_hours: 40
+  attendance: "Attendance is not compulsory; non-attending students may contact the lecturer at the start of the course to get support on the modalities of the independent study."
+  prerequisites: "For the entire module knowledge and skills in programming ar strongly recommended. For Foundations of Artificial Intelligence, discrete mathematics and linear algebra, for Machine Learning in Practice, probability theory and statistics are also strongly recommended."
+  course_page: null
+  specific_educational_objectives: "The goal of this module is to provide students with a solid understanding of operating systems and their core components and functionalities, the fundamentals of programming in C, scheduling algorithms, process management and synchronization, as well as memory management techniques."
+  assessment: "Assessment includes programming assignments and projects aimed at implementing operating system functionalities or simulating system behavior, as well as a written exam designed to evaluate the understanding of fundamental concepts and in-depth knowledge of operating systems. The exam features open-ended questions that cover both theoretical topics and practical lab exercises. Non-attending students are expected to contact the lecturer at the beginning of the course to arrange an appropriate plan for independent study."
+  assessment_language: Italian
+  evaluation_criteria: "The final grade will be composed of the grade obtained at the written exam (70%) and, of the grade obtained for the labs/projects work (30 %). A passing grade to all projects is necessary to access the exam. Project grades records last for the academic year. All grades reflect the correctness and 2/3 clarity of answers. Attending and non-attending students are evaluated the same way."
+  required_readings:
+    - "@Silberschatz2019"
+    - C tutorial at https://www.w3schools.com/c/
+  supplementary_readings:
+    - "@Burattini2016"
+    - "@Tanenbaum2014"
+  software:
+    - Ubuntu (https://ubuntu.com)
+    - C (https://gcc.gnu.org)
+    - Oracle VirtualBox (https://www.virtualbox.org)
+    - Visual Studio Code (https://code.visualstudio.com)
+    - Code Runner (https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner)
+    - clang-format (https://docs.kernel.org/dev-tools/clang-format.html)
+  include:
+    - ./syllabi/modular/modules/1-Operating Systems and Networking (76270A).yml
+    - ./syllabi/modular/modules/1-Programming in C (76270B).yml

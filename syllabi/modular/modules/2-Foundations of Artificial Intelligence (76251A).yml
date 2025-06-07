@@ -1,0 +1,21 @@
+module1:
+  title: Foundations of Artificial Intelligence
+  code: 76251A
+  scientific_sector: INFO-01/A
+  credits: 6
+  lecturer:
+    name: Enrico Franconi
+    email: franconi@inf.unibz.it
+    scientific_sector: INFO-01/A
+    office: BZ B1 5.42
+    office_hours: Mondays 14:00–16:00, by appointment via email
+  language: English
+  teaching_assistant: null
+  topics:
+    - "Artificial Intelligence and Agents"
+    - "Searching for Solutions"
+    - "Reasoning with Constraints"
+    - "Propositions and inference"
+    - "Planning with Certainty"
+    - "Multiagent Systems and Games"
+  teaching_format: Frontal lectures, exercises in lab, assignments, case study analysis.

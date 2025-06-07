@@ -1,0 +1,21 @@
+module1:
+  title: Software Systems Architecture
+  code: 76265A
+  scientific_sector: IINF-05/A
+  credits: 6
+  lecturer:
+    name: Eduardo Martins Guerra
+    email: eduardo.martinsguerra@unibz.it
+    scientific_sector: INFO-01/A
+    office: BZ B1 4.34
+    office_hours: Thursdays 14:00–16:00, by appointment via email
+  language: English
+  teaching_assistant: null
+  topics:
+    - "Software and systems architecture principles"
+    - "Software architecture design process"
+    - "Architectural components and frameworks"
+    - "Approaches for architectural partitioning"
+    - "Architectural patterns and styles"
+    - "Integrating AI Components into Architectural Designs"
+  teaching_format: The course includes frontal lectures and lab exercises.

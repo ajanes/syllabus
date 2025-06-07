@@ -1,0 +1,21 @@
+module2:
+  title: Programming in C
+  code: 76270B
+  scientific_sector: INFO-01/A
+  credits: 3
+  lecturer:
+    name: Nicola Gigante
+    email: nicola.gigante@unibz.it
+    scientific_sector: INFO-01/A
+    office: BZ B1 5.35
+    office_hours: Mondays 14:00–16:00, by appointment via email
+  language: Italian
+  teaching_assistant: null
+  topics:
+    - "Data types, variables, operators, control structures (loops, conditionals), functions, and pointers "
+    - "Dynamic memory allocation, arrays, structures, linked lists, stacks, and queues"
+    - "File handling, bitwise operations, multi-file programs, debugging, and optimization"
+  teaching_format: The course includes frontal lectures and lab sessions.
+
+
+

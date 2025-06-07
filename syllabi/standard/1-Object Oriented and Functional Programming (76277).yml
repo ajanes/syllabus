@@ -1,0 +1,51 @@
+course:
+  title: Object Oriented and Functional Programming
+  code: 76277
+  scientific_sector: INFO-01/A
+  degree: Bachelor in Computer Science
+  semester: 2nd
+  year: 1st
+  credits: 6
+  modular: false
+  total_lecturing_hours: 40
+  total_lab_hours: 20
+  attendance: |
+    Attendance to lectures and labs is optional. However, non-attending students should contact the lecturer at the start of the course to discuss the modality of their independent study. The evaluation process is slightly different for attending and non-attending students. It is described in the fields "Assessment" and "Evaluation criteria and criteria for awarding marks" below.
+  prerequisites: |
+    The course requires knowledge of the basics of imperative and object-oriented programming, particularly in Java as taught in the "Introduction to Programming" course.
+  course_page: null
+  specific_educational_objectives: |
+    The course is designed to help students develop generic, object-oriented and functional programming skills. After completing the course, students should be able to implement algorithms to solve simple programming problems and select appropriate data structures, write readable, concise, modular, and documented code.
+  lecturer:
+    name: Julien Corman
+    email: julienlouismichel.corman@unibz.it
+    scientific_sector: INFO-01/A
+    office: BZ B1 5.31
+    office_hours: Mondays 16:00–18:00, by appointment via email
+  language: English
+  teaching_assistant: null
+  topics:
+    - "Object-oriented design: objects, classes, interfaces, inheritance and polymorphism"
+    - "Abstract data types (set, list, associative array, queue, ...) and related data structures (linked list, hash table, ...),"
+    - "Composite types, type inference, generics"
+    - "Basic input/output, serialization, streams, error handling, custom exceptions, debugging"
+    - "Introduction to functional programming: function composition, recursion, currying, closures, function types"
+    - "Functional principles applied to object-oriented programming: immutability, pure functions, lambda abstractions"
+  teaching_format: The course includes frontal lectures and lab exercises.
+  assessment: The assessment is based on assignments, which focus on topics taught during lectures and are designed to motivate students to study throughout the semester while consolidating the theoretical concepts covered in class. The assignments are individual. Additionally, a written evaluates whether students have acquired the expected notions and skills.
+  assessment_language: English
+  evaluation_criteria: |
+    Final marks will be calculated as follows: up to 60 points will be awarded for assignments, and up to 40 points for the written exam.
+    Students who attend the course and labs will benefit from an easier grading scheme, but may be asked in return to explain the code that they submitted for some assignments (during the labs).
+  required_readings:
+    - Lecture material on the course's website
+    - "@Sierra2022"
+    - "@Schildt2018"
+  supplementary_readings:
+    - "@Bloch2017"
+  software:
+    - IntelliJ IDEA (https://www.jetbrains.com/idea/)
+    - Visual Studio Code (https://code.visualstudio.com)
+    - JDK 21 (https://openjdk.org/projects/jdk/17/)
+    - Maven (https://maven.apache.org)
+    - As operating system, Linux or MacOS are recommended
