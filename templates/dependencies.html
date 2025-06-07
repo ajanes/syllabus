@@ -42,7 +42,7 @@
             </p>
             <form class="max-w-[480px] px-4 pb-3">
               <label class="flex flex-col min-w-40 flex-1">
-                <select class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#dbdbdb] bg-neutral-50 focus:border-[#dbdbdb] h-14 bg-[image:--select-button-svg] placeholder:text-neutral-500 p-[15px] text-base font-normal leading-normal">
+                <select id="targetCourse" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#dbdbdb] bg-neutral-50 focus:border-[#dbdbdb] h-14 bg-[image:--select-button-svg] placeholder:text-neutral-500 p-[15px] text-base font-normal leading-normal">
                   <option value="">Select a Course</option>
                   {% for course in all_courses %}
                   <option value="{{ course.id }}">{{ course.name }}</option>
@@ -55,5 +55,7 @@
         </div>
       </div>
     </div>
+    <script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
+    <script src="{{ url_for('static', filename='dependencies.js') }}"></script>
   </body>
 </html>

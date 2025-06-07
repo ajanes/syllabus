@@ -2,48 +2,31 @@
   <p class="text-[#141414] text-base font-normal leading-normal pb-3 pt-1 px-4">
     Please search for the course that covers topics required as prerequisites for the selected course above.
   </p>
-  <form method="get" class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+  <form class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
     <label class="flex flex-col min-w-40 flex-1">
-      <select name="year" onchange="this.form.submit()" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#dbdbdb] bg-neutral-50 focus:border-[#dbdbdb] h-14 bg-[image:--select-button-svg] placeholder:text-neutral-500 p-[15px] text-base font-normal leading-normal">
+      <select id="yearSelect" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#dbdbdb] bg-neutral-50 focus:border-[#dbdbdb] h-14 bg-[image:--select-button-svg] placeholder:text-neutral-500 p-[15px] text-base font-normal leading-normal">
         <option value="">Select Year</option>
         {% for year in years %}
-        <option value="{{ year }}" {% if selected_year == year %}selected{% endif %}>{{ year }}</option>
+        <option value="{{ year }}">{{ year }}</option>
         {% endfor %}
       </select>
     </label>
     <label class="flex flex-col min-w-40 flex-1">
-      <select name="semester" onchange="this.form.submit()" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#dbdbdb] bg-neutral-50 focus:border-[#dbdbdb] h-14 bg-[image:--select-button-svg] placeholder:text-neutral-500 p-[15px] text-base font-normal leading-normal">
+      <select id="semesterSelect" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#dbdbdb] bg-neutral-50 focus:border-[#dbdbdb] h-14 bg-[image:--select-button-svg] placeholder:text-neutral-500 p-[15px] text-base font-normal leading-normal">
         <option value="">Select Semester</option>
-        <option value="1st" {% if selected_semester == '1st' %}selected{% endif %}>1st</option>
-        <option value="2nd" {% if selected_semester == '2nd' %}selected{% endif %}>2nd</option>
+        <option value="1st">1st</option>
+        <option value="2nd">2nd</option>
       </select>
     </label>
     <label class="flex flex-col min-w-40 flex-1">
-      <select name="course" onchange="this.form.submit()" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#dbdbdb] bg-neutral-50 focus:border-[#dbdbdb] h-14 bg-[image:--select-button-svg] placeholder:text-neutral-500 p-[15px] text-base font-normal leading-normal">
+      <select id="courseSelect" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#dbdbdb] bg-neutral-50 focus:border-[#dbdbdb] h-14 bg-[image:--select-button-svg] placeholder:text-neutral-500 p-[15px] text-base font-normal leading-normal">
         <option value="">Select a Course</option>
         {% for course in courses %}
-        <option value="{{ course.id }}" {% if selected_course == course.id %}selected{% endif %}>{{ course.name }}</option>
+        <option value="{{ course.id }}">{{ course.name }}</option>
         {% endfor %}
       </select>
     </label>
   </form>
-  {% if topics %}
-  <h2 class="text-[#141414] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Available Topics</h2>
-  <div class="flex flex-col gap-2" id="topicsContainer">
-    {% for topic in topics %}
-    <div class="flex gap-4 bg-neutral-50 px-4 py-3 justify-between">
-      <div class="flex items-start gap-4">
-        <div class="flex size-7 items-center justify-center">
-          <input type="checkbox" class="h-5 w-5 rounded border-[#dbdbdb] border-2 bg-transparent text-black checked:bg-black checked:border-black checked:bg-[image:--checkbox-tick-svg] focus:ring-0 focus:ring-offset-0 focus:border-[#dbdbdb] focus:outline-none" />
-        </div>
-        <div class="flex flex-1 flex-col justify-center">
-          <p class="text-[#141414] text-base font-medium leading-normal">{{ topic }}</p>
-          <input placeholder="Subtopic" class="form-input mt-1 flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#dbdbdb] bg-neutral-50 focus:border-[#dbdbdb] h-10 placeholder:text-neutral-500 p-[10px] text-sm font-normal leading-normal" />
-          <input placeholder="Add notes here" class="form-input mt-1 flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#dbdbdb] bg-neutral-50 focus:border-[#dbdbdb] h-10 placeholder:text-neutral-500 p-[10px] text-sm font-normal leading-normal" />
-        </div>
-      </div>
-    </div>
-    {% endfor %}
-  </div>
-  {% endif %}
+  <h2 id="topicsHeader" class="text-[#141414] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5" style="display: none;">Available Topics</h2>
+  <div class="flex flex-col gap-2" id="topicsContainer"></div>
 </div>
