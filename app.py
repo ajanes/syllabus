@@ -19,6 +19,7 @@ def dependencies():
     base_dir = os.path.dirname(__file__)
 
     entries = []
+    years = set()
 
     # Collect standard courses and their topics
     std_dir = os.path.join(base_dir, "syllabi", "standard")
@@ -38,7 +39,10 @@ def dependencies():
                 entries.append({
                     "name": f"{title} ({year} year, {semester} semester)",
                     "topics": topics,
+                    "year": year,
+                    "semester": semester,
                 })
+                years.add(year)
         except Exception:
             continue
 
@@ -71,7 +75,10 @@ def dependencies():
                     entries.append({
                         "name": f"{title} ({year} year, {semester} semester)",
                         "topics": topics,
+                        "year": year,
+                        "semester": semester,
                     })
+                    years.add(year)
         except Exception:
             continue
 
@@ -81,10 +88,22 @@ def dependencies():
     courses = []
     course_topics = {}
     for idx, entry in enumerate(entries, 1):
-        courses.append({"id": str(idx), "name": entry["name"]})
+        courses.append({
+            "id": str(idx),
+            "name": entry["name"],
+            "year": entry["year"],
+            "semester": entry["semester"],
+        })
         course_topics[str(idx)] = entry["topics"]
 
-    return render_template("dependencies.html", courses=courses, course_topics=course_topics)
+    years = sorted(years)
+
+    return render_template(
+        "dependencies.html",
+        courses=courses,
+        course_topics=course_topics,
+        years=years,
+    )
 
 if __name__ == "__main__":
     app.run(debug=True)
