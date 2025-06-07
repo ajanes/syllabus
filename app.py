@@ -11,6 +11,7 @@ socketio = SocketIO(app)
 COURSES = []
 COURSE_TOPICS = {}
 COURSE_PATHS = {}
+COURSE_NAMES = {}
 YEARS = []
 
 def load_courses():
@@ -85,6 +86,7 @@ def load_courses():
     courses = []
     course_topics = {}
     course_paths = {}
+    course_names = {}
     for idx, entry in enumerate(entries, 1):
         cid = str(idx)
         courses.append({
@@ -95,10 +97,12 @@ def load_courses():
         })
         course_topics[cid] = entry["topics"]
         course_paths[cid] = entry["path"]
+        course_names[cid] = entry["name"]
 
     COURSES = courses
     COURSE_TOPICS = course_topics
     COURSE_PATHS = course_paths
+    COURSE_NAMES = course_names
     YEARS = sorted(years)
 
 load_courses()
@@ -149,23 +153,42 @@ def handle_filter(data):
 @socketio.on("add_dependency")
 def handle_add_dependency(data):
     target_id = data.get("target_id")
-    topic = data.get("topic")
+    source_id = data.get("source_id")
+    base_topic = data.get("topic")
+    optional_topic = data.get("optional_topic", "")
+    description = data.get("note", "")
+
     path = COURSE_PATHS.get(target_id)
-    if not path or not topic:
+    if not path or not base_topic or not source_id:
         return
+
     try:
         with open(path, "r") as f:
             yaml_data = yaml.safe_load(f) or {}
     except Exception:
         yaml_data = {}
-    course = yaml_data.get("course", {})
-    deps = course.get("depends-on", [])
-    if topic not in deps:
-        deps.append(topic)
-        course["depends-on"] = deps
-        yaml_data["course"] = course
+
+    root_key = next((k for k in ("course", "module1", "module2") if k in yaml_data), "course")
+    root = yaml_data.get(root_key, {})
+
+    deps = root.get("depends-on", [])
+    if not isinstance(deps, list):
+        deps = []
+
+    entry = {
+        "course": COURSE_NAMES.get(source_id, ""),
+        "topic": optional_topic or base_topic,
+    }
+    if description:
+        entry["description"] = description
+
+    if entry not in deps:
+        deps.append(entry)
+        root["depends-on"] = deps
+        yaml_data[root_key] = root
         with open(path, "w") as f:
             yaml.safe_dump(yaml_data, f, sort_keys=False)
+
     emit("saved", {"ok": True})
 
 if __name__ == "__main__":

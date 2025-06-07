@@ -43,15 +43,20 @@ function renderTopics(topics) {
         </div>
         <div class="flex flex-1 flex-col justify-center">
           <p class="text-[#141414] text-base font-medium leading-normal">${t}</p>
-          <input placeholder="Subtopic" class="form-input mt-1 flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#dbdbdb] bg-neutral-50 focus:border-[#dbdbdb] h-10 placeholder:text-neutral-500 p-[10px] text-sm font-normal leading-normal" />
-          <input placeholder="Add notes here" class="form-input mt-1 flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#dbdbdb] bg-neutral-50 focus:border-[#dbdbdb] h-10 placeholder:text-neutral-500 p-[10px] text-sm font-normal leading-normal" />
+          <input placeholder="Subtopic" class="form-input mt-1 w-[300px] resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#dbdbdb] bg-neutral-50 focus:border-[#dbdbdb] h-10 placeholder:text-neutral-500 p-[10px] text-sm font-normal leading-normal" />
+          <input placeholder="Add notes here" class="form-input mt-1 w-[300px] resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#dbdbdb] bg-neutral-50 focus:border-[#dbdbdb] h-10 placeholder:text-neutral-500 p-[10px] text-sm font-normal leading-normal" />
         </div>
       </div>`;
     wrapper.querySelector('input[type="checkbox"]').addEventListener('change', (e) => {
       if (e.target.checked) {
+        const sub = wrapper.querySelector('input[placeholder="Subtopic"]').value.trim();
+        const note = wrapper.querySelector('input[placeholder="Add notes here"]').value.trim();
         socket.emit('add_dependency', {
           target_id: targetSelect.value,
+          source_id: courseSelect.value,
           topic: t,
+          optional_topic: sub,
+          note: note,
         });
       }
     });
