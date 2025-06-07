@@ -16,7 +16,7 @@ YEARS = []
 
 def load_courses():
     """Load all courses and modules into memory."""
-    global COURSES, COURSE_TOPICS, COURSE_PATHS, YEARS
+    global COURSES, COURSE_TOPICS, COURSE_PATHS, COURSE_NAMES, YEARS
     base_dir = os.path.dirname(__file__)
     entries = []
     years = set()
