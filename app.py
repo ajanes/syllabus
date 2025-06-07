@@ -11,12 +11,12 @@ def home():
 
 @app.route("/dependencies")
 def dependencies():
-    """Display course dependencies page."""
+    """Display course dependencies page with topics."""
     base_dir = os.path.dirname(__file__)
 
-    courses = []
+    entries = []
 
-    # Collect standard courses
+    # Collect standard courses and their topics
     std_dir = os.path.join(base_dir, "syllabi", "standard")
     for filename in os.listdir(std_dir):
         if not filename.endswith(".yml"):
@@ -24,19 +24,22 @@ def dependencies():
         filepath = os.path.join(std_dir, filename)
         try:
             with open(filepath, "r") as f:
-                data = yaml.safe_load(f)
-            course = data.get("course", {}) if data else {}
+                data = yaml.safe_load(f) or {}
+            course = data.get("course", {})
             title = course.get("title")
             semester = course.get("semester")
             year = course.get("year")
+            topics = course.get("topics", [])
             if title and semester and year:
-                courses.append(f"{title} ({year} year, {semester} semester)")
+                entries.append({
+                    "name": f"{title} ({year} year, {semester} semester)",
+                    "topics": topics,
+                })
         except Exception:
             continue
 
     # Collect modules referenced by modular course files
     modular_dir = os.path.join(base_dir, "syllabi", "modular")
-    modules_dir = os.path.join(modular_dir, "modules")
 
     for filename in os.listdir(modular_dir):
         if not filename.endswith(".yml"):
@@ -44,9 +47,7 @@ def dependencies():
         filepath = os.path.join(modular_dir, filename)
         try:
             with open(filepath, "r") as f:
-                data = yaml.safe_load(f)
-            if not data:
-                continue
+                data = yaml.safe_load(f) or {}
             course = data.get("course", {})
             semester = course.get("semester")
             year = course.get("year")
@@ -56,18 +57,30 @@ def dependencies():
                 if not os.path.isfile(mod_file):
                     continue
                 with open(mod_file, "r") as mf:
-                    mod_data = yaml.safe_load(mf)
-                if not mod_data:
-                    continue
+                    mod_data = yaml.safe_load(mf) or {}
                 module_info = next(iter(mod_data.values()))
-                title = module_info.get("title") if isinstance(module_info, dict) else None
+                if not isinstance(module_info, dict):
+                    continue
+                title = module_info.get("title")
+                topics = module_info.get("topics", [])
                 if title and semester and year:
-                    courses.append(f"{title} ({year} year, {semester} semester)")
+                    entries.append({
+                        "name": f"{title} ({year} year, {semester} semester)",
+                        "topics": topics,
+                    })
         except Exception:
             continue
 
-    courses.sort()
-    return render_template("dependencies.html", courses=courses)
+    # Sort courses by name
+    entries.sort(key=lambda e: e["name"])
+
+    courses = []
+    course_topics = {}
+    for idx, entry in enumerate(entries, 1):
+        courses.append({"id": str(idx), "name": entry["name"]})
+        course_topics[str(idx)] = entry["topics"]
+
+    return render_template("dependencies.html", courses=courses, course_topics=course_topics)
 
 if __name__ == "__main__":
     app.run(debug=True)
