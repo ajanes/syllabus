@@ -37,11 +37,10 @@
             <p class="text-[#141414] text-base font-normal leading-normal pb-3 pt-1 px-4">
               This page is used to define dependencies between courses. Select a course from the dropdown to view and edit its prerequisites.
             </p>
-            {{ meld.render('course_topics', courses=courses, course_topics=course_topics, years=years) }}
+            {% include 'course_topics.html' %}
           </div>
         </div>
       </div>
     </div>
-    {{ meld.scripts() }}
   </body>
 </html>
