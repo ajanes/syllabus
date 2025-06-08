@@ -49,7 +49,11 @@
               {% if topic.courses %}
               <p class="text-[#60768a] text-sm font-normal leading-normal">- {{ topic.name }}</p>
               {% for dep in topic.courses %}
-              <p class="ml-4 text-xs text-[#60768a]">{{ dep }}</p>
+              <div class="ml-4 flex items-center text-xs text-[#60768a]">
+                <span>{{ dep.name }}</span>
+                <button class="ml-2 text-red-600" onclick="deleteDependency('{{ dep.name }}', '{{ course.name }}')">x</button>
+                <a class="ml-2 text-blue-600" href="/dependencies?target={{ dep.id }}&source={{ course.id }}">edit</a>
+              </div>
               {% endfor %}
               {% endif %}
               {% endfor %}
@@ -60,6 +64,16 @@
       </div>
     </div>
   </div>
+  <script>
+    function deleteDependency(source, target) {
+      if (!confirm('Delete this dependency?')) return;
+      fetch('/remove_course_dependency', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ source: source, target: target })
+      }).then(() => location.reload());
+    }
+  </script>
 </body>
 
 </html>
