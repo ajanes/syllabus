@@ -2,10 +2,16 @@ from flask import Flask, render_template
 from flask_socketio import SocketIO, emit
 import os
 import yaml
+from ruamel.yaml import YAML
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "change-me"
 socketio = SocketIO(app)
+
+# Use ruamel.yaml for writing to preserve YAML formatting
+yaml_rt = YAML()
+yaml_rt.preserve_quotes = True
+yaml_rt.width = float("inf")
 
 # Course data loaded at startup
 COURSES = []
@@ -164,7 +170,7 @@ def handle_add_dependency(data):
 
     try:
         with open(path, "r") as f:
-            yaml_data = yaml.safe_load(f) or {}
+            yaml_data = yaml_rt.load(f) or {}
     except Exception:
         yaml_data = {}
 
@@ -204,7 +210,7 @@ def handle_add_dependency(data):
     root["depends-on"] = deps
     yaml_data[root_key] = root
     with open(path, "w") as f:
-        yaml.safe_dump(yaml_data, f, sort_keys=False, width=float("inf"))
+        yaml_rt.dump(yaml_data, f)
 
     emit("saved", {"ok": True})
 
@@ -240,7 +246,7 @@ def handle_remove_dependency(data):
         return
     try:
         with open(path, "r") as f:
-            yaml_data = yaml.safe_load(f) or {}
+            yaml_data = yaml_rt.load(f) or {}
     except Exception:
         return
 
@@ -262,7 +268,7 @@ def handle_remove_dependency(data):
     root["depends-on"] = deps
     yaml_data[root_key] = root
     with open(path, "w") as f:
-        yaml.safe_dump(yaml_data, f, sort_keys=False, width=float("inf"))
+        yaml_rt.dump(yaml_data, f)
     emit("saved", {"ok": True})
 
 
@@ -280,7 +286,7 @@ def handle_update_dependency(data):
         return
     try:
         with open(path, "r") as f:
-            yaml_data = yaml.safe_load(f) or {}
+            yaml_data = yaml_rt.load(f) or {}
     except Exception:
         yaml_data = {}
     root_key = next((k for k in ("course", "module1", "module2") if k in yaml_data), "course")
@@ -316,7 +322,7 @@ def handle_update_dependency(data):
     root["depends-on"] = deps
     yaml_data[root_key] = root
     with open(path, "w") as f:
-        yaml.safe_dump(yaml_data, f, sort_keys=False, width=float("inf"))
+        yaml_rt.dump(yaml_data, f)
     emit("saved", {"ok": True})
 
 if __name__ == "__main__":
