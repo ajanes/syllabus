@@ -42,6 +42,17 @@ def save_yaml(path, data):
         yaml_rt.dump(data, f)
 
 
+def load_similarity():
+    data = load_yaml(SIMILARITY_FILE)
+    names = data.get("courses", [])
+    matrix = data.get("matrix", [])
+    return names, matrix
+
+
+def save_similarity(names, matrix):
+    save_yaml(SIMILARITY_FILE, {"courses": names, "matrix": matrix})
+
+
 def get_root(data):
     """Return the course dictionary from a YAML structure."""
     return "course", data.get("course", {})
@@ -304,7 +315,7 @@ def load_courses():
 load_courses()
 
 
-def compute_similarity(cancel_event=None, progress_cb=None):
+def compute_similarity(cancel_event=None, progress_cb=None, force=False):
     """Compute cosine similarity matrix for all courses.
 
     Parameters
@@ -314,6 +325,13 @@ def compute_similarity(cancel_event=None, progress_cb=None):
     progress_cb: callable(int) | None
         Called periodically with an integer percentage from 0 to 100.
     """
+
+    if not force:
+        names, matrix = load_similarity()
+        if names and matrix:
+            if progress_cb:
+                progress_cb(100)
+            return names, matrix
 
     if progress_cb:
         progress_cb(0)
@@ -355,7 +373,15 @@ def compute_similarity(cancel_event=None, progress_cb=None):
 
     if progress_cb:
         progress_cb(100)
+    save_similarity(names, matrix)
     return names, matrix
+
+
+def similarity_colors(matrix):
+    return [
+        [to_hex(SIM_CMAP(max(0.0, min(1.0, val)))) for val in row]
+        for row in matrix
+    ]
 
 
 
@@ -530,15 +556,35 @@ def dependency_graph():
     graph = build_course_graph()
     nodes = [{"id": n} for n in graph.nodes]
     links = [{"source": u, "target": v} for u, v in graph.edges]
+    names, matrix = load_similarity()
+    name_index = {n: i for i, n in enumerate(names)}
+    sim_links = []
+    for i, src in enumerate(names):
+        for j in range(i + 1, len(names)):
+            try:
+                val = matrix[i][j]
+            except Exception:
+                continue
+            if val >= 0.6:
+                sim_links.append(
+                    {
+                        "source": src,
+                        "target": names[j],
+                        "distance": 150 * (1 - val),
+                    }
+                )
     return render_template(
-        "dependency_graph.html", nodes=nodes, links=links
+        "dependency_graph.html", nodes=nodes, links=links, sim_links=sim_links
     )
 
 
 @app.route("/similarity")
 def similarity():
-    """Render similarity page. Actual computation happens over WebSocket."""
-    return render_template("similarity.html")
+    """Display similarity matrix."""
+    names, matrix = load_similarity()
+    colors = similarity_colors(matrix) if matrix else []
+    data = {"courses": names, "matrix": matrix, "colors": colors}
+    return render_template("similarity.html", data=data)
 
 
 @app.route("/dependencies")
@@ -708,22 +754,28 @@ def handle_update_comment(data):
 
 
 @socketio.on("start_similarity")
-def handle_start_similarity():
+def handle_start_similarity(data=None):
     """Compute similarity matrix in the background."""
     sid = request.sid
 
     stop_event = threading.Event()
 
+    force = False
+    if isinstance(data, dict):
+        force = bool(data.get("force"))
+
     def worker():
         def update(pct):
             socketio.emit("similarity_progress", {"progress": pct}, to=sid)
 
-        names, matrix = compute_similarity(cancel_event=stop_event, progress_cb=update)
+        names, matrix = compute_similarity(
+            cancel_event=stop_event, progress_cb=update, force=force
+        )
         if stop_event.is_set():
             return
         socketio.emit(
             "similarity_result",
-            {"courses": names, "matrix": matrix},
+            {"courses": names, "matrix": matrix, "colors": similarity_colors(matrix)},
             to=sid,
         )
 

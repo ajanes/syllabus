@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const nodes = JSON.parse(document.getElementById('nodes-data').textContent);
   const links = JSON.parse(document.getElementById('links-data').textContent);
+  const simLinks = JSON.parse(document.getElementById('sim-links-data').textContent);
   const container = document.getElementById('graph');
   const width = container.clientWidth || 800;
   const height = container.clientHeight || 600;
@@ -31,7 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const simulation = d3
     .forceSimulation(nodes)
-    .force('link', d3.forceLink(links).id((d) => d.id).distance(150))
+    .force('dep', d3.forceLink(links).id((d) => d.id).distance(150))
+    .force('sim', d3.forceLink(simLinks).id((d) => d.id).distance((d) => d.distance).strength(0.2))
     .force('charge', d3.forceManyBody().strength(-400))
     .force('center', d3.forceCenter(width / 2, height / 2));
 
@@ -70,10 +72,6 @@ document.addEventListener('DOMContentLoaded', () => {
     .text((d) => d.id);
 
   simulation.on('tick', () => {
-    nodes.forEach((d) => {
-      d.x = Math.max(radius, Math.min(width - radius, d.x));
-      d.y = Math.max(radius, Math.min(height - radius, d.y));
-    });
 
     link
       .attr('x1', (d) => d.source.x)
