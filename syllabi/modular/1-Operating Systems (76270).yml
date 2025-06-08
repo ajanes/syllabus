@@ -30,5 +30,5 @@ course:
     - Code Runner (https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner)
     - clang-format (https://docs.kernel.org/dev-tools/clang-format.html)
   include:
-    - ./syllabi/modular/modules/1-Operating Systems and Networking (76270A).yml
-    - ./syllabi/modular/modules/1-Programming in C (76270B).yml
+    - ./syllabi/1-Operating Systems and Networking (76270A).yml
+    - ./syllabi/1-Programming in C (76270B).yml

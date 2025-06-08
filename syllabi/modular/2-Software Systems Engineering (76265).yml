@@ -47,5 +47,5 @@ course:
     - JUnit 5 (https://junit.org)
     - FitNesse (https://fitnesse.org)
   include:
-    - ./syllabi/modular/modules/2-Software Systems Architecture (76265A).yml
-    - ./syllabi/modular/modules/2-Tools and Techniques for Software Testing (76265B).yml
+    - ./syllabi/2-Software Systems Architecture (76265A).yml
+    - ./syllabi/2-Tools and Techniques for Software Testing (76265B).yml

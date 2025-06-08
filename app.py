@@ -35,10 +35,8 @@ def save_yaml(path, data):
 
 
 def get_root(data):
-    key = next(
-        (k for k in ("course", "module1", "module2") if k in data), "course"
-    )
-    return key, data.get(key, {})
+    """Return the course dictionary from a YAML structure."""
+    return "course", data.get("course", {})
 
 
 def modify_dependency(path, course_name, base_topic, sub_topic="", note=""):
@@ -105,11 +103,12 @@ def load_courses():
     entries = []
     years = set()
 
-    std_dir = os.path.join(base_dir, "syllabi", "standard")
-    for filename in os.listdir(std_dir):
-        if not filename.endswith(".yml"):
+
+    course_dir = os.path.join(base_dir, "syllabi")
+    for filename in os.listdir(course_dir):
+        filepath = os.path.join(course_dir, filename)
+        if not filename.endswith(".yml") or not os.path.isfile(filepath):
             continue
-        filepath = os.path.join(std_dir, filename)
         try:
             with open(filepath, "r") as f:
                 data = yaml.safe_load(f) or {}
