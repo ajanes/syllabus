@@ -6,6 +6,7 @@ const semesterSelect = document.getElementById('semesterSelect');
 const courseSelect = document.getElementById('courseSelect');
 const topicsContainer = document.getElementById('topicsContainer');
 const topicsHeader = document.getElementById('topicsHeader');
+const commentContainer = document.getElementById('commentContainer');
 const commentInput = document.getElementById('courseComment');
 let currentDependencies = [];
 let currentTopics = [];
@@ -124,6 +125,7 @@ function renderTopics(topics) {
 
 function applyDependencies() {
   const courseName = courseSelect.options[courseSelect.selectedIndex]?.textContent || '';
+  commentContainer.style.display = courseSelect.value ? 'block' : 'none';
   commentInput.value = '';
   document.querySelectorAll('#topicsContainer > div').forEach((wrapper) => {
     const base = wrapper.dataset.baseTopic;
