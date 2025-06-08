@@ -53,8 +53,8 @@
               {% for dep in topic.courses %}
               <p class="ml-4 text-xs text-[#60768a]">
                 {{ dep.course }}
-                {% if dep.sub_topic %}<span class="text-yellow-600">({{ dep.sub_topic }})</span>{% endif %}
-                {% if dep.note %}<span class="text-yellow-600">({{ dep.note }})</span>{% endif %}
+                {% if dep.sub_topic %}<span class="text-yellow-600">(subtopic: {{ dep.sub_topic }})</span>{% endif %}
+                {% if dep.note %}<span class="text-blue-600">(note: {{ dep.note }})</span>{% endif %}
               </p>
               {% endfor %}
               {% endif %}
