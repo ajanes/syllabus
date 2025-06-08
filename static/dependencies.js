@@ -11,11 +11,24 @@ const commentInput = document.getElementById('courseComment');
 let currentDependencies = [];
 let currentTopics = [];
 
+function updateControlBackgrounds(root = document) {
+  root
+    .querySelectorAll('input:not([type="checkbox"]), select, textarea')
+    .forEach((el) => {
+      if (el.disabled) {
+        el.classList.remove('bg-white');
+      } else {
+        el.classList.add('bg-white');
+      }
+    });
+}
+
 function updateDropdownState() {
   const disabled = !targetSelect.value;
   yearSelect.disabled = disabled;
   semesterSelect.disabled = disabled;
   courseSelect.disabled = disabled;
+  updateControlBackgrounds();
 }
 
 function requestUpdate() {
@@ -119,8 +132,10 @@ function renderTopics(topics) {
     noteInput.addEventListener('blur', sendUpdate);
 
     topicsContainer.appendChild(wrapper);
+    updateControlBackgrounds(wrapper);
   });
   applyDependencies();
+  updateControlBackgrounds();
 }
 
 function applyDependencies() {
@@ -155,6 +170,7 @@ function applyDependencies() {
       }
     });
   });
+  updateControlBackgrounds();
 }
 
 yearSelect.addEventListener('change', requestUpdate);
@@ -173,6 +189,7 @@ targetSelect.addEventListener('change', () => {
 document.addEventListener('DOMContentLoaded', () => {
   updateDropdownState();
   requestUpdate();
+  updateControlBackgrounds();
 });
 
 commentInput.addEventListener('blur', () => {
