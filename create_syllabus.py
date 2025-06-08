@@ -15,15 +15,19 @@ def load_yaml(files):
     merged = {}
     for file in files:
         with open(file) as f:
-            data = yaml.safe_load(f)
-            if data:
-                merge_dicts(merged, data)
-                includes = data.get("course", {}).get("include", [])
-                for inc in includes:
-                    with open(os.path.abspath(inc)) as inc_file:
-                        inc_data = yaml.safe_load(inc_file)
-                        if inc_data:
-                            merge_dicts(merged, inc_data)
+            data = yaml.safe_load(f) or {}
+
+        merge_dicts(merged, data)
+
+        includes = data.get("course", {}).get("include", [])
+        for idx, inc in enumerate(includes, start=1):
+            with open(os.path.abspath(inc)) as inc_file:
+                inc_data = yaml.safe_load(inc_file) or {}
+
+            if "course" in inc_data:
+                inc_data = {f"module{idx}": inc_data["course"]}
+
+            merge_dicts(merged, inc_data)
     return merged
 
 
