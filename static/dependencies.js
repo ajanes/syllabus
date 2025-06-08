@@ -64,6 +64,7 @@ socket.on('filtered', (data) => {
   if (presetCourse) {
     courseSelect.value = presetCourse;
     presetCourse = null;
+    courseSelect.dispatchEvent(new Event('change'));
   }
   currentTopics = data.topics;
   renderTopics(currentTopics);
