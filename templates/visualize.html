@@ -36,10 +36,13 @@
             {% for course in courses %}
             <div class="flex gap-4 bg-white px-4 py-3">
               <div class="flex flex-1 flex-col justify-center">
-                  <p class="text-[#111518] text-base font-medium leading-normal">{{ course.name }} [{{ course.count }}]</p>
-                {% if course.topics %}
-                <p class="text-[#60768a] text-sm font-normal leading-normal">- {{ course.topics|join(' - ') }}</p>
-                {% endif %}
+                <p class="text-[#111518] text-base font-medium leading-normal">{{ course.name }} [{{ course.count }}]</p>
+                {% for topic in course.topics %}
+                  <p class="text-[#60768a] text-sm font-normal leading-normal">- {{ topic.name }}</p>
+                  {% for dep in topic.courses %}
+                    <p class="ml-4 text-xs text-[#60768a]">{{ dep }}</p>
+                  {% endfor %}
+                {% endfor %}
               </div>
             </div>
             {% endfor %}
