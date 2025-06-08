@@ -42,5 +42,5 @@ course:
   - Arduino IDE (https://www.arduino.cc/en/software)
   - "Different microcontrollers and microelectronics kits are used. Only participant students, who attend classes, can use them during class time. Further information is provided on the course page."
   include:
-    - ./syllabi/modular/modules/3-Engineering of Mobile Systems (76262A).yml
-    - ./syllabi/modular/modules/3-Prototyping Physical Interactive Experiences (76262B).yml
+    - ./syllabi/3-Engineering of Mobile Systems (76262A).yml
+    - ./syllabi/3-Prototyping Physical Interactive Experiences (76262B).yml

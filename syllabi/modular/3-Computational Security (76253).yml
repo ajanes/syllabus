@@ -33,5 +33,5 @@ course:
   - MATLAB (https://www.mathworks.com/products/matlab.html)
   - Tools provided during lab sessions
   include:
-    - ./syllabi/modular/modules/3-Computational Mathematics (76253A).yml
-    - ./syllabi/modular/modules/3-Information Security (76253B).yml
+    - ./syllabi/3-Computational Mathematics (76253A).yml
+    - ./syllabi/3-Information Security (76253B).yml

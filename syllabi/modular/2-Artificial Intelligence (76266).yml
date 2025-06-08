@@ -30,5 +30,5 @@ course:
   - Scikit-learn (https://scikit-learn.org/stable/)
   - SciPy (https://scipy.org)
   include:
-    - ./syllabi/modular/modules/2-Foundations of Artificial Intelligence (76251A).yml
-    - ./syllabi/modular/modules/2-Machine Learning in Practice (76251B).yml
+    - ./syllabi/2-Foundations of Artificial Intelligence (76251A).yml
+    - ./syllabi/2-Machine Learning in Practice (76251B).yml

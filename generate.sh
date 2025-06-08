@@ -3,7 +3,7 @@
 # Standard courses 
 GLOBAL="./global.yml"
 OUTPUT_DIR="./output"
-INPUT_DIR_STANDARD="./syllabi/standard"
+INPUT_DIR_STANDARD="./syllabi"
 INPUT_DIR_MODULAR="./syllabi/modular"
 OVERWRITE=false
 

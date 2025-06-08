@@ -49,5 +49,5 @@ course:
   - Domain-specific languages
   - Linux-based virtual machines
   include:
-    - ./syllabi/modular/modules/2-Knowledge Representation (76252A).yml
-    - ./syllabi/modular/modules/2-Intelligent Agents Project (76252B).yml
+    - ./syllabi/2-Knowledge Representation (76252A).yml
+    - ./syllabi/2-Intelligent Agents Project (76252B).yml

@@ -23,7 +23,7 @@ def check_order(positions):
     if any(positions[i] <= positions[i - 1] for i in range(1, len(positions))):
         raise ValidationError("Fields not in expected order.")
 
-folder = "./syllabi/standard"
+folder = "./syllabi"
 pattern = re.compile(r"^[\w\s]+ \(\d+\)\.yml$", re.IGNORECASE)
 
 for filename in os.listdir(folder):
