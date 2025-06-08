@@ -40,3 +40,6 @@ course:
   depends-on:
   - course: Computer Systems Architecture
     comment: asf
+  - course: Computational Mathematics
+    topics:
+    - topic: 2

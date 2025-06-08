@@ -44,7 +44,9 @@
           {% for course in courses %}
           <div class="flex gap-4 bg-white px-4 py-3">
             <div class="flex flex-1 flex-col justify-center">
-              <p class="text-[#111518] text-base font-medium leading-normal">{{ course.name }} [{{ course.count }}]</p>
+              <p class="text-[#111518] text-base font-medium leading-normal">
+                {{ course.name }} ({{ course.count }} {{ 'dependency' if course.count == 1 else 'dependencies' }})
+              </p>
               {% for topic in course.topics %}
               {% if topic.courses %}
               <p class="text-[#60768a] text-sm font-normal leading-normal">- {{ topic.name }}</p>
