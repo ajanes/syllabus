@@ -1,0 +1,26 @@
+<html>
+<head>
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+  <link rel="stylesheet" as="style" onload="this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?display=swap&family=Inter:wght@400;500;700;900&family=Noto+Sans:wght@400;500;700;900" />
+  <title>Syllabus</title>
+  <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+</head>
+<body>
+  <div class="relative flex size-full min-h-screen flex-col bg-white group/design-root overflow-x-hidden" style='font-family: Inter, "Noto Sans", sans-serif;'>
+    <div class="layout-container flex h-full grow">
+      {% include 'sidebar.html' %}
+      <div class="flex flex-col flex-1">
+        <div class="px-10 flex flex-1 py-5">
+          <div class="layout-content-container flex flex-col max-w-[1280px] flex-1">
+            <div class="flex flex-col gap-3">
+              <p class="text-[#111518] tracking-light text-[32px] font-bold leading-tight">Syllabus Explorer</p>
+              <p class="text-[#60768a] text-sm font-normal leading-normal">This site lets you edit course dependencies, view similarity metrics and review warnings for academic programs.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -12,6 +12,13 @@
       background: white;
       z-index: 10;
     }
+    #simTable tbody tr:first-child th,
+    #simTable tbody tr:first-child td {
+      position: sticky;
+      top: 2rem;
+      background: white;
+      z-index: 9;
+    }
     #simTable th:first-child,
     #simTable td:first-child {
       position: sticky;
@@ -37,7 +44,7 @@
                 <p class="text-[#60768a] text-sm font-normal leading-normal">Courses are compared by embedding their topic lists and computing cosine similarity between the averaged vectors. Higher scores indicate greater content overlap.</p>
               </div>
             </div>
-            <div class="overflow-auto">
+            <div class="overflow-auto pr-4">
               <div id="loading" class="p-4">Calculating <span id="progress">0%</span></div>
               <table id="simTable" class="min-w-full border-collapse text-xs hidden">
                 <thead id="simHead"></thead>
