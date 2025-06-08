@@ -7,8 +7,6 @@ import networkx as nx
 from ruamel.yaml import YAML
 from sentence_transformers import SentenceTransformer, models
 from pathlib import Path
-from matplotlib.colors import to_hex, LinearSegmentedColormap
-import matplotlib.cm as cm
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "change-me"
@@ -568,25 +566,28 @@ def dependency_list():
 def dependency_graph():
     """Display a force-directed graph of course dependencies."""
     graph = build_course_graph()
-    nodes = [{"id": n} for n in graph.nodes]
     links = [{"source": u, "target": v} for u, v in graph.edges]
-    names, matrix = load_similarity()
-    name_index = {n: i for i, n in enumerate(names)}
+    nodes = [{"id": n} for n in graph.nodes]
+    # names, matrix = load_similarity()
+
+    linked_ids = {link["source"] for link in links} | {link["target"] for link in links}
+    nodes = [node for node in nodes if node["id"] in linked_ids]
+
     sim_links = []
-    for i, src in enumerate(names):
-        for j in range(i + 1, len(names)):
-            try:
-                val = matrix[i][j]
-            except Exception:
-                continue
-            if val >= 0.6:
-                sim_links.append(
-                    {
-                        "source": src,
-                        "target": names[j],
-                        "distance": 150 * (1 - val),
-                    }
-                )
+    # for i, src in enumerate(names):
+    #     for j in range(i + 1, len(names)):
+    #         try:
+    #             val = matrix[i][j]
+    #         except Exception:
+    #             continue
+    #         if val >= 0.6:
+    #             sim_links.append(
+    #                 {
+    #                     "source": src,
+    #                     "target": names[j],
+    #                     "distance": 150 * (1 - val),
+    #                 }
+    #             )
     return render_template(
         "dependency_graph.html", nodes=nodes, links=links, sim_links=sim_links
     )

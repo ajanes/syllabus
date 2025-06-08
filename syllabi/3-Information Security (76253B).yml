@@ -10,15 +10,19 @@ course:
     office: BZ B1 5.43
     office_hours: Mondays 14:00–16:00, by appointment via email
   language: Italian
-  teaching_assistant: null
+  teaching_assistant:
   topics:
-    - "Basic definitions: CIA, threat, attack, vulnerability, access control"
-    - "Risk assessment"
-    - "Basics of cryptography"
-    - "Network attack and defense"
-    - "Usability"
-    - "Security policies"
+  - "Basic definitions: CIA, threat, attack, vulnerability, access control"
+  - "Risk assessment"
+  - "Basics of cryptography"
+  - "Network attack and defense"
+  - "Usability"
+  - "Security policies"
   teaching_format: The course includes frontal lectures and lab sessions.
 
 
 
+  depends-on:
+  - course: Computer Networks
+    topics:
+    - topic: 2
