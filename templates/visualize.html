@@ -19,8 +19,9 @@
           <div class="flex flex-1 justify-end gap-8">
             <div class="flex items-center gap-9">
               <a class="text-[#141414] text-sm font-medium leading-normal" href="/">Home</a>
-              <a class="text-[#141414] text-sm font-medium leading-normal" href="/visualize">Visualize Dependencies</a>
-              <a class="text-[#141414] text-sm font-medium leading-normal" href="#">Warnings</a>
+                <a class="text-[#141414] text-sm font-medium leading-normal" href="/visualize">Visualize Dependencies</a>
+                <a class="text-[#141414] text-sm font-medium leading-normal" href="/dependencies">Define Dependencies</a>
+                <a class="text-[#141414] text-sm font-medium leading-normal" href="#">Warnings</a>
             </div>
           </div>
         </header>
@@ -35,7 +36,7 @@
             {% for course in courses %}
             <div class="flex gap-4 bg-white px-4 py-3">
               <div class="flex flex-1 flex-col justify-center">
-                <p class="text-[#111518] text-base font-medium leading-normal">{{ course.name }}</p>
+                  <p class="text-[#111518] text-base font-medium leading-normal">{{ course.name }} [{{ course.count }}]</p>
                 {% if course.topics %}
                 <p class="text-[#60768a] text-sm font-normal leading-normal">- {{ course.topics|join(' - ') }}</p>
                 {% endif %}
