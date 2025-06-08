@@ -5,13 +5,31 @@
   <title>Syllabus</title>
   <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <style>
+    #simTable thead th {
+      position: sticky;
+      top: 0;
+      background: white;
+      z-index: 10;
+    }
+    #simTable th:first-child,
+    #simTable td:first-child {
+      position: sticky;
+      left: 0;
+      background: white;
+      z-index: 5;
+    }
+    #simTable thead th:first-child {
+      z-index: 15;
+    }
+  </style>
 </head>
 <body>
   <div class="relative flex size-full min-h-screen flex-col bg-white group/design-root overflow-x-hidden" style='font-family: Inter, "Noto Sans", sans-serif;'>
     <div class="layout-container flex h-full grow">
       {% include 'sidebar.html' %}
       <div class="flex flex-col flex-1">
-        <div class="px-40 flex flex-1 justify-center py-5">
+        <div class="px-10 flex flex-1 py-5">
           <div class="layout-content-container flex flex-col max-w-[1280px] flex-1">
             <div class="flex flex-wrap justify-between gap-3 p-4">
               <div class="flex min-w-72 flex-col gap-3">
