@@ -308,6 +308,10 @@ def dependencies():
         all_courses=COURSES,
         years=YEARS,
     )
+@app.route("/warnings")
+def warnings():
+    return render_template("warnings.html")
+
 
 
 @socketio.on("filter")
