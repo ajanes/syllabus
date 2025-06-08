@@ -49,13 +49,14 @@ function renderTopics(topics) {
     return;
   }
   topicsHeader.style.display = 'block';
-  topics.forEach((t) => {
+  topics.forEach((t, idx) => {
     const wrapper = document.createElement('div');
     wrapper.className = 'flex gap-4 bg-neutral-50 px-4 py-3 justify-between';
     wrapper.dataset.baseTopic = t;
+    wrapper.dataset.topicIndex = idx + 1;
     wrapper.innerHTML = `<div class="flex items-start gap-4">
         <div class="flex size-7 items-center justify-center">
-          <input type="checkbox" data-topic="${t}" class="h-5 w-5 rounded border-[#dbdbdb] border-2 bg-transparent text-black checked:bg-black checked:border-black checked:bg-[image:--checkbox-tick-svg] focus:ring-0 focus:ring-offset-0 focus:border-[#dbdbdb] focus:outline-none" />
+          <input type="checkbox" data-topic="${idx + 1}" class="h-5 w-5 rounded border-[#dbdbdb] border-2 bg-transparent text-black checked:bg-black checked:border-black checked:bg-[image:--checkbox-tick-svg] focus:ring-0 focus:ring-offset-0 focus:border-[#dbdbdb] focus:outline-none" />
         </div>
         <div class="flex flex-1 flex-col justify-center">
           <p class="text-[#141414] text-base font-medium leading-normal">${t}</p>
@@ -74,7 +75,7 @@ function renderTopics(topics) {
         socket.emit('add_dependency', {
           target_id: targetSelect.value,
           source_id: courseSelect.value,
-          base_topic: t,
+          base_topic: wrapper.dataset.topicIndex,
           sub_topic: sub,
           note: note,
         });
@@ -83,7 +84,7 @@ function renderTopics(topics) {
         socket.emit('remove_dependency', {
           target_id: targetSelect.value,
           source_id: courseSelect.value,
-          base_topic: t,
+          base_topic: wrapper.dataset.topicIndex,
         });
         wrapper.dataset.storedTopic = '';
         subInput.value = '';
@@ -98,7 +99,7 @@ function renderTopics(topics) {
       socket.emit('update_dependency', {
         target_id: targetSelect.value,
         source_id: courseSelect.value,
-        base_topic: t,
+        base_topic: wrapper.dataset.topicIndex,
         sub_topic: sub,
         note: note,
       });
@@ -117,6 +118,7 @@ function applyDependencies() {
   const courseName = courseSelect.options[courseSelect.selectedIndex]?.textContent || '';
   document.querySelectorAll('#topicsContainer > div').forEach((wrapper) => {
     const base = wrapper.dataset.baseTopic;
+    const baseIdx = parseInt(wrapper.dataset.topicIndex, 10);
     const checkbox = wrapper.querySelector('input[type="checkbox"]');
     const subInput = wrapper.querySelector('input[placeholder="Subtopic"]');
     const noteInput = wrapper.querySelector('input[placeholder="Add notes here"]');
@@ -127,7 +129,7 @@ function applyDependencies() {
     currentDependencies.forEach((dep) => {
       if (dep.course === courseName) {
         (dep.topics || []).forEach((t) => {
-          if (t.topic === base) {
+          if (parseInt(t.topic, 10) === baseIdx) {
             checkbox.checked = true;
             if (t['sub-topic']) {
               subInput.value = t['sub-topic'];
