@@ -233,9 +233,35 @@ def load_courses():
 load_courses()
 
 
+def dependency_info():
+    """Return list of courses sorted by number of dependencies."""
+    result = []
+    for cid, path in COURSE_PATHS.items():
+        data = load_yaml(path)
+        key, root = get_root(data)
+        deps = root.get("depends-on", [])
+        if not isinstance(deps, list):
+            deps = []
+        result.append(
+            {
+                "name": COURSE_NAMES.get(cid, ""),
+                "topics": COURSE_TOPICS.get(cid, []),
+                "count": len(deps),
+            }
+        )
+    result.sort(key=lambda d: d["count"], reverse=True)
+    return result
+
+
 @app.route("/")
 def home():
     return render_template("index.html", message="Welcome to Flask!")
+
+
+@app.route("/visualize")
+def visualize():
+    info = dependency_info()
+    return render_template("visualize.html", courses=info)
 
 
 @app.route("/dependencies")
