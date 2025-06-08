@@ -13,7 +13,7 @@
   </head>
   <body>
     <div
-      class="relative flex size-full min-h-screen flex-col bg-neutral-50 group/design-root overflow-x-hidden"
+      class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden"
       style="--checkbox-tick-svg: url('data:image/svg+xml,%3csvg viewBox=%270 0 16 16%27 fill=%27rgb(250,250,250)%27 xmlns=%27http://www.w3.org/2000/svg%27%3e%3cpath d=%27M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z%27/%3e%3c/svg%3e'); --select-button-svg: url('data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2724px%27 height=%2724px%27 fill=%27rgb(115,115,115)%27 viewBox=%270 0 256 256%27%3e%3cpath d=%27M181.66,170.34a8,8,0,0,1,0,11.32l-48,48a8,8,0,0,1-11.32,0l-48-48a8,8,0,0,1,11.32-11.32L128,212.69l42.34-42.35A8,8,0,0,1,181.66,170.34Zm-96-84.68L128,43.31l42.34,42.35a8,8,0,0,0,11.32-11.32l-48-48a8,8,0,0,0-11.32,0l-48,48A8,8,0,0,0,85.66,85.66Z%27%3e%3c/path%3e%3c/svg%3e'); font-family: Inter, "Noto Sans", sans-serif;"
     >
       <div class="layout-container flex h-full grow flex-col">
@@ -36,14 +36,11 @@
         <div class="px-40 flex flex-1 justify-center py-5">
           <div class="layout-content-container flex flex-col max-w-[1280px] flex-1">
             <p class="text-[#141414] text-base font-normal leading-normal pb-3 pt-1 px-4">
-              This page is used to define dependencies between courses. Select a course from the dropdown to view and edit its prerequisites.
-            </p>
-            <p class="text-[#141414] text-base font-normal leading-normal pb-3 px-4">
-              Please select the course for which you want to define dependencies.
+              This page allows you to manage course dependencies. Select a course from the dropdown menu to view and modify its prerequisites.
             </p>
             <form class="max-w-[800px] px-4 pb-3">
               <label class="flex flex-col min-w-40 flex-1 max-w-[300px]">
-                <select id="targetCourse" class="form-input flex w-full min-w-0 resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#dbdbdb] bg-neutral-50 focus:border-[#dbdbdb] h-14 bg-[image:--select-button-svg] placeholder:text-neutral-500 p-[15px] text-base font-normal leading-normal">
+                <select id="targetCourse" class="form-input flex w-full min-w-0 resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#dbdbdb] focus:border-[#dbdbdb] h-14 bg-[image:--select-button-svg] placeholder:text-neutral-500 p-[15px] text-base font-normal leading-normal">
                   <option value="">Select a Course</option>
                   {% for course in all_courses %}
                   <option value="{{ course.id }}">{{ course.name }}</option>

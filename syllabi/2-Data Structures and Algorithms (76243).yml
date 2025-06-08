@@ -11,14 +11,14 @@ course:
   total_lab_hours: 30
   attendance: |
     Attendance is not compulsory, but strongly recommended. The lectures consist of presentations on the black board, interspersed by small exercises, and discussions with the students. The goal of the course is to enable students to develop and analyze algorithms, which is a skill that can only be acquired by training. 
-    
+
     All the material used in the lectures and labs as well as the assignments will be published on the OLE pages of the course. Students should note that slides and hand-written lecture notes are supporting material, but their study is not sufficient to reach the goal of the course. 
-    
+
     Experience shows that some students are able to acquire these intended skills without attending all lectures or all labs, but attendance and success in studies are strongly correlated. 
-    
+
     Students who are unable to follow all lectures and labs are encouraged to attend at least some of them. They are also encouraged to work out all the exercises given during the lectures and the labs and to submit the coursework, for which they will receive feedback and marks.
   prerequisites: The course requires introductory Java programming skills and basic knowledge of sets, functions, and calculus.
-  course_page: null
+  course_page:
   specific_educational_objectives: "By following this course, students will be able to formulate algorithmic problems and to recognize algorithmic problems underlying an application. They will also acquire an in-depth understanding of the standard data structures and the corresponding algorithmic techniques to solve such problems. They will recognize how certain algorithmic approaches depend on the choice of a suitable data structure and vice versa. Moreover, students will learn how to analyze whether an algorithm is correct and which time and space resources it needs. Finally, students will learn how to compare different algorithms with respect to their suitability for a given application."
   lecturer:
     name: Werner Nutt
@@ -32,16 +32,16 @@ course:
     email: tiziano.dalmonte@unibz.it
     office: BZ B1 5.29
     office_hours: Mondays 14:00–16:00, by appointment via email
-  topics: 
-    - "Design Principles: Problem reduction via recursion"
-    - "Searching and Sorting"
-    - "Correctness: Loop invariants, termination"
-    - "Complexity: Asymptotic analysis"
-    - "Divide and Conquer"
-    - "Pointers, dynamic data structures, linked lists"
-    - "Abstract data types: stacks, queues, priority queues, maps"
-    - "Binary trees, red-black trees"
-    - "Graph algorithms"
+  topics:
+  - "Design Principles: Problem reduction via recursion"
+  - "Searching and Sorting"
+  - "Correctness: Loop invariants, termination"
+  - "Complexity: Asymptotic analysis"
+  - "Divide and Conquer"
+  - "Pointers, dynamic data structures, linked lists"
+  - "Abstract data types: stacks, queues, priority queues, maps"
+  - "Binary trees, red-black trees"
+  - "Graph algorithms"
   teaching_format: "The course includes frontal lectures, lab group sessions with assistants, and biweekly coursework assignments. In the lectures, new concepts and techniques are introduced, both by way of presentation on the blackboard and by small exercises. In the assignments, students refine these in order to apply them to selected problems. They also measure the actual performance of their implementations and compare it with the theoretical predictions. In the lab groups, students discuss possible approaches to the tasks of the assignments with the TAs and compare different solutions. In addition, students also solve problems that are independent of the assignments to deepen the understanding of the material presented in the lectures."
   assessment: "The assessment is based on a written final exam, a mock exam, and coursework assignments. The written exam consists of questions to verify knowledge, questions that assess the ability to apply knowledge acquired in the course, and small exercises. The mock exam allows students to familiarize themselves with the exam situation and to understand the kind of skills they are expected to acquire during the course. The assignments consist of exercises to apply knowledge acquired in the lectures and experiments, on which the students have to report. Passing the written exam is mandatory. The coursework and the mock exam are optional (for the weighting and calculation of final mark, see below). The marks are valid during the three exam sessions following the teaching of the course."
   assessment_language: English
@@ -57,3 +57,7 @@ course:
   - "@Mehlhorn2010"
   software:
   - Java (https://openjdk.org)
+  depends-on:
+  - course: Analysis
+    topics:
+    - topic: 2

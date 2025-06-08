@@ -60,7 +60,7 @@ function renderTopics(topics) {
   topicsHeader.style.display = 'block';
   topics.forEach((t, idx) => {
     const wrapper = document.createElement('div');
-    wrapper.className = 'flex gap-4 bg-neutral-50 px-4 py-3 justify-between';
+    wrapper.className = 'flex gap-4 px-4 py-3 justify-between';
     wrapper.dataset.baseTopic = t;
     wrapper.dataset.topicIndex = idx + 1;
     wrapper.innerHTML = `<div class="flex items-start gap-4">
@@ -69,8 +69,8 @@ function renderTopics(topics) {
         </div>
         <div class="flex flex-1 flex-col justify-center">
           <p class="text-[#141414] text-base font-medium leading-normal">${t}</p>
-          <input placeholder="Subtopic" class="form-input mt-1 w-[300px] resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#dbdbdb] bg-neutral-50 focus:border-[#dbdbdb] h-10 placeholder:text-neutral-500 p-[10px] text-sm font-normal leading-normal" />
-          <input placeholder="Add notes here" class="form-input mt-1 w-[300px] resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#dbdbdb] bg-neutral-50 focus:border-[#dbdbdb] h-10 placeholder:text-neutral-500 p-[10px] text-sm font-normal leading-normal" />
+          <input placeholder="Subtopic" class="form-input mt-1 w-[300px] resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#dbdbdb] focus:border-[#dbdbdb] h-10 placeholder:text-neutral-500 p-[10px] text-sm font-normal leading-normal" />
+          <input placeholder="Add notes here" class="form-input mt-1 w-[300px] resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#dbdbdb] focus:border-[#dbdbdb] h-10 placeholder:text-neutral-500 p-[10px] text-sm font-normal leading-normal" />
         </div>
       </div>`;
     const checkbox = wrapper.querySelector('input[type="checkbox"]');
