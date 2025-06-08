@@ -234,21 +234,56 @@ load_courses()
 
 
 def dependency_info():
-    """Return list of courses sorted by number of dependencies."""
-    result = []
-    for cid, path in COURSE_PATHS.items():
+    """Return list of courses sorted by number of dependent courses."""
+
+    # Map course name to id for quick lookup
+    name_to_id = {v: k for k, v in COURSE_NAMES.items()}
+
+    # Track dependents for each course and for each topic
+    dependents = {
+        cid: {"total": set(), "topics": {}} for cid in COURSE_PATHS.keys()
+    }
+
+    # Scan all courses to populate dependents structure
+    for src_id, path in COURSE_PATHS.items():
         data = load_yaml(path)
-        key, root = get_root(data)
+        _, root = get_root(data)
         deps = root.get("depends-on", [])
         if not isinstance(deps, list):
             deps = []
+        for entry in deps:
+            target_name = entry.get("course")
+            target_id = name_to_id.get(target_name)
+            if not target_id:
+                continue
+            dependents[target_id]["total"].add(COURSE_NAMES.get(src_id, ""))
+            topics = entry.get("topics", []) or []
+            for t in topics:
+                try:
+                    idx = int(t.get("topic"))
+                except (TypeError, ValueError):
+                    continue
+                dependents[target_id]["topics"].setdefault(idx, []).append(
+                    COURSE_NAMES.get(src_id, "")
+                )
+
+    # Build final list
+    result = []
+    for cid in COURSE_PATHS.keys():
+        topics_data = []
+        for idx, topic_name in enumerate(COURSE_TOPICS.get(cid, []), 1):
+            deps = dependents[cid]["topics"].get(idx, [])
+            topics_data.append({"name": topic_name, "courses": deps})
+
+        count = len(dependents[cid]["total"])
         result.append(
             {
                 "name": COURSE_NAMES.get(cid, ""),
-                "topics": COURSE_TOPICS.get(cid, []),
-                "count": len(deps),
+                "topics": topics_data,
+                "count": count,
             }
         )
+
     result.sort(key=lambda d: d["count"], reverse=True)
     return result
 
