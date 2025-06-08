@@ -331,7 +331,7 @@ def compute_similarity(cancel_event=None, progress_cb=None):
     if not texts or (cancel_event and cancel_event.is_set()):
         return names, []
 
-    model = SentenceTransformer("all-MiniLM-L6-v2")
+    model = SentenceTransformer("./all-MiniLM-L6-v2")
 
     if progress_cb:
         progress_cb(20)
