@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from flask_socketio import SocketIO, emit
 import os
 import yaml
@@ -128,6 +128,25 @@ def remove_dependency(path, course_name, base_topic):
                     deps.remove(dep)
             break
     root["depends-on"] = deps
+    yaml_data[key] = root
+    save_yaml(path, yaml_data)
+
+
+def remove_course_dependency(source_name, target_name):
+    """Remove all dependencies on target_name from source_name course."""
+    source_id = next((cid for cid, n in COURSE_NAMES.items() if n == source_name), None)
+    if not source_id:
+        return
+    path = COURSE_PATHS.get(source_id)
+    if not path:
+        return
+    yaml_data = load_yaml(path)
+    key, root = get_root(yaml_data)
+    deps = root.get("depends-on", [])
+    if not isinstance(deps, list):
+        deps = []
+    new_deps = [d for d in deps if d.get("course") != target_name]
+    root["depends-on"] = new_deps
     yaml_data[key] = root
     save_yaml(path, yaml_data)
 
@@ -277,12 +296,20 @@ def dependency_info():
     for cid in COURSE_PATHS.keys():
         topics_data = []
         for idx, topic_name in enumerate(COURSE_TOPICS.get(cid, []), 1):
-            deps = dependents[cid]["topics"].get(idx, [])
-            topics_data.append({"name": topic_name, "courses": deps})
+            dep_names = dependents[cid]["topics"].get(idx, [])
+            topics_data.append(
+                {
+                    "name": topic_name,
+                    "courses": [
+                        {"id": name_to_id.get(d, ""), "name": d} for d in dep_names
+                    ],
+                }
+            )
 
         count = len(dependents[cid]["total"])
         result.append(
             {
+                "id": cid,
                 "name": COURSE_NAMES.get(cid, ""),
                 "topics": topics_data,
                 "count": count,
@@ -403,6 +430,13 @@ def warnings():
         warnings=warns,
         errors=errs,
     )
+
+
+@app.route("/remove_course_dependency", methods=["POST"])
+def remove_course_dependency_route():
+    data = request.get_json(force=True)
+    remove_course_dependency(data.get("source"), data.get("target"))
+    return {"ok": True}
 
 
 
