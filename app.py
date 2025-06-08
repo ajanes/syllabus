@@ -511,13 +511,13 @@ def dependency_issues():
 
 @app.route("/")
 def home():
-    return render_template("index.html", message="Welcome to Flask!")
+    return render_template("home.html")
 
 
-@app.route("/visualize")
-def visualize():
+@app.route("/dependency_list")
+def dependency_list():
     info = dependency_info()
-    return render_template("visualize.html", courses=info)
+    return render_template("dependency_list.html", courses=info)
 
 
 @app.route("/similarity")
