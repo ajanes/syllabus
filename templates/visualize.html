@@ -38,10 +38,12 @@
               <div class="flex flex-1 flex-col justify-center">
                 <p class="text-[#111518] text-base font-medium leading-normal">{{ course.name }} [{{ course.count }}]</p>
                 {% for topic in course.topics %}
-                  <p class="text-[#60768a] text-sm font-normal leading-normal">- {{ topic.name }}</p>
-                  {% for dep in topic.courses %}
-                    <p class="ml-4 text-xs text-[#60768a]">{{ dep }}</p>
-                  {% endfor %}
+                  {% if topic.courses %}
+                    <p class="text-[#60768a] text-sm font-normal leading-normal">- {{ topic.name }}</p>
+                    {% for dep in topic.courses %}
+                      <p class="ml-4 text-xs text-[#60768a]">{{ dep }}</p>
+                    {% endfor %}
+                  {% endif %}
                 {% endfor %}
               </div>
             </div>
