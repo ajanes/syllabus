@@ -32,6 +32,9 @@ done
 mkdir -p "$OUTPUT_DIR"
 
 for yaml_file in "$INPUT_DIR_STANDARD"/*.yml; do
+    if ! grep -q "modular: false" "$yaml_file"; then
+        continue
+    fi
     filename=$(basename "$yaml_file" .yml)
     output_docx="$OUTPUT_DIR/${filename}.docx"
     output_pdf="$OUTPUT_DIR/${filename}.pdf"
