@@ -1,72 +1,36 @@
 <html>
-
 <head>
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
-  <link rel="stylesheet" as="style" onload="this.rel='stylesheet'"
-    href="https://fonts.googleapis.com/css2?display=swap&family=Inter:wght@400;500;700;900&family=Noto+Sans:wght@400;500;700;900" />
+  <link rel="stylesheet" as="style" onload="this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?display=swap&family=Inter:wght@400;500;700;900&family=Noto+Sans:wght@400;500;700;900" />
   <title>Syllabus</title>
   <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 </head>
-
 <body>
-  <div class="relative flex size-full min-h-screen flex-col bg-white group/design-root overflow-x-hidden"
-    style="--checkbox-tick-svg: url('data:image/svg+xml,%3csvg viewBox=%270 0 16 16%27 fill=%27rgb(250,250,250)%27 xmlns=%27http://www.w3.org/2000/svg%27%3e%3cpath d=%27M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z%27/%3e%3c/svg%3e'); --select-button-svg: url('data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2724px%27 height=%2724px%27 fill=%27rgb(115,115,115)%27 viewBox=%270 0 256 256%27%3e%3cpath d=%27M181.66,170.34a8,8,0,0,1,0,11.32l-48,48a8,8,0,0,1-11.32,0l-48-48a8,8,0,0,1,11.32-11.32L128,212.69l42.34-42.35A8,8,0,0,1,181.66,170.34Zm-96-84.68L128,43.31l42.34,42.35a8,8,0,0,0,11.32-11.32l-48-48a8,8,0,0,0-11.32,0l-48,48A8,8,0,0,0,85.66,85.66Z%27%3e%3c/path%3e%3c/svg%3e'); font-family: Inter, "
-    Noto Sans", sans-serif;">
-    <div class="layout-container flex h-full grow flex-col">
-      <header class="flex items-center gap-8 whitespace-nowrap border-b border-solid border-b-[#ededed] px-10 py-3">
-        <div class="flex items-center gap-4 text-[#141414]">
-          <div class="size-4">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M6 6H42L36 24L42 42H6L12 24L6 6Z" fill="currentColor" />
-            </svg>
-          </div>
-          <h2 class="text-[#141414] text-lg font-bold leading-tight tracking-[-0.015em]">Syllabus</h2>
-        </div>
-        <nav class="flex items-center gap-8">
-          <a class="flex items-center gap-1 text-[#141414] text-sm font-medium leading-normal" href="/">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-            <span>Home</span>
-          </a>
-          <a class="flex items-center gap-1 text-[#141414] text-sm font-medium leading-normal" href="/dependencies">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-            <span>Define Dependencies</span>
-          </a>
-          <a class="flex items-center gap-1 text-[#141414] text-sm font-medium leading-normal" href="/visualize">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-            <span>Visualize Dependencies</span>
-          </a>
-          <a class="flex items-center gap-1 text-[#141414] text-sm font-medium leading-normal" href="/similarity">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-            <span>Course Similarity</span>
-          </a>
-          <a class="flex items-center gap-1 text-[#141414] text-sm font-medium leading-normal" href="/warnings">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-            <span>Warnings</span>
-          </a>
-        </nav>
-      </header>
-      <div class="px-40 flex flex-1 justify-center py-5">
-        <div class="layout-content-container flex flex-col max-w-[1280px] flex-1">
-          <div class="flex flex-wrap justify-between gap-3 p-4">
-            <div class="flex min-w-72 flex-col gap-3">
-              <p class="text-[#111518] tracking-light text-[32px] font-bold leading-tight">Define Dependencies</p>
-              <p class="text-[#60768a] text-sm font-normal leading-normal">This page allows you to manage course
-                dependencies. Select a course from the dropdown menu to view and modify its prerequisites.</p>
+  <div class="relative flex size-full min-h-screen flex-col bg-white group/design-root overflow-x-hidden" style="--checkbox-tick-svg: url('data:image/svg+xml,%3csvg viewBox=%270 0 16 16%27 fill=%27rgb(250,250,250)%27 xmlns=%27http://www.w3.org/2000/svg%27%3e%3cpath d=%27M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z%27/%3e%3c/svg%3e'); --select-button-svg: url('data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2724px%27 height=%2724px%27 fill=%27rgb(115,115,115)%27 viewBox=%270 0 256 256%27%3e%3cpath d=%27M181.66,170.34a8,8,0,0,1,0,11.32l-48,48a8,8,0,0,1-11.32,0l-48-48a8,8,0,0,1,11.32-11.32L128,212.69l42.34-42.35A8,8,0,0,1,181.66,170.34Zm-96-84.68L128,43.31l42.34,42.35a8,8,0,0,0,11.32-11.32l-48-48a8,8,0,0,0-11.32,0l-48,48A8,8,0,0,0,85.66,85.66Z%27%3e%3c/path%3e%3c/svg%3e'); font-family: Inter, \"Noto Sans\", sans-serif;">
+    <div class="layout-container flex h-full grow">
+      {% include 'sidebar.html' %}
+      <div class="flex flex-col flex-1">
+        <div class="px-40 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col max-w-[1280px] flex-1">
+            <div class="flex flex-wrap justify-between gap-3 p-4">
+              <div class="flex min-w-72 flex-col gap-3">
+                <p class="text-[#111518] tracking-light text-[32px] font-bold leading-tight">Define Dependencies</p>
+                <p class="text-[#60768a] text-sm font-normal leading-normal">This page allows you to manage course dependencies. Select a course from the dropdown menu to view and modify its prerequisites.</p>
+              </div>
+              <form class="max-w-[800px] pt-3">
+                <label class="flex flex-col min-w-40 flex-1 max-w-[300px]">
+                  <select id="targetCourse" class="form-input flex w-[400px] min-w-0 resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#dbdbdb] focus:border-[#dbdbdb] h-14 bg-[image:--select-button-svg] placeholder:text-neutral-500 p-[15px] text-base font-normal leading-normal">
+                    <option value="">Select a Course</option>
+                    {% for course in all_courses %}
+                    <option value="{{ course.id }}">{{ course.name }}</option>
+                    {% endfor %}
+                  </select>
+                </label>
+              </form>
             </div>
-            <form class="max-w-[800px] pt-3">
-              <label class="flex flex-col min-w-40 flex-1 max-w-[300px]">
-                <select id="targetCourse"
-                  class="form-input flex w-[400px] min-w-0 resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#dbdbdb] focus:border-[#dbdbdb] h-14 bg-[image:--select-button-svg] placeholder:text-neutral-500 p-[15px] text-base font-normal leading-normal">
-                  <option value="">Select a Course</option>
-                  {% for course in all_courses %}
-                  <option value="{{ course.id }}">{{ course.name }}</option>
-                  {% endfor %}
-                </select>
-              </label>
-            </form>
+            {% include 'course_topics.html' %}
           </div>
-          {% include 'course_topics.html' %}
         </div>
       </div>
     </div>
@@ -74,5 +38,4 @@
   <script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
   <script src="{{ url_for('static', filename='dependencies.js') }}"></script>
 </body>
-
 </html>

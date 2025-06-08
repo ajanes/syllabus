@@ -1,104 +1,58 @@
 <html>
-
 <head>
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
-  <link rel="stylesheet" as="style" onload="this.rel='stylesheet'"
-    href="https://fonts.googleapis.com/css2?display=swap&family=Inter:wght@400;500;700;900&family=Noto+Sans:wght@400;500;700;900" />
+  <link rel="stylesheet" as="style" onload="this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?display=swap&family=Inter:wght@400;500;700;900&family=Noto+Sans:wght@400;500;700;900" />
   <title>Syllabus</title>
   <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 </head>
-
 <body>
-  <div class="relative flex size-full min-h-screen flex-col bg-white group/design-root overflow-x-hidden"
-    style='font-family: Inter, "Noto Sans", sans-serif;'>
-    <div class="layout-container flex h-full grow flex-col">
-      <header class="flex items-center gap-8 whitespace-nowrap border-b border-solid border-b-[#ededed] px-10 py-3">
-        <div class="flex items-center gap-4 text-[#141414]">
-          <div class="size-4">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M6 6H42L36 24L42 42H6L12 24L6 6Z" fill="currentColor" />
-            </svg>
-          </div>
-          <h2 class="text-[#141414] text-lg font-bold leading-tight tracking-[-0.015em]">Syllabus</h2>
-        </div>
-        <nav class="flex items-center gap-8">
-          <a class="flex items-center gap-1 text-[#141414] text-sm font-medium leading-normal" href="/">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-            <span>Home</span>
-          </a>
-          <a class="flex items-center gap-1 text-[#141414] text-sm font-medium leading-normal" href="/dependencies">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-            <span>Define Dependencies</span>
-          </a>
-          <a class="flex items-center gap-1 text-[#141414] text-sm font-medium leading-normal" href="/visualize">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-            <span>Visualize Dependencies</span>
-          </a>
-          <a class="flex items-center gap-1 text-[#141414] text-sm font-medium leading-normal" href="/similarity">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-            <span>Course Similarity</span>
-          </a>
-          <a class="flex items-center gap-1 text-[#141414] text-sm font-medium leading-normal" href="/warnings">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-            <span>Warnings</span>
-          </a>
-        </nav>
-      </header>
-      <div class="px-40 flex flex-1 justify-center py-5">
-        <div class="layout-content-container flex flex-col max-w-[1280px] flex-1">
-          <div class="flex flex-wrap justify-between gap-3 p-4">
-            <div class="flex min-w-72 flex-col gap-3">
-              <p class="text-[#111518] tracking-light text-[32px] font-bold leading-tight">Warnings</p>
-              <p class="text-[#60768a] text-sm font-normal leading-normal">This page lists current warnings and messages.</p>
-            </div>
-          </div>
-          <div class="flex flex-col gap-4 p-4">
-            {% if cycles %}
-            {% for cycle in cycles %}
-            <div class="flex items-start gap-3 rounded-lg border-l-4 border-red-500 bg-red-50 p-4">
-              <div class="size-5 text-red-500">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
+  <div class="relative flex size-full min-h-screen flex-col bg-white group/design-root overflow-x-hidden" style='font-family: Inter, "Noto Sans", sans-serif;'>
+    <div class="layout-container flex h-full grow">
+      {% include 'sidebar.html' %}
+      <div class="flex flex-col flex-1">
+        <div class="px-40 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col max-w-[1280px] flex-1">
+            <div class="flex flex-wrap justify-between gap-3 p-4">
+              <div class="flex min-w-72 flex-col gap-3">
+                <p class="text-[#111518] tracking-light text-[32px] font-bold leading-tight">Warnings</p>
+                <p class="text-[#60768a] text-sm font-normal leading-normal">This page lists current warnings and messages.</p>
               </div>
-              <p class="text-sm text-red-700">Circular dependency detected: {{ cycle | join(' → ') }} → {{ cycle[0] }}</p>
             </div>
-            {% endfor %}
-            {% else %}
-            <div class="flex items-start gap-3 rounded-lg bg-blue-50 p-4">
-              <div class="size-5 text-blue-500">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"/>
-                </svg>
+            <div class="flex flex-col gap-4 p-4">
+              {% if cycles %}
+              {% for cycle in cycles %}
+              <div class="flex items-start gap-3 rounded-lg border-l-4 border-red-500 bg-red-50 p-4">
+                <div class="size-5 text-red-500">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                </div>
+                <p class="text-sm text-red-700">Circular dependency detected: {{ cycle | join(' → ') }} → {{ cycle[0] }}</p>
               </div>
-              <p class="text-sm text-blue-700">No circular dependencies found.</p>
-            </div>
-            {% endif %}
+              {% endfor %}
+              {% else %}
+              <div class="flex items-start gap-3 rounded-lg bg-blue-50 p-4">
+                <div class="size-5 text-blue-500">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"/>
+                  </svg>
+                </div>
+                <p class="text-sm text-blue-700">No circular dependencies found.</p>
+              </div>
+              {% endif %}
 
-            {% for error in errors %}
-            <div class="flex items-start gap-3 rounded-lg p-4 {% if error.ignored %}bg-gray-100{% else %}bg-red-50{% endif %}">
-              <div class="size-5 text-red-500">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
+              {% for error in errors %}
+              <div class="flex items-start gap-3 rounded-lg p-4 {% if error.ignored %}bg-gray-100{% else %}bg-red-50{% endif %}">
+                <div class="size-5 text-red-500">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m0 3.75h.008v.008H12V16.5zm0-12a9 9 0 100 18 9 9 0 000-18z"/>
+                  </svg>
+                </div>
+                <p class="text-sm text-red-700">{{ error.message }}</p>
               </div>
-              <p class="flex-1 text-sm {% if error.ignored %}text-gray-400{% else %}text-red-700{% endif %}">{{ error.text }}</p>
-              <input type="checkbox" data-error="{{ error.text }}" class="h-5 w-5 ml-2 rounded border-[#dbdbdb] border-2 bg-transparent checked:bg-red-500 checked:border-red-500 checked:bg-[image:--checkbox-tick-svg] focus:ring-0 focus:outline-none" {% if error.ignored %}checked{% endif %} />
+              {% endfor %}
             </div>
-            {% endfor %}
-
-            {% for warning in warnings %}
-            <div class="flex items-start gap-3 rounded-lg p-4 {% if warning.ignored %}bg-gray-100{% else %}bg-yellow-50{% endif %}">
-              <div class="size-5 text-yellow-500">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
-              </div>
-              <p class="flex-1 text-sm {% if warning.ignored %}text-gray-400{% else %}text-yellow-700{% endif %}">{{ warning.text }}</p>
-              <input type="checkbox" data-warning="{{ warning.text }}" class="h-5 w-5 ml-2 rounded border-[#dbdbdb] border-2 bg-transparent checked:bg-yellow-500 checked:border-yellow-500 checked:bg-[image:--checkbox-tick-svg] focus:ring-0 focus:outline-none" {% if warning.ignored %}checked{% endif %} />
-            </div>
-            {% endfor %}
           </div>
         </div>
       </div>
@@ -106,5 +60,4 @@
   </div>
   <script src="{{ url_for('static', filename='warnings.js') }}"></script>
 </body>
-
 </html>
