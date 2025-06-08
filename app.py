@@ -321,12 +321,19 @@ def dependency_info():
     for cid in COURSE_PATHS.keys():
         topics_data = []
         for idx, topic_name in enumerate(COURSE_TOPICS.get(cid, []), 1):
-            dep_names = dependents[cid]["topics"].get(idx, [])
+            dep_entries = dependents[cid]["topics"].get(idx, [])
             topics_data.append(
                 {
                     "name": topic_name,
                     "courses": [
-                        {"id": name_to_id.get(d, ""), "name": d} for d in dep_names
+                        {
+                            "id": name_to_id.get(entry.get("course", ""), ""),
+                            "name": entry.get("course", ""),
+                            "course": entry.get("course", ""),
+                            "sub_topic": entry.get("sub_topic", ""),
+                            "note": entry.get("note", ""),
+                        }
+                        for entry in dep_entries
                     ],
                 }
             )
