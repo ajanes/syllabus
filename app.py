@@ -5,8 +5,8 @@ import threading
 import yaml
 import networkx as nx
 from ruamel.yaml import YAML
-from sentence_transformers import SentenceTransformer
-import numpy as np
+from sentence_transformers import SentenceTransformer, models
+from pathlib import Path
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "change-me"
@@ -331,7 +331,11 @@ def compute_similarity(cancel_event=None, progress_cb=None):
     if not texts or (cancel_event and cancel_event.is_set()):
         return names, []
 
-    model = SentenceTransformer("./all-MiniLM-L6-v2")
+    model_path = str(Path("all-MiniLM-L6-v2").resolve())
+
+    word_embedding_model = models.Transformer(model_path)
+    pooling_model = models.Pooling(word_embedding_model.get_word_embedding_dimension())
+    model = SentenceTransformer(modules=[word_embedding_model, pooling_model])
 
     if progress_cb:
         progress_cb(20)
@@ -737,4 +741,4 @@ def handle_disconnect():
 
 
 if __name__ == "__main__":
-    socketio.run(app, debug=True)
+    socketio.run(app, debug=False)
