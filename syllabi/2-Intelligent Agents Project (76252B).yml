@@ -26,5 +26,7 @@ course:
   - course: Analysis
     topics:
     - topic: 1
+      sub-topic: Integrals
     - topic: 2
+      note: Review prerequisites
     - topic: 3
