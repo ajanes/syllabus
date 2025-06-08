@@ -265,7 +265,11 @@ def dependency_info():
                 except (TypeError, ValueError):
                     continue
                 dependents[target_id]["topics"].setdefault(idx, []).append(
-                    COURSE_NAMES.get(src_id, "")
+                    {
+                        "course": COURSE_NAMES.get(src_id, ""),
+                        "sub_topic": t.get("sub-topic", ""),
+                        "note": t.get("note", ""),
+                    }
                 )
 
     # Build final list
