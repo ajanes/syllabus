@@ -9,15 +9,21 @@ document.addEventListener('DOMContentLoaded', () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text, ignore })
       }).then(() => {
-        const p = cb.parentElement.querySelector('p');
+        const wrapper = cb.parentElement;
+        const p = wrapper.querySelector('p');
         if (p) {
-          const activeClass = cb.dataset.warning ? 'text-yellow-700' : 'text-red-700';
+          const activeText = cb.dataset.warning ? 'text-yellow-700' : 'text-red-700';
+          const activeBg = cb.dataset.warning ? 'bg-yellow-50' : 'bg-red-50';
           if (ignore) {
-            p.classList.remove(activeClass);
+            p.classList.remove(activeText);
             p.classList.add('text-gray-400');
+            wrapper.classList.remove(activeBg);
+            wrapper.classList.add('bg-gray-100');
           } else {
-            p.classList.add(activeClass);
+            p.classList.add(activeText);
             p.classList.remove('text-gray-400');
+            wrapper.classList.add(activeBg);
+            wrapper.classList.remove('bg-gray-100');
           }
         }
       });
