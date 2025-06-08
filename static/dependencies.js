@@ -67,10 +67,10 @@ function renderTopics(topics) {
         <div class="flex size-7 items-center justify-center">
           <input type="checkbox" data-topic="${idx + 1}" class="h-5 w-5 rounded border-[#dbdbdb] border-2 bg-transparent text-black checked:bg-black checked:border-black checked:bg-[image:--checkbox-tick-svg] focus:ring-0 focus:ring-offset-0 focus:border-[#dbdbdb] focus:outline-none" />
         </div>
-        <div class="flex flex-1 flex-col md:flex-row md:items-center md:gap-4 justify-center">
+        <div class="flex flex-1 flex-col justify-center">
           <p class="text-[#141414] text-base font-medium leading-normal">${t}</p>
           <input placeholder="Subtopic" class="form-input mt-1 w-[300px] resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#dbdbdb] bg-neutral-50 focus:border-[#dbdbdb] h-10 placeholder:text-neutral-500 p-[10px] text-sm font-normal leading-normal" />
-          <input placeholder="Add notes here" class="form-input mt-1 md:mt-0 w-[300px] resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#dbdbdb] bg-neutral-50 focus:border-[#dbdbdb] h-10 placeholder:text-neutral-500 p-[10px] text-sm font-normal leading-normal" />
+          <input placeholder="Add notes here" class="form-input mt-1 w-[300px] resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#dbdbdb] bg-neutral-50 focus:border-[#dbdbdb] h-10 placeholder:text-neutral-500 p-[10px] text-sm font-normal leading-normal" />
         </div>
       </div>`;
     const checkbox = wrapper.querySelector('input[type="checkbox"]');
