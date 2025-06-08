@@ -520,6 +520,17 @@ def dependency_list():
     return render_template("dependency_list.html", courses=info)
 
 
+@app.route("/dependency_graph")
+def dependency_graph():
+    """Display a force-directed graph of course dependencies."""
+    graph = build_course_graph()
+    nodes = [{"id": n} for n in graph.nodes]
+    links = [{"source": u, "target": v} for u, v in graph.edges]
+    return render_template(
+        "dependency_graph.html", nodes=nodes, links=links
+    )
+
+
 @app.route("/similarity")
 def similarity():
     """Render similarity page. Actual computation happens over WebSocket."""
