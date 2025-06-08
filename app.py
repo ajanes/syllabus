@@ -81,6 +81,28 @@ def modify_dependency(path, course_name, base_topic, sub_topic="", note=""):
     save_yaml(path, yaml_data)
 
 
+def update_comment(path, course_name, comment=""):
+    yaml_data = load_yaml(path)
+    key, root = get_root(yaml_data)
+    deps = root.get("depends-on", [])
+    if not isinstance(deps, list):
+        deps = []
+
+    entry = next((d for d in deps if d.get("course") == course_name), None)
+    if entry is None:
+        entry = {"course": course_name, "topics": []}
+        deps.append(entry)
+
+    if comment:
+        entry["comment"] = comment
+    else:
+        entry.pop("comment", None)
+
+    root["depends-on"] = deps
+    yaml_data[key] = root
+    save_yaml(path, yaml_data)
+
+
 def remove_dependency(path, course_name, base_topic):
     yaml_data = load_yaml(path)
     key, root = get_root(yaml_data)
@@ -100,7 +122,9 @@ def remove_dependency(path, course_name, base_topic):
             if new_topics:
                 dep["topics"] = new_topics
             else:
-                deps.remove(dep)
+                dep.pop("topics", None)
+                if not dep.get("comment"):
+                    deps.remove(dep)
             break
     root["depends-on"] = deps
     yaml_data[key] = root
@@ -325,6 +349,18 @@ def handle_update_dependency(data):
         data.get("sub_topic", ""),
         data.get("note", ""),
     )
+    emit("saved", {"ok": True})
+
+
+@socketio.on("update_comment")
+def handle_update_comment(data):
+    target_id = data.get("target_id")
+    source_id = data.get("source_id")
+    path = COURSE_PATHS.get(target_id)
+    if not path or not source_id:
+        return
+    course_name = COURSE_NAMES.get(source_id, "")
+    update_comment(path, course_name, data.get("comment", ""))
     emit("saved", {"ok": True})
 
 
