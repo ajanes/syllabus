@@ -10,6 +10,7 @@ const commentContainer = document.getElementById('commentContainer');
 const commentInput = document.getElementById('courseComment');
 let currentDependencies = [];
 let currentTopics = [];
+let presetCourse = null;
 
 function updateControlBackgrounds(root = document) {
   root
@@ -56,9 +57,15 @@ socket.on('filtered', (data) => {
     const opt = document.createElement('option');
     opt.value = c.id;
     opt.textContent = c.name;
-    if (c.id === data.selected_course) opt.selected = true;
+    if (presetCourse ? c.id === presetCourse : c.id === data.selected_course)
+      opt.selected = true;
     courseSelect.appendChild(opt);
   });
+  if (presetCourse) {
+    courseSelect.value = presetCourse;
+    presetCourse = null;
+    courseSelect.dispatchEvent(new Event('change'));
+  }
   currentTopics = data.topics;
   renderTopics(currentTopics);
   loadDependencies();
@@ -187,9 +194,23 @@ targetSelect.addEventListener('change', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
+  const params = new URLSearchParams(window.location.search);
+  if (params.has('target')) {
+    targetSelect.value = params.get('target');
+  }
+  if (params.has('year')) {
+    yearSelect.value = params.get('year');
+  }
+  if (params.has('semester')) {
+    semesterSelect.value = params.get('semester');
+  }
+  if (params.has('source')) {
+    presetCourse = params.get('source');
+  }
   updateDropdownState();
   requestUpdate();
   updateControlBackgrounds();
+  loadDependencies();
 });
 
 commentInput.addEventListener('blur', () => {
