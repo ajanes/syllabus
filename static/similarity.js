@@ -4,13 +4,23 @@ const headEl = document.getElementById('simHead');
 const bodyEl = document.getElementById('simBody');
 const tableEl = document.getElementById('simTable');
 const loadingEl = document.getElementById('loading');
+const progressEl = document.getElementById('progress');
 
 socket.on('connect', () => {
   socket.emit('start_similarity');
 });
 
+socket.on('similarity_progress', (data) => {
+  if (progressEl) {
+    progressEl.textContent = data.progress + '%';
+  }
+});
+
 socket.on('similarity_result', (data) => {
   loadingEl.style.display = 'none';
+  if (progressEl) {
+    progressEl.textContent = '100%';
+  }
   tableEl.classList.remove('hidden');
   headEl.innerHTML = '';
   bodyEl.innerHTML = '';

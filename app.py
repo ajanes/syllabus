@@ -304,14 +304,19 @@ def load_courses():
 load_courses()
 
 
-def compute_similarity(cancel_event=None):
+def compute_similarity(cancel_event=None, progress_cb=None):
     """Compute cosine similarity matrix for all courses.
 
     Parameters
     ----------
     cancel_event: threading.Event | None
         If provided, computation aborts when this event is set.
+    progress_cb: callable(int) | None
+        Called periodically with an integer percentage from 0 to 100.
     """
+
+    if progress_cb:
+        progress_cb(0)
 
     texts = []
     names = []
@@ -320,20 +325,32 @@ def compute_similarity(cancel_event=None):
         topics = COURSE_TOPICS.get(c["id"], [])
         texts.append(" ".join(topics))
 
+    if progress_cb:
+        progress_cb(10)
+
     if not texts or (cancel_event and cancel_event.is_set()):
         return names, []
 
     model = SentenceTransformer("all-MiniLM-L6-v2")
+
+    if progress_cb:
+        progress_cb(20)
 
     if cancel_event and cancel_event.is_set():
         return names, []
 
     embeddings = model.encode(texts, normalize_embeddings=True)
 
+    if progress_cb:
+        progress_cb(70)
+
     if cancel_event and cancel_event.is_set():
         return names, []
 
     matrix = (embeddings @ embeddings.T).tolist()
+
+    if progress_cb:
+        progress_cb(100)
     return names, matrix
 
 
@@ -683,7 +700,10 @@ def handle_start_similarity():
     stop_event = threading.Event()
 
     def worker():
-        names, matrix = compute_similarity(cancel_event=stop_event)
+        def update(pct):
+            socketio.emit("similarity_progress", {"progress": pct}, to=sid)
+
+        names, matrix = compute_similarity(cancel_event=stop_event, progress_cb=update)
         if stop_event.is_set():
             return
         socketio.emit(
