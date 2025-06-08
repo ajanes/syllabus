@@ -9,3 +9,4 @@ bibtexparser
 pybtex
 docx2pdf
 ruamel.yaml==0.18.2
+networkx
