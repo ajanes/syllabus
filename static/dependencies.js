@@ -69,13 +69,13 @@ function renderTopics(topics) {
         </div>
         <div class="flex flex-1 flex-col justify-center">
           <p class="text-[#141414] text-base font-medium leading-normal">${t}</p>
-          <textarea placeholder="Subtopic" rows="2" class="form-input mt-1 w-[300px] resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#dbdbdb] bg-neutral-50 focus:border-[#dbdbdb] h-20 placeholder:text-neutral-500 p-[10px] text-sm font-normal leading-normal"></textarea>
-          <textarea placeholder="Add notes here" rows="3" class="form-input mt-1 w-[300px] resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#dbdbdb] bg-neutral-50 focus:border-[#dbdbdb] h-24 placeholder:text-neutral-500 p-[10px] text-sm font-normal leading-normal"></textarea>
+          <input placeholder="Subtopic" class="form-input mt-1 w-[300px] resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#dbdbdb] bg-neutral-50 focus:border-[#dbdbdb] h-10 placeholder:text-neutral-500 p-[10px] text-sm font-normal leading-normal" />
+          <input placeholder="Add notes here" class="form-input mt-1 w-[300px] resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#dbdbdb] bg-neutral-50 focus:border-[#dbdbdb] h-10 placeholder:text-neutral-500 p-[10px] text-sm font-normal leading-normal" />
         </div>
       </div>`;
     const checkbox = wrapper.querySelector('input[type="checkbox"]');
-    const subInput = wrapper.querySelector('textarea[placeholder="Subtopic"]');
-    const noteInput = wrapper.querySelector('textarea[placeholder="Add notes here"]');
+    const subInput = wrapper.querySelector('input[placeholder="Subtopic"]');
+    const noteInput = wrapper.querySelector('input[placeholder="Add notes here"]');
 
     checkbox.addEventListener('change', (e) => {
       if (e.target.checked) {
@@ -131,8 +131,8 @@ function applyDependencies() {
     const base = wrapper.dataset.baseTopic;
     const baseIdx = parseInt(wrapper.dataset.topicIndex, 10);
     const checkbox = wrapper.querySelector('input[type="checkbox"]');
-    const subInput = wrapper.querySelector('textarea[placeholder="Subtopic"]');
-    const noteInput = wrapper.querySelector('textarea[placeholder="Add notes here"]');
+    const subInput = wrapper.querySelector('input[placeholder="Subtopic"]');
+    const noteInput = wrapper.querySelector('input[placeholder="Add notes here"]');
     checkbox.checked = false;
     wrapper.dataset.storedTopic = base;
     subInput.value = '';
