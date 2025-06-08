@@ -7,6 +7,8 @@ import networkx as nx
 from ruamel.yaml import YAML
 from sentence_transformers import SentenceTransformer, models
 from pathlib import Path
+from matplotlib.colors import to_hex, LinearSegmentedColormap
+import matplotlib.cm as cm
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "change-me"
@@ -43,14 +45,14 @@ def save_yaml(path, data):
 
 
 def load_similarity():
-    data = load_yaml(SIMILARITY_FILE)
+    data = load_yaml("./similarity.yml")
     names = data.get("courses", [])
     matrix = data.get("matrix", [])
     return names, matrix
 
 
 def save_similarity(names, matrix):
-    save_yaml(SIMILARITY_FILE, {"courses": names, "matrix": matrix})
+    save_yaml("./similarity.yml", {"courses": names, "matrix": matrix})
 
 
 def get_root(data):
@@ -376,12 +378,24 @@ def compute_similarity(cancel_event=None, progress_cb=None, force=False):
     save_similarity(names, matrix)
     return names, matrix
 
+# > 0.8: very likely overlapping
+# 0.6 – 0.8: some overlap
+# < 0.6: weak or no meaningful overlap
 
 def similarity_colors(matrix):
-    return [
-        [to_hex(SIM_CMAP(max(0.0, min(1.0, val)))) for val in row]
-        for row in matrix
-    ]
+    white = "#FFFFFF"
+    orange = "#FFA500"
+    red = "#FF0000"
+
+    def get_color(val):
+        if val < 0.6:
+            return white
+        elif val > 0.8:
+            return red
+        else:
+            return orange
+
+    return [[get_color(val) for val in row] for row in matrix]
 
 
 
