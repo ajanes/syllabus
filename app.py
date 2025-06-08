@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 from flask_socketio import SocketIO, emit
 import os
+import threading
 import yaml
 import networkx as nx
 from ruamel.yaml import YAML
@@ -25,8 +26,7 @@ COURSE_TOPICS = {}
 COURSE_PATHS = {}
 COURSE_NAMES = {}
 YEARS = []
-SIM_MATRIX = []
-SIM_NAMES = []
+SIMILARITY_TASKS = {}
 
 
 def load_yaml(path):
@@ -304,23 +304,37 @@ def load_courses():
 load_courses()
 
 
-def compute_similarity():
-    """Compute cosine similarity matrix for all courses."""
-    global SIM_MATRIX, SIM_NAMES
+def compute_similarity(cancel_event=None):
+    """Compute cosine similarity matrix for all courses.
+
+    Parameters
+    ----------
+    cancel_event: threading.Event | None
+        If provided, computation aborts when this event is set.
+    """
+
     texts = []
     names = []
     for c in COURSES:
         names.append(c["name"])
         topics = COURSE_TOPICS.get(c["id"], [])
         texts.append(" ".join(topics))
-    if not texts:
-        SIM_MATRIX = []
-        SIM_NAMES = names
-        return
+
+    if not texts or (cancel_event and cancel_event.is_set()):
+        return names, []
+
     model = SentenceTransformer("all-MiniLM-L6-v2")
+
+    if cancel_event and cancel_event.is_set():
+        return names, []
+
     embeddings = model.encode(texts, normalize_embeddings=True)
-    SIM_MATRIX = (embeddings @ embeddings.T).tolist()
-    SIM_NAMES = names
+
+    if cancel_event and cancel_event.is_set():
+        return names, []
+
+    matrix = (embeddings @ embeddings.T).tolist()
+    return names, matrix
 
 
 
@@ -491,10 +505,8 @@ def visualize():
 
 @app.route("/similarity")
 def similarity():
-    compute_similarity()
-    return render_template(
-        "similarity.html", courses=SIM_NAMES, matrix=SIM_MATRIX
-    )
+    """Render similarity page. Actual computation happens over WebSocket."""
+    return render_template("similarity.html")
 
 
 @app.route("/dependencies")
@@ -661,6 +673,36 @@ def handle_update_comment(data):
     course_name = COURSE_NAMES.get(source_id, "")
     update_comment(path, course_name, data.get("comment", ""))
     emit("saved", {"ok": True})
+
+
+@socketio.on("start_similarity")
+def handle_start_similarity():
+    """Compute similarity matrix in the background."""
+    sid = request.sid
+
+    stop_event = threading.Event()
+
+    def worker():
+        names, matrix = compute_similarity(cancel_event=stop_event)
+        if stop_event.is_set():
+            return
+        socketio.emit(
+            "similarity_result",
+            {"courses": names, "matrix": matrix},
+            to=sid,
+        )
+
+    thread = threading.Thread(target=worker, daemon=True)
+    SIMILARITY_TASKS[sid] = (thread, stop_event)
+    thread.start()
+
+
+@socketio.on("disconnect")
+def handle_disconnect():
+    task = SIMILARITY_TASKS.pop(request.sid, None)
+    if task:
+        _, event = task
+        event.set()
 
 
 if __name__ == "__main__":

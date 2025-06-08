@@ -37,36 +37,17 @@
             </div>
           </div>
           <div class="overflow-auto">
-            <table class="min-w-full border-collapse text-xs">
-              <thead>
-                <tr>
-                  <th class="border px-2 py-1 text-left"></th>
-                  {% for name in courses %}
-                  <th class="border px-2 py-1 text-left">{{ name }}</th>
-                  {% endfor %}
-                </tr>
-              </thead>
-              <tbody>
-                {% for row_name, row in zip(courses, matrix) %}
-                <tr>
-                  <th class="border px-2 py-1 text-left whitespace-nowrap">{{ row_name }}</th>
-                  {% for value in row %}
-                  {% if value > 0.8 %}
-                  <td class="border px-2 py-1 text-center bg-red-300">{{ '%.2f' % value }}</td>
-                  {% elif value > 0.6 %}
-                  <td class="border px-2 py-1 text-center bg-orange-300">{{ '%.2f' % value }}</td>
-                  {% else %}
-                  <td class="border px-2 py-1 text-center bg-gray-200">{{ '%.2f' % value }}</td>
-                  {% endif %}
-                  {% endfor %}
-                </tr>
-                {% endfor %}
-              </tbody>
+            <div id="loading" class="p-4">Please wait...</div>
+            <table id="simTable" class="min-w-full border-collapse text-xs hidden">
+              <thead id="simHead"></thead>
+              <tbody id="simBody"></tbody>
             </table>
           </div>
         </div>
       </div>
     </div>
   </div>
+  <script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
+  <script src="{{ url_for('static', filename='similarity.js') }}"></script>
 </body>
 </html>
