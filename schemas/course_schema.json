@@ -1,0 +1,152 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Course Schema",
+  "type": "object",
+  "properties": {
+    "course": {
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "code": { "type": "integer" },
+        "scientific_sector": { "type": "string" },
+        "degree": { "type": "string" },
+        "semester": {
+          "type": "string",
+          "enum": ["1st", "2nd"]
+        },
+        "year": {
+          "type": "string",
+          "enum": ["1st", "2nd", "3rd"]
+        },
+        "credits": { "type": "integer" },
+        "modular": { "type": "boolean" },
+        "total_lecturing_hours": { "type": "integer" },
+        "total_lab_hours": { "type": "integer" },
+        "attendance": { "type": "string" },
+        "prerequisites": {
+          "anyOf": [
+            { "type": "null" },
+            { "type": "string" }
+          ]
+        },
+        "course_page": { "type": "string" },
+        "specific_educational_objectives": { "type": "string" },
+        "lecturer": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "anyOf": [
+                { "type": "string" },
+                { "type": "array", "items": { "type": "string" } }
+              ]
+            },
+            "email": {
+              "anyOf": [
+                { "type": "string", "format": "email" },
+                { "type": "array", "items": { "type": "string", "format": "email" } }
+              ]
+            },
+            "scientific_sector": {
+              "anyOf": [
+                { "type": "string" },
+                { "type": "array", "items": { "type": "string" } }
+              ]
+            },
+            "office": {
+              "anyOf": [
+                { "type": "string" },
+                { "type": "array", "items": { "type": "string" } }
+              ]
+            },
+            "office_hours": {
+              "anyOf": [
+                { "type": "string" },
+                { "type": "array", "items": { "type": "string" } }
+              ]
+            }
+          },
+          "required": ["name", "scientific_sector"]
+        },
+        "language": {
+          "anyOf": [
+            { "type": "string" },
+            { "type": "array", "items": { "type": "string" } }
+          ]
+        },
+        "teaching_assistant": {
+          "anyOf": [
+            { "type": "null" },
+            {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "anyOf": [
+                    { "type": "string" },
+                    { "type": "array", "items": { "type": "string" } }
+                  ]
+                },
+                "email": {
+                  "anyOf": [
+                    { "type": "string", "format": "email" },
+                    { "type": "array", "items": { "type": "string", "format": "email" } }
+                  ]
+                },
+                "office": { "type": "string" },
+                "office_hours": { "type": "string" }
+              },
+              "required": ["name", "email", "office", "office_hours"],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "topics": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "teaching_format": { "type": "string" },
+        "assessment": { "type": "string" },
+        "assessment_language": { "type": "string" },
+        "assessment_typology": { "type": "string" },
+        "evaluation_criteria": { "type": "string" },
+        "required_readings": {
+          "type": ["array", "null"],
+          "items": { "type": "string" }
+        },
+        "supplementary_readings": {
+          "type": ["array", "null"],
+          "items": { "type": "string" }
+        },
+        "software": {
+          "type": ["array", "null"],
+          "items": { "type": "string" }
+        }
+      },
+      "required": [
+        "title",
+        "code",
+        "scientific_sector",
+        "degree",
+        "semester",
+        "year",
+        "modular",
+        "attendance",
+        "specific_educational_objectives",
+        "assessment",
+        "assessment_language",
+        "evaluation_criteria",
+        "required_readings",
+        "supplementary_readings",
+        "software"
+      ],
+      "if": {
+        "properties": {
+          "modular": { "const": false }
+        }
+      },
+      "then": {
+        "required": ["credits", "total_lecturing_hours", "total_lab_hours", "course_page", "lecturer", "language", "topics", "teaching_format"]
+      }
+    }
+  },
+  "required": ["course"]
+}

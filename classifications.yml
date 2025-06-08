@@ -1,0 +1,821 @@
+classifications:
+  learning_outcomes:
+    knowledge_and_understanding:
+
+      #NEW
+      - description: "D1.1: Have a solid knowledge of mathematical analysis, algebra, numerical calculus, discrete mathematics and elementary notion of logic that are in support of computer science"
+        courses:
+          - Analysis
+          - Discrete Mathematics
+          - Linear Algebra
+          # - Probability Theory and Statistics
+          # - Computational Security for Data Science
+      - description: "D1.2: Know in details the fundamental principles of programming"
+        courses:
+          - Introduction to Programming
+          # - Coding Capstone
+          - Object Oriented and Functional Programming
+          - Operating Systems
+      - description: "D1.3: Have a solid knowledge of the most important data structures and programming techniques"
+        courses:
+          - Operating Systems
+          # - Data Structures and Algorithms
+          - Object Oriented and Functional Programming
+          - Introduction to Programming
+      - description: "D1.4: Understand the key principles, the structures and the organization of relational databases"
+        courses:
+          # - Introduction to Databases
+          # - Database Management Systems
+      - description: "D1.5: Have a solid knowledge of the most important algorithms for searching and manipulating common data structures and of their complexity"
+        courses:
+          # - Data Structures and Algorithms
+      - description: "D1.6: Have a solid knowledge of the theoretical foundations of computer science"
+        courses:
+          # - Formal Languages and Compilers
+          # - Data Structures and Algorithms
+      - description: "D1.7: To have a thorough knowledge of the main fundamentals techniques and methods of software design, development and maintenance"
+        courses:
+          # - Software Engineering
+          # - Smart Software Development
+          # - Smart Software Design
+          # - Coding Capstone
+      - description: "D1.8: Know the concepts of formal languages, and the techniques of compilation of various high level programming languages"
+        courses:
+          # - Formal Languages and Compilers
+      - description: "D1.9: Know the principles of computer networks"
+        courses:
+          - Operating Systems
+          - Web and Internet Engineering with Project
+      - description: "D1.10: Know the principles of artificial intelligence and potentials and limits of intelligent systems in various application domains"
+        courses:
+          # - Intelligent Agents
+          # - Artificial Intelligence
+          # - Introduction to Computer Vision
+          # - Machine Learning
+      - description: "D1.11: Know critical security aspects of information systems, the basic concepts of security and techniques for the development of secure systems"
+        courses:
+          # - Computational Security for Data Science
+          # - Database Management Systems
+      - description: "D1.12: Posses both knowledge and methodologies of software design and development in the mobile environment"
+        courses:
+          # - Mobile Computing
+      - description: "D1.13: Know the basics of designing and building of web applications"
+        courses:
+          - Web and Internet Engineering with Project
+      - description: "D1.14: Know the main methods for the design of interactive smart objects for IoT"
+        courses:
+          # - Interactive Interface Design and Development
+          # - Mobile and Physical Systems
+      - description: "D1.15: Have a solid knowledge of statistics and probability theory in support to computer science"
+        courses:
+          # - Probability Theory and Statistics
+      - description: "D1.16: Knowledge of the basic principles of communication towards the customer, software development communities or within even complex business realities"
+        courses:
+          # - Scientific Writing and Communication in English
+          # - Project and Teamwork Management
+      - description: "D1.17: Know and understand interdisciplinary aspects of computer science, such as socio-economic, entrepreneurial and professional aspects"
+        courses:
+          # - Computational Security for Data Science
+          # - Project and Teamwork Management
+      - description: "D1.18: Have professional knowledge in German, Italian and English"
+        courses:
+          - English for Computer Scientists
+          # - German for Computer Scientists
+          # - Italian for Computer Scientists
+          # - Scientific Writing and Communication in English
+      - description: "D1.19: Understand the key principles, the structures and the organization of computer systems"
+        courses:
+          - Computer Systems Architecture
+      - description: "D1.20: Know the innovative aspects of the last generation of operating systems"
+        courses:
+          - Operating Systems
+      - description: "D1.21: Know of both the fundamentals and the application aspects of the various areas of Human-computer interaction"
+        courses:
+          # - Interactive Interface Design and Development
+          # - Mobile and Physical Systems
+          - Web and Internet Engineering with Project
+
+      #OLD
+      - description: "D1.1 Have a solid knowledge of mathematical , algebra, numerical calculus,  and elementary logic that are in support of computer science."
+        courses:
+          - Probability Theory and Statistics
+          - Computational Security        
+      - description: "D1.2 Know in details the fundamental principles of programming."
+        courses:
+          - Web and Internet Engineering
+          - Operating Systems        
+      - description: "D1.3 Have a solid knowledge of the most important data structures and programming techniques."
+        courses:
+          - Data Structures and Algorithms
+      - description: "D1.4 Understand the key principles, the structures and the organization of relational databases and methods for designing and developing databases."
+        courses:
+          - Introduction to Databases
+          - Database Management Systems      
+      - description: "D1.5 Know the concepts of complexity of algorithms and data structures"
+        courses:
+          - Data Structures and Algorithms      
+      - description: "D1.6 Have a solid knowledge of the most important algorithms for searching and manipulating common data structures and of their complexity"
+        courses:
+          - Data Structures and Algorithms      
+      - description: "D1.7 Possess sound knowledge of the theoretical foundations of computer science"
+        courses:
+          - Formal Languages and Compilers      
+      - description: "D1.8 To have a thorough knowledge of the main fundamentals techniques and methods of software design, development and maintenance"
+        courses:
+          - Software Engineering
+          - Software Systems Engineering     
+      - description: "D1.9 Know in detail the principles of relational database systems and methods for designing, developing and optimizing databases."
+        courses:
+          - Database Management Systems      
+      - description: "D1.10 Know the concepts of formal languages, and the techniques of compilation of various high level programming languages."
+        courses:
+          - Formal Languages and Compilers      
+      - description: "D1.11 Know in detail the principles of computer networks and distributed systems"
+        courses:
+          - Computer Networks      
+      - description: "D1.12 Know in detail the internet fundamental principles and the methodologies for their design and development."
+        courses:
+          - Computer Networks      
+      - description: "D1.13 Know the principles of artificial intelligence and potentials and limits of intelligent systems in various application domains."
+        courses:
+          - Intelligent Agents
+          - Artificial Intelligence
+          - Machine Learning in practice
+      - description: "D1.14 Know critical security aspects of information systems, the basic concepts of security and techniques for the development of secure systems."
+        courses:
+          - Computational Security      
+      - description: "D1.15 Possess knowledge and methodologies of software design and development in the mobile environment"
+        courses:
+          - Mobile and Physical Systems      
+      - description: "D1.16 Know the basics of designing and building of web applications."
+        courses:
+          - Web and Internet Engineering      
+      - description: "D1.17 Know the main methods for the design of interactive smart objects for IoT"
+        courses:
+          - Interactive Interface Design and Development
+          - Mobile and Physical Systems      
+      - description: "D1.18 Have a solid knowledge of statistics and probability theory."
+        courses:
+          - Probability Theory and Statistics      
+      - description: "D1.19 Know the basic principles of communication to the customer, software development communities, or within even complex business settings"
+        courses:
+          - Scientific Writing and Communication
+          - Project and Teamwork Management      
+      - description: "D1.20 Know and understand interdisciplinary aspects of computer science, such as socio-economic, entrepreneurial and professional aspects."
+        courses:
+          - Introduction to Business Administration
+          - Project and Teamwork Management      
+      - description: "D1.21 Understand the key principles, the structures and the organization of computer systems."
+        courses:
+      - description: "D1.22 Know the innovative aspects of the last generation of operating systems."
+        courses:
+          - Operating Systems      
+      - description: "D1.23 Possess professional-level knowledge in German, Italian and English"
+        courses:
+          - German for Computer Scientists
+          - Italian for Computer Scientists
+                
+    applying_knowledge_and_understanding:
+
+      #NEW
+      - description: "D2.1: Be able to use the tools of mathematics and logic to solve problems."
+        courses:
+          - Analysis
+          - Discrete Mathematics
+          - Linear Algebra
+          # - Probability Theory and Statistics
+          # - Computational Security for Data Science
+      - description: "D2.2: Be able to develop small and medium size programs using different programming languages and paradigms."
+        courses:
+          - Introduction to Programming
+          # - Coding Capstone
+          # - Mobile Computing
+          # - Intelligent Agents
+          - Object Oriented and Functional Programming
+          - Operating Systems
+      - description: "D2.3: Be able to solve problems using programming methodologies."
+        courses:
+          - Introduction to Programming
+          # - Coding Capstone
+          - Object Oriented and Functional Programming
+          - Web and Internet Engineering with Project
+          # - Mobile Computing
+          - Operating Systems
+      - description: "D2.4: Ability to develop programs to interact with microcontrollers and the operating systems of modern computers."
+        courses:
+          - Operating Systems
+          - Computer Systems Architecture
+      - description: "D2.5: Be able to apply the own knowledge to the analysis, design, development and testing of information systems which satisfy given requirements"
+        courses:
+          # - Software Engineering
+          # - Smart Software Design
+          # - Smart Software Development
+          # - Introduction to Databases
+      - description: "D2.6: Be able to analyze and measure size, complexity and critical aspects of algorithms and data structures"
+        courses:
+          # - Data Structures and Algorithms
+      - description: "D2.7: Ability to develop and build translators and compilers"
+        courses:
+          # - Formal Languages and Compilers
+      - description: "D2.8: Be able to solve typical problems in computer science based on software engineering methodologies, such as the definition of requirements, the analysis of possible methods for a solution, the selection of the most appropriate methods and tools as well as their application"
+        courses:
+          # - Software Engineering
+          # - Coding Capstone
+          # - Smart Software Development
+          # - Smart Software Design
+      - description: "D2.9: Be able to evaluate the quality of information systems and to identify critical aspects."
+        courses:
+          # - Software Engineering
+          # - Smart Software Development
+          # - Smart Software Design
+          # - Computational Security for Data Science
+      - description: "D2.10: Be able to design, develop and query relational databases"
+        courses:
+          # - Introduction to Databases
+          # - Database Management Systems
+      - description: "D2.11: Be able to develop Web applications."
+        courses:
+          # - Mobile Computing
+          # - Interactive Interface Design and Development
+          - Web and Internet Engineering with Project
+      - description: "D2.12: Be able to adopt programming techniques of artificial intelligence to solve problems of computer science."
+        courses:
+          # - Artificial Intelligence
+          # - Intelligent Agents
+          # - Machine Learning
+          # - Introduction to Computer Vision
+      - description: "D2.13: Ability to analyse and improve data privacy and data security features in the context of complex software infrastructures."
+        courses:
+          # - Computational Security for Data Science
+      - description: "D2.14: Be able to apply the tools of statistics and probability theory to solve information technology issues"
+        courses:
+          # - Probability Theory and Statistics
+          # - Machine Learning
+      - description: "D2.15: Knowing how to conduct bibliographic research and use databases and other information sources"
+        courses:
+          - Scientific Writing and Communication in English
+      - description: "D2.16: Be able to coordinate small project teams and to interact with members of the group."
+        courses:
+          # - Project and Teamwork Management
+          # - Coding Capstone
+      - description: "D2.17: Being able to communicate professionally in written and oral form in English, Italian and German to customers"
+        courses:
+          - English for Computer Scientists
+          # - German for Computer Scientists
+          # - Italian for Computer Scientists
+          # - Scientific Writing and Communication in English
+      - description: "D2.18: Be able to apply interactive design principles and patterns fo smart objects and we applications."
+        courses:
+          # - Interactive Interface Design and Development
+          # - Mobile and Physical Systems
+          - Web and Internet Engineering with Project
+
+      #OLD
+      - description: "D2.1 Be able to use the tools of mathematics and logic to solve problems."#
+        courses:
+          - Probability Theory and Statistics
+          - Computational Security      
+      - description: "D2.2 Be able to develop small and medium size programs using different programming languages and paradigms."
+        courses:
+          - Mobile and Physical Systems
+          - Intelligent Agents      
+      - description: "D2.3 Be able to solve problems using programming methodologies."
+        courses:
+          - Data Structures and Algorithms
+          - Web and Internet Engineering
+          - Mobile and Physical Systems      
+      - description: "D2.4 Ability to develop programs to interact with microcontrollers and the operating systems of modern computers."
+        courses:
+          - Operating Systems      
+      - description: "D2.5 Be able to apply the own knowledge to the , design, development and testing of information systems which satisfy given requirements"
+        courses:
+          - Software Engineering
+          - Software Systems Engineering
+          - Introduction to Databases      
+      - description: "D2.6 Be able to analyze and measure size, complexity and critical aspects of algorithms and data structures"
+        courses:
+          - Data Structures and Algorithms
+      - description: "D2.7 Be able to conduct simple experiments about information systems by collecting measures about the behaviour of the system."
+        courses:
+          - Software Systems Engineering     
+      - description: "D2.8 Be able to develop and construct translators and compilers"
+        courses:
+          - Formal Languages and Compilers      
+      - description: "D2.9 Be able to plan and program in distributed programming environments and in digital networks."
+        courses:
+          - Computer Networks      
+      - description: "D2.10 Be able to solve typical problems in computer science based on software engineering methodologies, such as the definition of requirements, the  of possible methods for a solution, the selection of the most appropriate methods and tools as well as their application"
+        courses:
+          - Software Engineering
+          - Software Systems Engineering      
+      - description: "D2.11 Be able to evaluate the quality of information systems and to identify critical aspects."
+        courses:
+          - Software Engineering
+          - Software Systems Engineering
+          - Computational Security      
+      - description: "D2.12 Be able to design, develop and query relational databases"
+        courses:
+          - Introduction to Databases      
+      - description: "D2.13 Be able to develop efficient and optimized applications  based on relational databases"
+        courses:
+          - Database Management Systems      
+      - description: "D2.14 Be able to develop Mobile applications."
+        courses:
+          - Mobile and Physical Systems
+          - Interactive Interface Design and Development      
+      - description: "D2.15 Be able to adopt programming techniques of artificial intelligence to solve problems of computer science."
+        courses:
+          - Artificial Intelligence
+          - Intelligent Agents
+          - Machine Learning in practice      
+      - description: "D2.16 Ability to develop applications in the web area."
+        courses:
+          - Web and Internet Engineering
+          - Interactive Interface Design and Development      
+      - description: "D2.17 Ability to analyse and improve data privacy and data security features in the context of complex software infrastructures."
+        courses:
+          - Computational Security      
+      - description: "D2.18 Ability to apply innovative techniques of machine learning to extract knowledge from unstructured data. "
+        courses:
+          - Machine Learning in practice      
+      - description: "D2.19 Be able to apply the own knowledge in different working contexts."
+        courses:
+          - Mobile and Physical Systems
+          - Introduction to Business Administration
+          - Software Engineering
+          - Interactive Interface Design and Development
+          - Computational Security      
+      - description: "D2.20 Be able to select and apply innovative technologies and methods that are appropriate for a given context and problem."
+        courses:
+          - Web and Internet Engineering
+          - Mobile and Physical Systems      
+      - description: "D2.21 Be able to apply the tools of statistics and probability theory to solve information technology issues"
+        courses:
+          - Probability Theory and Statistics      
+      - description: "D2.22 Be able to conduct bibliographic research and use databases and other sources of information."
+        courses:
+          - Scientific Writing and Communication      
+      - description: "D2.23 Be able to coordinate small project teams and to interact with members of the group."
+        courses:
+          - Project and Teamwork Management
+          - Introduction to Business Administration
+          - Interactive Interface Design and Development
+          - Mobile and Physical Systems      
+      - description: "D2.24 Be able to communicate professionally in written and spoken form in English, Italian, and German with clients."
+        courses:
+          - German for Computer Scientists
+          - Italian for Computer Scientists
+          - Scientific Writing and Communication      
+      - description: "D2.25 Be able to apply interactive design principles and patterns for IoT solutions and smart objects."
+        courses:
+          - Interactive Interface Design and Development
+          - Mobile and Physical Systems 
+
+    ability_to_make_judgments:
+      #NEW
+      - description: "D3.1: Be able to collect and interpret useful data and to judge information systems and their applicability."
+        courses:
+          # - Mobile and Physical Systems
+          - Web and Internet Engineering with Project
+          # - Intelligent Agents
+          # - Data Structures and Algorithms
+          # - Machine Learning
+          - Introduction to Programming
+          # - Smart Software Design
+          # - Introduction to Databases
+          # - Artificial Intelligence
+          # - Database Management Systems
+          - Object Oriented and Functional Programming
+          - Computer Systems Architecture
+          # - Smart Software Development
+          # - Computational Security for Data Science
+          # - Intelligent Agents
+          # - Mobile Computing
+          # - Coding Capstone
+          # - Software Engineering
+          # - Formal Languages and Compilers
+          - Object Oriented and Functional Programming
+          # - Introduction to Computer Vision
+          - Operating Systems
+      - description: "D3.2: Be able to work autonomously according to the own level of knowledge and understanding."
+        courses:
+          - Linear Algebra
+          - Discrete Mathematics
+          - Scientific Writing and Communication in English
+          - Project and Teamwork Management
+          - Englisch for Computer Scientists
+          # - German for Computer Scientists
+          # - Italian for Computer Scientists
+          # - Probability Theory and Statistics
+          # - Introduction to Databases
+          # - Interactive Interface Design and Development
+          - Analysis
+          # - Computational Security for Data Science
+          # - Coding Capstone
+          # - Formal Languages and Compilers
+          # - Artificial Intelligence
+          # - Software Engineering
+          - Computer Systems Architecture
+          - Operating Systems
+          # - Intelligent Agents
+          # - Mobile and Physical Systems
+          # - Smart Software Design
+          # - Machine Learning
+          - Web and Internet Engineering with Project
+          # - Data Structures and Algorithms
+          - Object Oriented and Functional Programming
+          # - Intelligent Agents
+          # - Database Management Systems
+          # - Computational Security for Data Science
+          # - Smart Software Development
+          # - Mobile Computing
+      - description: "D3.3: Be able to take the responsibility for development of projects or IT consulting."
+        courses:
+          # - Smart Software Design
+          # - Introduction to Databases
+          # - Database Management Systems
+          # - Smart Software Development
+          # - Intelligent Agents
+          - Object Oriented and Functional Programming
+          # - Software Engineering
+          # - Coding Capstone
+      - description: "D3.4: Be able to reflect about ethical and socio-economic aspects of information systems."
+        courses:
+          # - Computational Security for Data Science
+          - Project and Teamwork Management
+
+      #OLD
+      - description: "D3.1 Be able to collect and interpret useful data and to judge information systems and their applicability."
+        courses:
+          - Computer Networks
+          - Web and Internet Engineering
+          - Intelligent Agents
+          - Data Structures and Algorithms
+          - Machine Learning in practice
+          - Software Systems Engineering
+          - Introduction to Databases
+          - Artificial Intelligence
+          - Database Management Systems
+          - Mobile and Physical Systems
+          - Software Engineering
+          - Formal Languages and Compilers
+          - Mobile and Physical Systems      
+      - description: "D3.2 Be able to work autonomously according to the own level of knowledge and understanding."
+        courses:
+          - Scientific Writing and Communication
+          - Project and Teamwork Management
+          - German for Computer Scientists
+          - Italian for Computer Scientists
+          - Probability Theory and Statistics
+          - Introduction to Databases
+          - Interactive Interface Design and Development
+          - Computational Security
+          - Formal Languages and Compilers
+          - Artificial Intelligence
+          - Software Engineering
+          - Operating Systems
+          - Intelligent Agents
+          - Mobile and Physical Systems
+          - Software Systems Engineering
+          - Machine Learning in practice
+          - Web and Internet Engineering
+          - Data Structures and Algorithms
+          - Database Management Systems
+          - Computer Networks
+          - Mobile and Physical Systems      
+      - description: "D3.3 Be able to take the responsibility for development of projects or IT consulting."
+        courses:
+          - Software Systems Engineering
+          - Mobile and Physical Systems
+          - Software Engineering
+          - Intelligent Agents
+          - Machine Learning in practice      
+      - description: "D3.4 Be able to reflect about socio-economic aspects of information systems."
+        courses:
+          - Introduction to Business Administration
+          - Project and Teamwork Management      
+      - description: "D3.5 Ability to discern between various probability models and capability to find appropriate models for a given application"
+        courses:
+          - Probability Theory and Statistics      
+      - description: "D3.6 Be able to collect useful data about the performance of algorithms and to judge which algorithm is most suitable for a given task"    
+        courses:
+          - Data Structures and Algorithms     
+
+    communication_skills:
+
+      #NEW
+      - description: "D4.1: Be able to use one of the three languages English, Italian and German, and be able to use technical terms and communication appropriately."
+        courses:
+          - Linear Algebra
+          - Discrete Mathematics
+          - Scientific Writing and Communication in English
+          - Project and Teamwork Management
+          - Englisch for Computer Scientists
+          # - German for Computer Scientists
+          # - Italian for Computer Scientists
+          # - Probability Theory and Statistics
+          - Operating Systems
+          # - Introduction to Databases
+          # - Interactive Interface Design and Development
+          - Analysis
+          # - Computational Security for Data Science
+          # - Coding Capstone
+          # - Formal Languages and Compilers
+          # - Artificial Intelligence
+          # - Software Engineering
+          - Computer Systems Architecture
+          # - Intelligent Agents
+          # - Introduction to Computer Vision
+          # - Mobile and Physical Systems
+          # - Smart Software Design
+          # - Machine Learning
+          - Web and Internet Engineering with Project
+          # - Data Structures and Algorithms
+          # - Intelligent Agents
+          # - Database Management Systems
+          # - Smart Software Development
+          # - Computational Security for Data Science
+          - Object Oriented and Functional Programming
+          # - Mobile Computing
+          - Introduction to Programming
+      - description: "D4.2: Be able to negotiate with a customer for the definition of the pre-requisites and features of information systems."
+        courses:
+          # - Software Engineering
+          # - Coding Capstone
+          # - Smart Software Design
+          # - Smart Software Development
+      - description: "D4.3: Be able to structure and write technical documentation."
+        courses:
+          - Scientific Writing and Communication in English
+          - Englisch for Computer Scientists
+          # - German for Computer Scientists
+          # - Italian for Computer Scientists
+          # - Mobile and Physical Systems
+          # - Smart Software Development
+          # - Coding Capstone
+          # - Smart Software Design
+          - Web and Internet Engineering with Project
+          # - Intelligent Agents
+          # - Software Engineering
+      - description: "D4.4: Be able to work in teams for the realization of IT systems."
+        courses:
+          # - Intelligent Agents
+          - Object Oriented and Functional Programming
+          # - Interactive Interface Design and Development
+          - Web and Internet Engineering with Project
+          # - Formal Languages and Compilers
+          # - Mobile and Physical Systems
+          # - Coding Capstone
+          - Project and Teamwork Management
+
+      #OLD
+      - description: "D4.1 Be able to use one of the three languages English, Italian and German, and be able to use technical terms and communication appropriately."
+        courses:
+          - Scientific Writing and Communication
+          - Project and Teamwork Management
+          - German for Computer Scientists
+          - Italian for Computer Scientists
+          - Probability Theory and Statistics
+          - Introduction to Business Administration
+          - Introduction to Databases
+          - Interactive Interface Design and Development
+          - Computational Security
+          - Formal Languages and Compilers
+          - Artificial Intelligence
+          - Software Engineering
+          - Operating Systems
+          - Intelligent Agents
+          - Mobile and Physical Systems
+          - Software Systems Engineering
+          - Machine Learning in practice
+          - Web and Internet Engineering
+          - Data Structures and Algorithms
+          - Database Management Systems
+          - Computer Networks
+          - Mobile and Physical Systems      
+      - description: "D4.2 Be able to use modern communication systems, even at a distance."
+        courses:
+          - Mobile and Physical Systems
+          - Computer Networks      
+      - description: "D4.3 Be able to negotiate with a customer for the definition of the pre-requisites and features of information systems."
+        courses:
+          - Software Engineering
+          - Software Systems Engineering
+      - description: "D4.4 Be able to structure and write technical documentation."
+        courses:
+          - Scientific Writing and Communication
+          - German for Computer Scientists
+          - Italian for Computer Scientists
+          - Mobile and Physical Systems
+          - Software Systems Engineering
+          - Data Structures and Algorithms
+          - Machine Learning in practice
+          - Web and Internet Engineering
+          - Intelligent Agents
+          - Software Engineering
+      - description: "D4.5 Be able to work in teams for the realization of IT systems."
+        courses:
+          - Intelligent Agents
+          - Introduction to Databases
+          - Interactive Interface Design and Development
+          - Web and Internet Engineering
+          - Formal Languages and Compilers
+          - Software Engineering
+          - Mobile and Physical Systems
+          - Mobile and Physical Systems
+          - Computational Security
+          - Machine Learning in practice      
+
+    learning_skills:
+
+      #NEW
+      - description: "D5.1: Have developed learning capabilities to pursue further studies with a high degree of autonomy."
+        courses:
+          - Linear Algebra
+          - Discrete Mathematics
+          - Scientific Writing and Communication in English
+          - Project and Teamwork Management
+          - Englisch for Computer Scientists
+          # - German for Computer Scientists
+          # - Italian for Computer Scientists
+          # - Probability Theory and Statistics
+          - Operating Systems
+          # - Introduction to Databases
+          # - Interactive Interface Design and Development
+          - Analysis
+          # - Computational Security for Data Science
+          # - Coding Capstone
+          # - Formal Languages and Compilers
+          # - Artificial Intelligence
+          # - Software Engineering
+          - Computer Systems Architecture
+          # - Intelligent Agents
+          # - Introduction to Computer Vision
+          # - Mobile and Physical Systems
+          # - Smart Software Design
+          # - Machine Learning
+          - Web and Internet Engineering with Project
+          # - Data Structures and Algorithms
+          # - Intelligent Agents
+          # - Database Management Systems
+          # - Smart Software Development
+          # - Computational Security for Data Science
+          - Object Oriented and Functional Programming
+          # - Mobile Computing
+          - Introduction to Programming
+      - description: "D5.2: Have acquired learning capabilities that enable to carry out project activities in companies, public institutions or in distributed development communities."
+        courses:
+          # - Software Engineering
+          # - Smart Software Design
+          # - Introduction to Databases
+          # - Database Management Systems
+          # - Smart Software Development
+          # - Coding Capstone
+          - Object Oriented and Functional Programming
+      - description: "D5.3: Be able to follow the fast technological evolution and to learn cutting edge IT technologies and innovative aspects of last generation information systems."
+        courses:
+          - Operating Systems
+          # - Mobile Computing
+          # - Mobile and Physical Systems
+          # - Smart Software Design
+          # - Introduction to Databases
+          - Web and Internet Engineering with Project
+          # - Artificial Intelligence
+          # - Database Management Systems
+          # - Software Engineering
+          - Computer Systems Architecture
+          # - Smart Software Development
+          # - Intelligent Agents
+          # - Computational Security for Data Science
+          # - Introduction to Computer Vision
+          # - Machine Learning
+          - Object Oriented and Functional Programming
+          # - Intelligent Agents
+          # - Interactive Interface Design and Development
+          # - Probability Theory and Statistics
+
+      #OLD
+      - description: "D5.1 Have developed learning capabilities to pursue further studies with a high degree of autonomy."
+        courses:
+          - Computational Security
+          - Probability Theory and Statistics
+          - Formal Languages and Compilers
+          - Artificial Intelligence
+          - Software Engineering
+          - Operating Systems
+          - Intelligent Agents
+          - Mobile and Physical Systems
+          - Software Systems Engineering
+          - Machine Learning in practice
+          - Web and Internet Engineering
+          - Data Structures and Algorithms
+          - Introduction to Databases
+          - Database Management Systems
+          - Computer Networks
+          - Mobile and Physical Systems      
+      - description: "D5.2 Have acquired learning capabilities that enable to carry out project activities in companies, public institutions or in distributed development communities."
+        courses:
+          - Introduction to Business Administration
+          - Software Systems Engineering
+          - Introduction to Databases
+          - Software Engineering
+          - Interactive Interface Design and Development
+          - Mobile and Physical Systems      
+      - description: "D5.3 Be able to follow the fast technological evolution and to learn cutting edge IT technologies and innovative aspects of last generation information systems."
+        courses:
+          - Computer Networks
+          - Mobile and Physical Systems
+          - Data Structures and Algorithms
+          - Software Systems Engineering
+          - Introduction to Databases
+          - Web and Internet Engineering
+          - Artificial Intelligence
+          - Database Management Systems
+          - Software Engineering
+          - Operating Systems
+          - Intelligent Agents
+          - Computational Security
+          - Machine Learning in practice
+  course_types:
+    - description: "Attività formativa di base"
+      courses:
+        - Discrete Mathematics
+        - Computer Systems Architecture
+        - Introduction to Programming
+        - Linear Algebra
+        - Operating Systems
+        - Analysis
+        - Data Structures and Algorithms
+    - description: "Attività formativa caratterizzante"
+      courses:
+        - Formal Languages and Compilers
+        - Web and Internet Engineering with Project
+        - Object Oriented and Functional Programming
+        - Computer Networks
+        - Database Management Systems
+        - Introduction to Databases
+        - Software Systems Engineering
+        - Mobile and Physical Systems
+        - Artificial Intelligence
+        - Intelligent Agents
+    - description: "Attività affine o integrativa"
+      courses:
+        - Scientific Writing and Communication
+        - Probability Theory and Statistics
+        - Introduction to Business Administration
+        - Project and Teamwork Management
+        - Computational Security
+        - Interactive Interface Design and Development
+    - description: "Ulteriore attività formativa"
+      courses:    
+        - German for Computer Scientists
+        - Italian for Computer Scientists
+        - Software Engineering
+    - description: "Prova finale e conoscienza della lingua straniera"
+      courses:
+        - English for Computer Scientists
+  subject_area:
+    - description: "Matematica-Fisica"
+      courses:
+        - Discrete Mathematics
+        - Probability Theory and Statistics
+        - Linear Algebra
+        - Analysis
+    - description: "Informatica"
+      courses:
+        - Computer Systems Architecture
+        - Introduction to Programming
+        - Operating Systems
+        - Introduction to Databases
+        - Database Management Systems
+        - Formal Languages and Compilers
+        - Software Systems Engineering
+        - Artificial Intelligence
+        - Interactive Interface Design and Development
+    - description: "Scientifico-Tecnologico"
+      courses:
+        - Computer Networks
+        - Object Oriented and Functional Programming
+        - Web and Internet Engineering with Project                
+        - Mobile and Physical Systems        
+        - Computational Security
+        - Intelligent Agents
+    - description: "Lingua straniera"
+      courses:
+        - English for Computer Scientists
+    - description: "Ulteriori attività formative"
+      courses:
+        - Introduction to Business Administration
+        - Project and Teamwork Management
+        - Scientific Writing and Communication
+    - description: "Informatica di base"
+      courses:
+        - Data Structures and Algorithms
+    - description: "Conoscenze utili per l'inserimento nel mondo del lavoro"
+      courses:
+        - Software Engineering
+        - Scientific Writing and Communication
+    - description: "Ulteriori conoscienze linguistiche"
+      courses:
+        - German for Computer Scientists
+        - Italian for Computer Scientists
