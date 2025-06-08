@@ -105,7 +105,7 @@ function renderTopics(topics) {
           target_id: targetSelect.value,
           source_id: courseSelect.value,
           base_topic: wrapper.dataset.topicIndex,
-          sub_topic: sub,
+          subtopic: sub,
           note: note,
         });
         wrapper.dataset.storedTopic = sub || t;
@@ -129,7 +129,7 @@ function renderTopics(topics) {
         target_id: targetSelect.value,
         source_id: courseSelect.value,
         base_topic: wrapper.dataset.topicIndex,
-        sub_topic: sub,
+        subtopic: sub,
         note: note,
       });
       wrapper.dataset.storedTopic = sub || t;
@@ -165,9 +165,9 @@ function applyDependencies() {
         (dep.topics || []).forEach((t) => {
           if (parseInt(t.topic, 10) === baseIdx) {
             checkbox.checked = true;
-            if (t['sub-topic']) {
-              subInput.value = t['sub-topic'];
-              wrapper.dataset.storedTopic = t['sub-topic'];
+            if (t['subtopic']) {
+              subInput.value = t['subtopic'];
+              wrapper.dataset.storedTopic = t['subtopic'];
             } else {
               wrapper.dataset.storedTopic = base;
             }

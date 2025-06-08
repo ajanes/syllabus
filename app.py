@@ -65,7 +65,7 @@ def update_ignored_warning(text, ignore=True):
     save_yaml(IGNORED_FILE, data)
 
 
-def modify_dependency(path, course_name, base_topic, sub_topic="", note=""):
+def modify_dependency(path, course_name, base_topic, subtopic="", note=""):
     yaml_data = load_yaml(path)
     key, root = get_root(yaml_data)
     deps = root.get("depends-on", [])
@@ -85,18 +85,18 @@ def modify_dependency(path, course_name, base_topic, sub_topic="", note=""):
 
     item = next((t for t in topics if int(t.get("topic", -1)) == base_idx), None)
     if item:
-        if sub_topic:
-            item["sub-topic"] = sub_topic
+        if subtopic:
+            item["subtopic"] = subtopic
         else:
-            item.pop("sub-topic", None)
+            item.pop("subtopic", None)
         if note:
             item["note"] = note
         else:
             item.pop("note", None)
     else:
         new_topic = {"topic": base_idx}
-        if sub_topic:
-            new_topic["sub-topic"] = sub_topic
+        if subtopic:
+            new_topic["subtopic"] = subtopic
         if note:
             new_topic["note"] = note
         topics.append(new_topic)
@@ -311,7 +311,7 @@ def dependency_info():
                 dependents[target_id]["topics"].setdefault(idx, []).append(
                     {
                         "course": COURSE_NAMES.get(src_id, ""),
-                        "sub_topic": t.get("sub-topic", ""),
+                        "subtopic": t.get("subtopic", ""),
                         "note": t.get("note", ""),
                     }
                 )
@@ -330,7 +330,7 @@ def dependency_info():
                             "id": name_to_id.get(entry.get("course", ""), ""),
                             "name": entry.get("course", ""),
                             "course": entry.get("course", ""),
-                            "sub_topic": entry.get("sub_topic", ""),
+                            "subtopic": entry.get("subtopic", ""),
                             "note": entry.get("note", ""),
                         }
                         for entry in dep_entries
@@ -525,7 +525,7 @@ def handle_add_dependency(data):
         path,
         course_name,
         base_topic,
-        data.get("sub_topic", ""),
+        data.get("subtopic", ""),
         data.get("note", ""),
     )
     emit("saved", {"ok": True})
@@ -578,7 +578,7 @@ def handle_update_dependency(data):
         path,
         course_name,
         base_topic,
-        data.get("sub_topic", ""),
+        data.get("subtopic", ""),
         data.get("note", ""),
     )
     emit("saved", {"ok": True})

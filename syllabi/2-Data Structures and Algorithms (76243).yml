@@ -61,5 +61,5 @@ course:
   - course: Analysis
     topics:
     - topic: 2
-      sub-topic: Limits
+      subtopic: Limits
       note: Key concepts

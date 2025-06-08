@@ -22,8 +22,4 @@ course:
 
 
 
-  depends-on:
-  - course: Analysis
-    topics:
-    - topic: 1
-    - topic: 2
+  depends-on: []
