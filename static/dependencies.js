@@ -9,6 +9,13 @@ const topicsHeader = document.getElementById('topicsHeader');
 let currentDependencies = [];
 let currentTopics = [];
 
+function updateDropdownState() {
+  const disabled = !targetSelect.value;
+  yearSelect.disabled = disabled;
+  semesterSelect.disabled = disabled;
+  courseSelect.disabled = disabled;
+}
+
 function requestUpdate() {
   socket.emit('filter', {
     year: yearSelect.value,
@@ -151,10 +158,12 @@ courseSelect.addEventListener('change', () => {
   applyDependencies();
 });
 targetSelect.addEventListener('change', () => {
+  updateDropdownState();
   loadDependencies();
   applyDependencies();
 });
 
 document.addEventListener('DOMContentLoaded', () => {
+  updateDropdownState();
   requestUpdate();
 });

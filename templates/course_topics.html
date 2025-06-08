@@ -4,7 +4,7 @@
   </p>
   <form class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
     <label class="flex flex-col min-w-40 flex-1">
-      <select id="yearSelect" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#dbdbdb] bg-neutral-50 focus:border-[#dbdbdb] h-14 bg-[image:--select-button-svg] placeholder:text-neutral-500 p-[15px] text-base font-normal leading-normal">
+      <select id="yearSelect" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#dbdbdb] bg-neutral-50 focus:border-[#dbdbdb] h-14 bg-[image:--select-button-svg] placeholder:text-neutral-500 p-[15px] text-base font-normal leading-normal" disabled>
         <option value="">Select Year</option>
         {% for year in years %}
         <option value="{{ year }}">{{ year }}</option>
@@ -12,14 +12,14 @@
       </select>
     </label>
     <label class="flex flex-col min-w-40 flex-1">
-      <select id="semesterSelect" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#dbdbdb] bg-neutral-50 focus:border-[#dbdbdb] h-14 bg-[image:--select-button-svg] placeholder:text-neutral-500 p-[15px] text-base font-normal leading-normal">
+      <select id="semesterSelect" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#dbdbdb] bg-neutral-50 focus:border-[#dbdbdb] h-14 bg-[image:--select-button-svg] placeholder:text-neutral-500 p-[15px] text-base font-normal leading-normal" disabled>
         <option value="">Select Semester</option>
         <option value="1st">1st</option>
         <option value="2nd">2nd</option>
       </select>
     </label>
     <label class="flex flex-col min-w-40 flex-1">
-      <select id="courseSelect" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#dbdbdb] bg-neutral-50 focus:border-[#dbdbdb] h-14 bg-[image:--select-button-svg] placeholder:text-neutral-500 p-[15px] text-base font-normal leading-normal">
+      <select id="courseSelect" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#141414] focus:outline-0 focus:ring-0 border border-[#dbdbdb] bg-neutral-50 focus:border-[#dbdbdb] h-14 bg-[image:--select-button-svg] placeholder:text-neutral-500 p-[15px] text-base font-normal leading-normal" disabled>
         <option value="">Select a Course</option>
         {% for course in courses %}
         <option value="{{ course.id }}">{{ course.name }}</option>
