@@ -204,7 +204,7 @@ def handle_add_dependency(data):
     root["depends-on"] = deps
     yaml_data[root_key] = root
     with open(path, "w") as f:
-        yaml.safe_dump(yaml_data, f, sort_keys=False)
+        yaml.safe_dump(yaml_data, f, sort_keys=False, width=float("inf"))
 
     emit("saved", {"ok": True})
 
@@ -262,7 +262,7 @@ def handle_remove_dependency(data):
     root["depends-on"] = deps
     yaml_data[root_key] = root
     with open(path, "w") as f:
-        yaml.safe_dump(yaml_data, f, sort_keys=False)
+        yaml.safe_dump(yaml_data, f, sort_keys=False, width=float("inf"))
     emit("saved", {"ok": True})
 
 
@@ -316,7 +316,7 @@ def handle_update_dependency(data):
     root["depends-on"] = deps
     yaml_data[root_key] = root
     with open(path, "w") as f:
-        yaml.safe_dump(yaml_data, f, sort_keys=False)
+        yaml.safe_dump(yaml_data, f, sort_keys=False, width=float("inf"))
     emit("saved", {"ok": True})
 
 if __name__ == "__main__":
