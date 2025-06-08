@@ -2,6 +2,7 @@ from flask import Flask, render_template
 from flask_socketio import SocketIO, emit
 import os
 import yaml
+import networkx as nx
 from ruamel.yaml import YAML
 
 app = Flask(__name__)
@@ -288,6 +289,31 @@ def dependency_info():
     return result
 
 
+def build_course_graph():
+    """Return a directed graph of course dependencies."""
+    g = nx.DiGraph()
+    for name in COURSE_NAMES.values():
+        g.add_node(name)
+    for cid, path in COURSE_PATHS.items():
+        course_name = COURSE_NAMES.get(cid, "")
+        data = load_yaml(path)
+        _, root = get_root(data)
+        deps = root.get("depends-on", [])
+        if not isinstance(deps, list):
+            continue
+        for d in deps:
+            dep_name = d.get("course")
+            if dep_name:
+                g.add_edge(course_name, dep_name)
+    return g
+
+
+def find_circular_dependencies():
+    """Return a list of course cycles."""
+    graph = build_course_graph()
+    return list(nx.simple_cycles(graph))
+
+
 @app.route("/")
 def home():
     return render_template("index.html", message="Welcome to Flask!")
@@ -310,7 +336,8 @@ def dependencies():
     )
 @app.route("/warnings")
 def warnings():
-    return render_template("warnings.html")
+    cycles = find_circular_dependencies()
+    return render_template("warnings.html", cycles=cycles)
 
 
 
