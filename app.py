@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 from flask_socketio import SocketIO, emit
 import os
 import yaml
@@ -13,6 +13,9 @@ socketio = SocketIO(app)
 yaml_rt = YAML()
 yaml_rt.preserve_quotes = True
 yaml_rt.width = float("inf")
+
+# File storing ignored warnings
+IGNORED_FILE = os.path.join(os.path.dirname(__file__), "warnings.yml")
 
 # Course data loaded at startup
 COURSES = []
@@ -38,6 +41,28 @@ def save_yaml(path, data):
 def get_root(data):
     """Return the course dictionary from a YAML structure."""
     return "course", data.get("course", {})
+
+
+def load_ignored_warnings():
+    data = load_yaml(IGNORED_FILE)
+    warns = data.get("ignore", [])
+    if not isinstance(warns, list):
+        return []
+    return warns
+
+
+def update_ignored_warning(text, ignore=True):
+    data = load_yaml(IGNORED_FILE)
+    warns = data.get("ignore", [])
+    if not isinstance(warns, list):
+        warns = []
+    if ignore:
+        if text not in warns:
+            warns.append(text)
+    else:
+        warns = [w for w in warns if w != text]
+    data["ignore"] = warns
+    save_yaml(IGNORED_FILE, data)
 
 
 def modify_dependency(path, course_name, base_topic, sub_topic="", note=""):
@@ -424,21 +449,30 @@ def dependencies():
 def warnings():
     cycles = find_circular_dependencies()
     warns, errs = dependency_issues()
+    ignored = set(load_ignored_warnings())
+    warn_objs = [{"text": w, "ignored": w in ignored} for w in warns]
     return render_template(
         "warnings.html",
         cycles=cycles,
-        warnings=warns,
+        warnings=warn_objs,
         errors=errs,
     )
 
+@app.route("/toggle_warning", methods=["POST"])
+def toggle_warning():
+    data = request.get_json(silent=True) or {}
+    text = data.get("text", "")
+    ignore = bool(data.get("ignore"))
+    if not text:
+        return jsonify({"ok": False}), 400
+    update_ignored_warning(text, ignore)
+    return jsonify({"ok": True})
 
 @app.route("/remove_course_dependency", methods=["POST"])
 def remove_course_dependency_route():
     data = request.get_json(force=True)
     remove_course_dependency(data.get("source"), data.get("target"))
     return {"ok": True}
-
-
 
 @socketio.on("filter")
 def handle_filter(data):
