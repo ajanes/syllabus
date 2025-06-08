@@ -8,27 +8,30 @@ document.addEventListener('DOMContentLoaded', () => {
   const radius = 40;
 
   const svg = d3
-    .select(container)
-    .append('svg')
-    .attr('width', width)
-    .attr('height', height);
+  .select(container)
+  .append('svg')
+  .attr('width', width)
+  .attr('height', height);
 
-  const g = svg.append('g');
+  const defs = svg.append('defs');
 
-  svg
-    .append('defs')
+  defs
     .append('marker')
     .attr('id', 'arrow')
     .attr('viewBox', '0 -5 10 10')
-    .attr('refX', 15)
+    .attr('refX', 33)               // keep this aligned with node radius
     .attr('refY', 0)
-    .attr('markerWidth', 6)
-    .attr('markerHeight', 6)
+    .attr('markerWidth', 12)        // bigger marker box
+    .attr('markerHeight', 12)
     .attr('orient', 'auto')
     .append('path')
-    .attr('d', 'M0,-5L10,0L0,5Z')
-    .attr('fill', '#999')
-    .attr('stroke', 'none');
+    .attr('d', 'M0,-5L10,0L0,5')  // triangle shape
+    .attr('fill', 'none')           // no fill
+    .attr('stroke', '#999')         // visible border
+    .attr('stroke-width', 1);
+
+  const g = svg.append('g');
+
 
   const simulation = d3
     .forceSimulation(nodes)
