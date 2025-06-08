@@ -4,6 +4,8 @@ import os
 import yaml
 import networkx as nx
 from ruamel.yaml import YAML
+from sentence_transformers import SentenceTransformer
+import numpy as np
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "change-me"
@@ -23,6 +25,8 @@ COURSE_TOPICS = {}
 COURSE_PATHS = {}
 COURSE_NAMES = {}
 YEARS = []
+SIM_MATRIX = []
+SIM_NAMES = []
 
 
 def load_yaml(path):
@@ -300,6 +304,26 @@ def load_courses():
 load_courses()
 
 
+def compute_similarity():
+    """Compute cosine similarity matrix for all courses."""
+    global SIM_MATRIX, SIM_NAMES
+    texts = []
+    names = []
+    for c in COURSES:
+        names.append(c["name"])
+        topics = COURSE_TOPICS.get(c["id"], [])
+        texts.append(" ".join(topics))
+    if not texts:
+        SIM_MATRIX = []
+        SIM_NAMES = names
+        return
+    model = SentenceTransformer("all-MiniLM-L6-v2")
+    embeddings = model.encode(texts, normalize_embeddings=True)
+    SIM_MATRIX = (embeddings @ embeddings.T).tolist()
+    SIM_NAMES = names
+
+
+
 def dependency_info():
     """Return list of courses sorted by number of dependent courses."""
 
@@ -463,6 +487,14 @@ def home():
 def visualize():
     info = dependency_info()
     return render_template("visualize.html", courses=info)
+
+
+@app.route("/similarity")
+def similarity():
+    compute_similarity()
+    return render_template(
+        "similarity.html", courses=SIM_NAMES, matrix=SIM_MATRIX
+    )
 
 
 @app.route("/dependencies")
