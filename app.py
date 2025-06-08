@@ -51,6 +51,14 @@ def load_ignored_warnings():
     return warns
 
 
+def load_ignored_errors():
+    data = load_yaml(IGNORED_FILE)
+    errs = data.get("ignore_errors", [])
+    if not isinstance(errs, list):
+        return []
+    return errs
+
+
 def update_ignored_warning(text, ignore=True):
     data = load_yaml(IGNORED_FILE)
     warns = data.get("ignore", [])
@@ -62,6 +70,20 @@ def update_ignored_warning(text, ignore=True):
     else:
         warns = [w for w in warns if w != text]
     data["ignore"] = warns
+    save_yaml(IGNORED_FILE, data)
+
+
+def update_ignored_error(text, ignore=True):
+    data = load_yaml(IGNORED_FILE)
+    errs = data.get("ignore_errors", [])
+    if not isinstance(errs, list):
+        errs = []
+    if ignore:
+        if text not in errs:
+            errs.append(text)
+    else:
+        errs = [e for e in errs if e != text]
+    data["ignore_errors"] = errs
     save_yaml(IGNORED_FILE, data)
 
 
@@ -456,13 +478,15 @@ def dependencies():
 def warnings():
     cycles = find_circular_dependencies()
     warns, errs = dependency_issues()
-    ignored = set(load_ignored_warnings())
-    warn_objs = [{"text": w, "ignored": w in ignored} for w in warns]
+    ignored_warn = set(load_ignored_warnings())
+    ignored_err = set(load_ignored_errors())
+    warn_objs = [{"text": w, "ignored": w in ignored_warn} for w in warns]
+    err_objs = [{"text": e, "ignored": e in ignored_err} for e in errs]
     return render_template(
         "warnings.html",
         cycles=cycles,
         warnings=warn_objs,
-        errors=errs,
+        errors=err_objs,
     )
 
 @app.route("/toggle_warning", methods=["POST"])
@@ -473,6 +497,17 @@ def toggle_warning():
     if not text:
         return jsonify({"ok": False}), 400
     update_ignored_warning(text, ignore)
+    return jsonify({"ok": True})
+
+
+@app.route("/toggle_error", methods=["POST"])
+def toggle_error():
+    data = request.get_json(silent=True) or {}
+    text = data.get("text", "")
+    ignore = bool(data.get("ignore"))
+    if not text:
+        return jsonify({"ok": False}), 400
+    update_ignored_error(text, ignore)
     return jsonify({"ok": True})
 
 @app.route("/remove_course_dependency", methods=["POST"])
