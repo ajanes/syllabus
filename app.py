@@ -52,7 +52,12 @@ def modify_dependency(path, course_name, base_topic, sub_topic="", note=""):
         deps.append(entry)
 
     topics = entry.get("topics", [])
-    item = next((t for t in topics if t.get("topic") == base_topic), None)
+    try:
+        base_idx = int(base_topic)
+    except (TypeError, ValueError):
+        return
+
+    item = next((t for t in topics if int(t.get("topic", -1)) == base_idx), None)
     if item:
         if sub_topic:
             item["sub-topic"] = sub_topic
@@ -63,7 +68,7 @@ def modify_dependency(path, course_name, base_topic, sub_topic="", note=""):
         else:
             item.pop("note", None)
     else:
-        new_topic = {"topic": base_topic}
+        new_topic = {"topic": base_idx}
         if sub_topic:
             new_topic["sub-topic"] = sub_topic
         if note:
@@ -82,10 +87,16 @@ def remove_dependency(path, course_name, base_topic):
     deps = root.get("depends-on", [])
     if not isinstance(deps, list):
         deps = []
+
+    try:
+        base_idx = int(base_topic)
+    except (TypeError, ValueError):
+        return
+
     for dep in deps:
         if dep.get("course") == course_name:
             topics = dep.get("topics", [])
-            new_topics = [t for t in topics if t.get("topic") != base_topic]
+            new_topics = [t for t in topics if int(t.get("topic", -1)) != base_idx]
             if new_topics:
                 dep["topics"] = new_topics
             else:
@@ -249,6 +260,10 @@ def handle_add_dependency(data):
     path = COURSE_PATHS.get(target_id)
     if not path or not base_topic or not source_id:
         return
+    try:
+        base_topic = int(base_topic)
+    except (TypeError, ValueError):
+        return
     course_name = COURSE_NAMES.get(source_id, "")
     modify_dependency(
         path,
@@ -281,6 +296,10 @@ def handle_remove_dependency(data):
     path = COURSE_PATHS.get(target_id)
     if not path or not base_topic or not source_id:
         return
+    try:
+        base_topic = int(base_topic)
+    except (TypeError, ValueError):
+        return
     course_name = COURSE_NAMES.get(source_id, "")
     remove_dependency(path, course_name, base_topic)
     emit("saved", {"ok": True})
@@ -293,6 +312,10 @@ def handle_update_dependency(data):
     base_topic = data.get("base_topic")
     path = COURSE_PATHS.get(target_id)
     if not path or not base_topic or not source_id:
+        return
+    try:
+        base_topic = int(base_topic)
+    except (TypeError, ValueError):
         return
     course_name = COURSE_NAMES.get(source_id, "")
     modify_dependency(
