@@ -314,6 +314,61 @@ def find_circular_dependencies():
     return list(nx.simple_cycles(graph))
 
 
+def _parse_order(value):
+    """Return numeric order from strings like '1st', '2nd'."""
+    try:
+        return int("".join(ch for ch in str(value) if ch.isdigit()))
+    except Exception:
+        return 0
+
+
+def dependency_issues():
+    """Return lists of warning and error messages for course dependencies."""
+    name_info = {
+        c["name"]: {
+            "year": _parse_order(c["year"]),
+            "semester": _parse_order(c["semester"]),
+        }
+        for c in COURSES
+    }
+
+    warnings = []
+    errors = []
+
+    for cid, path in COURSE_PATHS.items():
+        src_name = COURSE_NAMES.get(cid, "")
+        src = name_info.get(src_name, {})
+        src_year = src.get("year", 0)
+        src_sem = src.get("semester", 0)
+
+        data = load_yaml(path)
+        _, root = get_root(data)
+        deps = root.get("depends-on", [])
+        if not isinstance(deps, list):
+            deps = []
+
+        for d in deps:
+            dep_name = d.get("course")
+            info = name_info.get(dep_name)
+            if not info:
+                continue
+            dep_year = info.get("year", 0)
+            dep_sem = info.get("semester", 0)
+
+            if dep_year == src_year and dep_sem == src_sem:
+                warnings.append(
+                    f"{src_name} depends on {dep_name} in the same year and semester"
+                )
+            elif dep_year > src_year or (
+                dep_year == src_year and dep_sem > src_sem
+            ):
+                errors.append(
+                    f"{src_name} depends on {dep_name} in a future semester or year"
+                )
+
+    return warnings, errors
+
+
 @app.route("/")
 def home():
     return render_template("index.html", message="Welcome to Flask!")
@@ -337,7 +392,13 @@ def dependencies():
 @app.route("/warnings")
 def warnings():
     cycles = find_circular_dependencies()
-    return render_template("warnings.html", cycles=cycles)
+    warns, errs = dependency_issues()
+    return render_template(
+        "warnings.html",
+        cycles=cycles,
+        warnings=warns,
+        errors=errs,
+    )
 
 
 
