@@ -25,8 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
     .attr('markerHeight', 6)
     .attr('orient', 'auto')
     .append('path')
-    .attr('d', 'M0,-5L10,0L0,5')
-    .attr('fill', '#999');
+    .attr('d', 'M0,-5L10,0L0,5Z')
+    .attr('fill', '#999')
+    .attr('stroke', 'none');
 
   const simulation = d3
     .forceSimulation(nodes)
