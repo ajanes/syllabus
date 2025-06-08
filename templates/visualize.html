@@ -51,11 +51,18 @@
               {% if topic.courses %}
               <p class="text-[#60768a] text-sm font-normal leading-normal">- {{ topic.name }}</p>
               {% for dep in topic.courses %}
+              
+              <div class="ml-4 flex items-center text-xs text-[#60768a]">
+                <span>{{ dep.name }}</span>
+                <button class="ml-2 text-red-600" onclick="deleteDependency('{{ dep.name }}', '{{ course.name }}')">x</button>
+                <a class="ml-2 text-blue-600" href="/dependencies?target={{ dep.id }}&source={{ course.id }}">edit</a>
+              </div>
               <p class="ml-4 text-xs text-[#60768a]">
                 {{ dep.course }}
-                {% if dep.sub_topic %}<span class="text-yellow-600">({{ dep.sub_topic }})</span>{% endif %}
-                {% if dep.note %}<span class="text-yellow-600">({{ dep.note }})</span>{% endif %}
+                {% if dep.sub_topic %}<span class="text-yellow-600">(subtopic: {{ dep.sub_topic }})</span>{% endif %}
+                {% if dep.note %}<span class="text-blue-600">(note: {{ dep.note }})</span>{% endif %}
               </p>
+              
               {% endfor %}
               {% endif %}
               {% endfor %}
@@ -66,6 +73,16 @@
       </div>
     </div>
   </div>
+  <script>
+    function deleteDependency(source, target) {
+      if (!confirm('Delete this dependency?')) return;
+      fetch('/remove_course_dependency', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ source: source, target: target })
+      }).then(() => location.reload());
+    }
+  </script>
 </body>
 
 </html>
