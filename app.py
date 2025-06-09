@@ -490,22 +490,6 @@ def build_course_graph():
     return g
 
 
-def build_dependency_tree():
-    """Return a hierarchical representation of course dependencies."""
-    graph = build_course_graph()
-
-    def build_node(course, seen):
-        if course in seen:
-            return {"name": course, "children": []}
-        seen.add(course)
-        children = [build_node(dep, seen) for dep in graph.successors(course)]
-        seen.remove(course)
-        return {"name": course, "children": children}
-
-    root = {"name": "Courses", "children": []}
-    for course in graph.nodes:
-        root["children"].append(build_node(course, set()))
-    return root
 
 
 def find_circular_dependencies():
@@ -618,11 +602,6 @@ def dependency_graph():
     )
 
 
-@app.route("/dependency_tree")
-def dependency_tree():
-    """Display a tree view of course dependencies."""
-    tree = build_dependency_tree()
-    return render_template("dependency_tree.html", tree=tree)
 
 
 @app.route("/similarity")
