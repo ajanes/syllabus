@@ -48,12 +48,14 @@
             <div class="flex items-center gap-4 p-4">
               <button id="recalcBtn" class="rounded bg-gray-200 px-3 py-1 text-sm">Recalculate</button>
             </div>
-            <div class="overflow-y-auto w-full m-4">
+            <div class="w-full m-4 overflow-y-auto">
               <div id="loading" class="p-4 hidden">Calculating <span id="progress">0%</span></div>
-              <table id="simTable" class="min-w-full border-collapse text-xs">
-                <thead id="simHead"></thead>
-                <tbody id="simBody"></tbody>
-              </table>
+              <div class="overflow-x-auto w-full">
+                <table id="simTable" class="border-collapse text-xs min-w-[1000px]">
+                  <thead id="simHead"></thead>
+                  <tbody id="simBody"></tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>

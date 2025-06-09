@@ -50,7 +50,7 @@
                   </svg>
                 </div>
                 <p class="flex-1 text-sm {% if error.ignored %}text-gray-400{% else %}text-red-700{% endif %}">{{ error.text }}</p>
-                <input type="checkbox" data-error="{{ error.text }}" class="h-5 w-5 ml-2 rounded border-[#dbdbdb] border-2 bg-transparent checked:bg-red-500 checked:border-red-500 checked:bg-[image:--checkbox-tick-svg] focus:ring-0 focus:outline-none" {% if error.ignored %}checked{% endif %} />
+                <input type="checkbox" data-error="{{ error.text }}" class="h-5 w-5 ml-2 rounded border-[#dbdbdb] border-2 bg-transparent focus:ring-0 focus:outline-none" {% if error.ignored %}checked{% endif %} />
               </div>
               {% endfor %}
 
@@ -62,7 +62,7 @@
                   </svg>
                 </div>
                 <p class="flex-1 text-sm {% if warning.ignored %}text-gray-400{% else %}text-yellow-700{% endif %}">{{ warning.text }}</p>
-                <input type="checkbox" data-warning="{{ warning.text }}" class="h-5 w-5 ml-2 rounded border-[#dbdbdb] border-2 bg-transparent checked:bg-yellow-500 checked:border-yellow-500 checked:bg-[image:--checkbox-tick-svg] focus:ring-0 focus:outline-none" {% if warning.ignored %}checked{% endif %} />
+                <input type="checkbox" data-warning="{{ warning.text }}" class="h-5 w-5 ml-2 rounded border-[#dbdbdb] border-2 bg-transparent focus:ring-0 focus:outline-none" {% if warning.ignored %}checked{% endif %} />
               </div>
               {% endfor %}
             </div>
