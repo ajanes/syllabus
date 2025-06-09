@@ -213,6 +213,10 @@ document.addEventListener('DOMContentLoaded', () => {
   loadDependencies();
 });
 
+socket.on('saved', () => {
+  if (window.updateWarningBadge) window.updateWarningBadge();
+});
+
 commentInput.addEventListener('blur', () => {
   if (!targetSelect.value || !courseSelect.value) return;
   socket.emit('update_comment', {
