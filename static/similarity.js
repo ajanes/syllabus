@@ -28,7 +28,7 @@ function buildTable(data) {
   data.matrix.forEach((row, idx) => {
     const tr = document.createElement('tr');
     const th = document.createElement('th');
-    th.className = 'border px-2 py-1 text-left whitespace-nowrap';
+    th.className = 'border px-2 py-1 text-left';
     th.textContent = data.courses[idx];
     tr.appendChild(th);
     row.forEach((val, j) => {

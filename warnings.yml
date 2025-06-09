@@ -1,2 +1,28 @@
-ignore: []
-ignore_errors: []
+ignore:
+- No course depends on Discrete Mathematics
+- No course depends on Engineering of Mobile Systems
+- No course depends on English for Computer Scientists
+- No course depends on Database Management Systems
+- Information Security depends on Computer Networks in the same year and semester
+- No course depends on Formal Languages and Compilers
+- No course depends on Foundations of Artificial Intelligence
+- No course depends on German for Computer Scientists
+- No course depends on Information Security
+- No course depends on Intelligent Agents Project
+- No course depends on Interactive Interface Design and Development
+- No course depends on Introduction to Databases
+- No course depends on Introduction to Programming
+- No course depends on Italian for Computer Scientists
+- No course depends on Knowledge Representation
+- No course depends on Linear Algebra
+- No course depends on Machine Learning in Practice
+- No course depends on Object Oriented and Functional Programming
+- No course depends on Operating Systems and Networking
+- No course depends on Probability Theory and Statistics
+- No course depends on Programming in C
+- No course depends on Project and Teamwork Management
+- No course depends on Prototyping Physical Interactive Experiences
+- No course depends on Scientific Writing and Communication
+- No course depends on Software Engineering
+ignore_errors:
+- Analysis depends on Computational Mathematics in a future semester or year

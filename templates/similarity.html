@@ -30,8 +30,7 @@
 </head>
 
 <body>
-  <div class="relative flex size-full min-h-screen flex-col bg-white group/design-root overflow-x-hidden"
-    style='font-family: Inter, "Noto Sans", sans-serif;'>
+  <div class="relative flex size-full min-h-screen flex-col bg-white group/design-root overflow-x-hidden" style='font-family: Inter, "Noto Sans", sans-serif;'>
     <div class="layout-container flex h-full grow">
       {% include 'sidebar.html' %}
       <div class="flex flex-col flex-1">
@@ -48,10 +47,11 @@
             <div class="flex items-center gap-4 p-4">
               <button id="recalcBtn" class="rounded bg-gray-200 px-3 py-1 text-sm">Recalculate</button>
             </div>
-            <div class="w-full m-4 overflow-y-auto">
+            <div class="w-full m-4">
               <div id="loading" class="p-4 hidden">Calculating <span id="progress">0%</span></div>
-              <div class="overflow-x-auto w-full">
-                <table id="simTable" class="border-collapse text-xs min-w-[1000px]">
+
+              <div class="overflow-auto max-h-[80vh] border rounded">
+                <table id="simTable" class="border-collapse text-xs min-w-max">
                   <thead id="simHead"></thead>
                   <tbody id="simBody"></tbody>
                 </table>
