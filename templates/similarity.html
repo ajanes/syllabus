@@ -18,7 +18,7 @@
     #simTable th,
     #simTable td {
       white-space: normal;
-      overflow-wrap: anywhere;
+      overflow-wrap: break-word;
     }
 
     #simTable th:first-child,
@@ -56,7 +56,7 @@
             <div class="w-full m-4">
               <div id="loading" class="p-4 hidden">Calculating <span id="progress">0%</span></div>
 
-              <div class="overflow-auto max-h-[80vh] border rounded">
+              <div class="overflow-auto max-w-[calc(100vw-340px)] max-h-[calc(100vh-260px)] border rounded">
                 <table id="simTable" class="border-collapse text-xs w-full">
                   <thead id="simHead"></thead>
                   <tbody id="simBody"></tbody>

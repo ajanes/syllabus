@@ -63,3 +63,6 @@ course:
     - topic: 2
       subtopic: Limits
       note: Key concepts
+  - course: Computer Networks
+    topics:
+    - topic: 2

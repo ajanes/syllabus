@@ -3,8 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const links = JSON.parse(document.getElementById('links-data').textContent);
   const simLinks = JSON.parse(document.getElementById('sim-links-data').textContent);
   const container = document.getElementById('graph');
-  const width = container.clientWidth || 1100;
-  const height = container.clientHeight || 600;
+  const width = container.clientWidth;
+  const height = container.clientHeight;
   const radius = 40;
 
   const svg = d3
