@@ -516,6 +516,7 @@ def dependency_issues():
 
     warnings = []
     errors = []
+    dependent_counts = {name: 0 for name in COURSE_NAMES.values()}
 
     for cid, path in COURSE_PATHS.items():
         src_name = COURSE_NAMES.get(cid, "")
@@ -531,6 +532,8 @@ def dependency_issues():
 
         for d in deps:
             dep_name = d.get("course")
+            if dep_name in dependent_counts:
+                dependent_counts[dep_name] += 1
             info = name_info.get(dep_name)
             if not info:
                 continue
@@ -547,6 +550,10 @@ def dependency_issues():
                 errors.append(
                     f"{src_name} depends on {dep_name} in a future semester or year"
                 )
+
+    for name, count in dependent_counts.items():
+        if count == 0:
+            warnings.append(f"No course depends on {name}")
 
     return warnings, errors
 
