@@ -679,6 +679,16 @@ def toggle_error():
     update_ignored_error(text, ignore)
     return jsonify({"ok": True})
 
+
+@app.route("/warning_stats")
+def warning_stats():
+    warns, errs = dependency_issues()
+    ignored_warn = set(load_ignored_warnings())
+    ignored_err = set(load_ignored_errors())
+    active_warns = [w for w in warns if w not in ignored_warn]
+    active_errs = [e for e in errs if e not in ignored_err]
+    return jsonify({"warnings": len(active_warns), "errors": len(active_errs)})
+
 @app.route("/remove_course_dependency", methods=["POST"])
 def remove_course_dependency_route():
     data = request.get_json(force=True)

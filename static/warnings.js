@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
             wrapper.classList.remove('bg-gray-100');
           }
         }
+        if (window.updateWarningBadge) window.updateWarningBadge();
       });
     });
   });
