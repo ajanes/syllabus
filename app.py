@@ -490,22 +490,6 @@ def build_course_graph():
     return g
 
 
-def build_dependency_tree():
-    """Return a hierarchical representation of course dependencies."""
-    graph = build_course_graph()
-
-    def build_node(course, seen):
-        if course in seen:
-            return {"name": course, "children": []}
-        seen.add(course)
-        children = [build_node(dep, seen) for dep in graph.successors(course)]
-        seen.remove(course)
-        return {"name": course, "children": children}
-
-    root = {"name": "Courses", "children": []}
-    for course in graph.nodes:
-        root["children"].append(build_node(course, set()))
-    return root
 
 
 def find_circular_dependencies():
@@ -618,11 +602,6 @@ def dependency_graph():
     )
 
 
-@app.route("/dependency_tree")
-def dependency_tree():
-    """Display a tree view of course dependencies."""
-    tree = build_dependency_tree()
-    return render_template("dependency_tree.html", tree=tree)
 
 
 @app.route("/similarity")
@@ -678,6 +657,16 @@ def toggle_error():
         return jsonify({"ok": False}), 400
     update_ignored_error(text, ignore)
     return jsonify({"ok": True})
+
+
+@app.route("/warning_stats")
+def warning_stats():
+    warns, errs = dependency_issues()
+    ignored_warn = set(load_ignored_warnings())
+    ignored_err = set(load_ignored_errors())
+    active_warns = [w for w in warns if w not in ignored_warn]
+    active_errs = [e for e in errs if e not in ignored_err]
+    return jsonify({"warnings": len(active_warns), "errors": len(active_errs)})
 
 @app.route("/remove_course_dependency", methods=["POST"])
 def remove_course_dependency_route():
