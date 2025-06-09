@@ -46,10 +46,23 @@
               <div class="flex items-start gap-3 rounded-lg p-4 {% if error.ignored %}bg-gray-100{% else %}bg-red-50{% endif %}">
                 <div class="size-5 text-red-500">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m0 3.75h.008v.008H12V16.5zm0-12a9 9 0 100 18 9 9 0 000-18z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                   </svg>
                 </div>
-                <p class="text-sm text-red-700">{{ error.message }}</p>
+                <p class="flex-1 text-sm {% if error.ignored %}text-gray-400{% else %}text-red-700{% endif %}">{{ error.text }}</p>
+                <input type="checkbox" data-error="{{ error.text }}" class="h-5 w-5 ml-2 rounded border-[#dbdbdb] border-2 bg-transparent checked:bg-red-500 checked:border-red-500 checked:bg-[image:--checkbox-tick-svg] focus:ring-0 focus:outline-none" {% if error.ignored %}checked{% endif %} />
+              </div>
+              {% endfor %}
+
+              {% for warning in warnings %}
+              <div class="flex items-start gap-3 rounded-lg p-4 {% if warning.ignored %}bg-gray-100{% else %}bg-yellow-50{% endif %}">
+                <div class="size-5 text-yellow-500">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                </div>
+                <p class="flex-1 text-sm {% if warning.ignored %}text-gray-400{% else %}text-yellow-700{% endif %}">{{ warning.text }}</p>
+                <input type="checkbox" data-warning="{{ warning.text }}" class="h-5 w-5 ml-2 rounded border-[#dbdbdb] border-2 bg-transparent checked:bg-yellow-500 checked:border-yellow-500 checked:bg-[image:--checkbox-tick-svg] focus:ring-0 focus:outline-none" {% if warning.ignored %}checked{% endif %} />
               </div>
               {% endfor %}
             </div>

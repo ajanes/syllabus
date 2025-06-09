@@ -36,7 +36,7 @@
       {% include 'sidebar.html' %}
       <div class="flex flex-col flex-1">
         <div class="px-10 flex flex-1 py-5">
-          <div class="layout-content-container flex flex-col max-w-[1280px] flex-1">
+          <div class="layout-content-container flex flex-col flex-1">
             <div class="flex flex-wrap justify-between gap-3 p-4">
               <div class="flex min-w-72 flex-col gap-3">
                 <p class="text-[#111518] tracking-light text-[32px] font-bold leading-tight">Course Similarity</p>
@@ -48,7 +48,7 @@
             <div class="flex items-center gap-4 p-4">
               <button id="recalcBtn" class="rounded bg-gray-200 px-3 py-1 text-sm">Recalculate</button>
             </div>
-            <div class="overflow-y-auto max-w-[1100px] m-4">
+            <div class="overflow-y-auto w-full m-4">
               <div id="loading" class="p-4 hidden">Calculating <span id="progress">0%</span></div>
               <table id="simTable" class="min-w-full border-collapse text-xs">
                 <thead id="simHead"></thead>
