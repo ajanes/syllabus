@@ -15,6 +15,12 @@
       z-index: 10;
     }
 
+    #simTable th,
+    #simTable td {
+      white-space: normal;
+      overflow-wrap: anywhere;
+    }
+
     #simTable th:first-child,
     #simTable td:first-child {
       position: sticky;
@@ -51,7 +57,7 @@
               <div id="loading" class="p-4 hidden">Calculating <span id="progress">0%</span></div>
 
               <div class="overflow-auto max-h-[80vh] border rounded">
-                <table id="simTable" class="border-collapse text-xs min-w-max">
+                <table id="simTable" class="border-collapse text-xs w-full">
                   <thead id="simHead"></thead>
                   <tbody id="simBody"></tbody>
                 </table>

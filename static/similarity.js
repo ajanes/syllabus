@@ -15,11 +15,11 @@ function buildTable(data) {
 
   const headRow = document.createElement('tr');
   const emptyTh = document.createElement('th');
-  emptyTh.className = 'border px-2 py-1 text-left';
+  emptyTh.className = 'border px-2 py-1 text-left break-words whitespace-normal';
   headRow.appendChild(emptyTh);
   data.courses.forEach((name) => {
     const th = document.createElement('th');
-    th.className = 'border px-2 py-1 text-left';
+    th.className = 'border px-2 py-1 text-left break-words whitespace-normal';
     th.textContent = name;
     headRow.appendChild(th);
   });
@@ -28,12 +28,12 @@ function buildTable(data) {
   data.matrix.forEach((row, idx) => {
     const tr = document.createElement('tr');
     const th = document.createElement('th');
-    th.className = 'border px-2 py-1 text-left';
+    th.className = 'border px-2 py-1 text-left break-words whitespace-normal';
     th.textContent = data.courses[idx];
     tr.appendChild(th);
     row.forEach((val, j) => {
       const td = document.createElement('td');
-      td.className = 'border px-2 py-1 text-center';
+      td.className = 'border px-2 py-1 text-center break-words whitespace-normal';
       if (data.colors && data.colors[idx] && data.colors[idx][j]) {
         td.style.backgroundColor = data.colors[idx][j];
       }
