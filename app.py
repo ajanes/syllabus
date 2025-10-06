@@ -8,7 +8,6 @@ from ruamel.yaml import YAML
 from sentence_transformers import SentenceTransformer, models
 from pathlib import Path
 
-
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "change-me"
 socketio = SocketIO(app)
